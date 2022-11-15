@@ -1,10 +1,13 @@
 import React from 'react'
+import Breadcrumb from '../sections/Breadcrumb'
 
 const ProductsView: React.FC = () => {
     document.title='Products | Fixxo.'
 
   return (
-    <div>ProductsView</div>
+    <>
+        <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
+    </>
   )
 }
 

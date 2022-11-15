@@ -1,4 +1,5 @@
 import React from 'react'
+import Breadcrumb from '../sections/Breadcrumb'
 import CurrentOfferBanner from '../sections/CurrentOfferBanner'
 
 const ProductDetailsView: React.FC = () => {
@@ -22,7 +23,8 @@ const ProductDetailsView: React.FC = () => {
 
   return (
     <>
-      <CurrentOfferBanner />
+        {/* <Breadcrumb className="breadcrumb" hideOrShowProducts="d-block" currentPage={productInfo.name} /> */}
+        <CurrentOfferBanner />
     </>
   )
 }
