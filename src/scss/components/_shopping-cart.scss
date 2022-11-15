@@ -1,0 +1,124 @@
+.shopping-cart{
+    width: 100% !important;
+
+    .offcanvas-title{
+        i{
+            font-size: 1.1em;
+            margin-right: 0.5rem;
+        }
+    }
+
+    .shopping-cart-item{
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffe8e8;
+        border-radius: 3px;
+        transition: 0.2s ease-in-out;
+
+        &:hover{
+            background-color: #ffd5d5;
+
+            .item-image{
+                img{
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &:nth-child(n+1){
+            margin-bottom: 1rem;
+        }
+
+        .item-image{
+            background-color: $color-grey-20;
+            width: 100px;
+            height: 100px;
+            border-radius: 3px 0 0 3px;
+            overflow: hidden;
+
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                transition: 0.4s ease-in-out;
+            }
+        }
+
+        .item-info{
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .item-info-name{
+                font-weight: $font-weight-semibold;
+            }
+
+            .item-info-quantity{
+                display: flex;
+                margin-top: 1rem;
+
+                span{
+                    text-align: center;
+                    display: flex;
+                    height: 38px;
+                    width: 40px;
+                    justify-content: center;
+                    align-items: center;
+                    border-top: 1px $color-dark solid;
+                    border-bottom: 1px $color-dark solid;
+                    background-color: $color-white;
+                }
+
+                button{
+                    width: 30px;
+                    font-size: 1.3em;
+                }
+            }
+        }
+
+        .item-price{
+            display: flex;
+            align-items: center;
+
+            .price-tag{
+                font-weight: $font-weight-semibold;
+            }
+            .remove-btn{
+                margin: 0 1rem;
+                width: 40px;
+
+                i{
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}
+
+// Specific canvas button styling:
+.btn-canvas{
+    padding: 0;
+    margin: 0;
+    height: 38px;
+    background-color: $color-white;
+    color: $color-dark;
+    font-size: $font-size-18;
+    border: solid $color-dark 1px;
+    transition: 0.2s ease-in-out;
+
+    &:hover{
+        background-color: $color-dark;
+        color: $color-white;
+
+        i{
+            color: $color-white;
+        }
+    }
+}
+
+@include xl{
+    .shopping-cart{
+        width: 500px !important;
+    }
+}

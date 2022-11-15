@@ -1,0 +1,69 @@
+.webshop-info{
+    width: 95vw;
+    margin: auto;
+
+    .container{
+        border-top: 1px solid $color-grey-30;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        
+        @include sm{                
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .content-holder{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .circle{
+                background-color: $color-white;
+                width: 60px;
+                height: 60px;
+                border-radius: $border-radius-rounded;
+                filter: drop-shadow(0 5px 5px $color-grey-40);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1rem;
+                transition: 0.2s ease-in-out;
+
+                &:hover{
+                    background-color: $color-dark;
+
+                    img{
+                        filter: invert(93%) sepia(0%) saturate(7474%) hue-rotate(61deg) brightness(107%) contrast(107%);                        
+                    }
+                }
+            }
+
+            h2{
+                font-size: $font-size-16;
+                font-weight: $font-weight-bold;
+                text-align: center;
+                width: 75%;
+
+                @include md{
+                    font-size: $font-size-20;
+                }
+                @include xl{
+                    width: 100%;
+                }
+            }
+
+            p{
+                display: none;
+                text-align: center;
+                width: 80%;
+
+                @include xl{
+                    display: block;
+                }
+            }
+        }
+    }
+}

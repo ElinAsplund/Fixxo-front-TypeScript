@@ -1,0 +1,105 @@
+.top-picks{
+    display: flex;
+    justify-content: center;
+
+    .content-holder{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 250px 250px;
+        gap: 2rem;
+        width: 95vw;
+        max-width: 1680px;
+        margin: 2rem auto;
+
+        @include md{
+            grid-template-rows: 320px 320px;
+        }
+        @include lg{
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr; 
+            margin: 4rem auto;
+        }
+        @include xl{
+            height: min-content;
+        }
+
+        .img-holder{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            
+            #top-pick-img-left{
+                width: min-content;
+                height: 100%;
+            }
+            #top-pick-img-right{
+                position: absolute;
+                right: 0;
+                width: min-content;
+                height: 100%;
+            }
+
+            .text-holder{
+                text-align: center;
+
+                @include sm{
+                    text-align: left;
+                }
+
+                h1{
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-35;
+                    margin-bottom: 1.5rem;
+                    
+                    @include sm{
+                        font-size: $font-size-45;
+                    }
+                }
+            }
+        }
+        
+
+        #text-holder-left{
+            position: absolute;
+            width: 100%;
+            right: 0;
+            bottom: 30px;
+
+            @include sm{
+                width: max-content;
+                right: 20px;
+                bottom: 20px;
+            }
+            @include xxl{
+                bottom: 30%;
+                right: 10%;
+            }
+
+            h1{
+                color: $color-white;
+            }
+        }
+
+        #text-holder-right{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 30px;
+
+            @include sm{
+                width: max-content;
+                left: 20px;
+                bottom: 20px;
+            }
+            @include xxl{
+                left: 10%;
+                bottom: 30%;
+            }
+        }
+    }
+}

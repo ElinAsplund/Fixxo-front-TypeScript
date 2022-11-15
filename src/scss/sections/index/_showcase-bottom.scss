@@ -1,0 +1,110 @@
+.showcase-bottom{
+    display: flex;
+    justify-content: center;
+
+    .content-holder{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 250px 250px;
+        gap: 2rem;
+        width: 95vw;
+        max-width: 1680px;
+        margin: 2rem auto;
+        
+        @include md{
+            grid-template-rows: 320px 320px;
+        }
+        @include lg{
+            display: flex;
+            margin: 4rem auto;
+            gap: 0;
+        }
+            
+        .img-holder{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+
+            @include lg{
+                width: fit-content;
+            }
+            
+            #showcase-bottom-first{
+                position: absolute;
+                width: min-content;
+                right: 0;
+                height: 100%;
+
+                @include lg{
+                    position: relative;
+                    width: 100%;
+                    transform: translate(0, 11px);
+                }
+                @include xl{
+                    transform: translate(0, 0);
+                }
+            }
+
+            #showcase-bottom-second{
+                position: absolute;
+                width: min-content;
+                right: 0;
+                height: 100%;
+
+                @include lg{
+                    position: relative;
+                    right: 0;
+                    width: 100%;
+                    transform: translate(0, 11px);
+                }
+                @include xl{
+                    transform: translate(0, 0);
+                }
+            }
+
+
+            .text-holder{
+                position: absolute;
+                left: 0;
+                bottom: 30px;
+                text-align: center;
+                width: 100%;
+                
+                @include sm{
+                    left: 20px;
+                    bottom: 20px;
+                    text-align: left;                   
+                }
+                @include xxl{                
+                    left: 5%;
+                    bottom: 15%;
+                }
+    
+                p{
+                    display: none;
+                    margin-bottom: 2rem;
+                    width: 100%;
+                    
+                    @include xl{
+                        width: 80%;
+                        display: block;
+                    }
+                    @include xxl{
+                        width: 50%;
+                    }
+                }
+                
+                h1{
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-35;
+                    margin-bottom: 1rem;
+                    
+                    @include sm{
+                        margin-bottom: 1.5rem;
+                        font-size: $font-size-45;
+                    }
+                }
+            }
+        }
+    }
+}

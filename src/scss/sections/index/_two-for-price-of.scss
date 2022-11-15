@@ -1,0 +1,208 @@
+.two-for-price-of{
+    width: 95vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1680px;
+    
+    .grid-holder{
+        width: 1500px;
+
+        .two-for-holder{
+            background-color: $color-grey-60;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+    
+            h2{
+                font-size: $font-size-45;
+                font-weight: $font-weight-bold;
+                color: $color-white;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        // removing overflowing cards
+        .grid-1{
+            .small-card{
+                &:nth-child(n+6){
+                    display: none;
+                }
+            }
+        }
+
+        // removing overflowing cards
+        .grid-2{
+            .small-card{
+                &:nth-child(n+5){
+                    display: none;
+                }
+            }
+        }
+
+        .grid-1,
+        .grid-2{
+            display: grid;
+            width: 100%;
+            height: 100%;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+            grid-auto-rows: 320px;
+            
+            @include sm{                
+                grid-template-columns: repeat(2, 1fr);
+            }            
+            @include lg{                
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .small-card{
+                text-align: left;
+                height: 320px;
+                width: 80vw;
+                margin: auto;
+                text-align: center;
+                
+                @include sm{
+                    height: 100%;
+                    width: 100%;
+                }
+                @include lg{
+                    display: block;
+                }
+
+                h2{
+                    margin: 0;
+                    margin-top: 1rem;
+                    
+                    @include sm{
+                        margin-top: 0.5rem;
+                    }
+                    @include xl{
+                        margin-top: 1rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                .star-holder{
+                    margin-top: 0.6rem;
+                    margin-bottom: 0.4rem;
+
+                    @include sm{
+                        margin: 0;
+                    }
+                    @include xl{
+                        margin-top: 0.6rem;
+                        margin-bottom: 0.4rem;
+                    }
+                }
+
+                .placeholder-area{                  
+                    height: 60%;
+                    
+                    @include sm{
+                        width: 100%;
+                        height: 63%;
+                    }
+                    @include xl{
+                        height: 60%;
+                    }
+
+                    .card-menu{
+                        @include sm{
+                            top: 10px;
+                        }
+                        @include xl {
+                            top: 0.6rem;
+                        }
+                    }
+
+                    .btn-quick-view{
+                        display: block;
+
+                        @include sm{
+                            padding: 0.8rem 3rem;
+                        }
+                        @include xl {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
+
+
+
+// Due to the layout's placement of the large cards (lg-card-1 and lg-card-1) and the grids
+// are diffrent. My way of dealing with that is by using id's:
+
+// Large cards:
+#lg-card-1,
+#lg-card-2{
+    width: 100%;
+    text-align: center;
+
+    @include xxxl{
+        width: 824px;
+    }
+}
+
+#lg-card-1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    
+    @include sm{
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+    
+    @include lg{
+        grid-column: 1/3;
+        grid-row: 1/3;
+    }
+}
+
+#lg-card-2{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    
+    @include sm{
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+    @include lg{
+        grid-column: 3/5;
+        grid-row: 1/3;
+    }
+}
+
+// Grid placement:
+#grid-justify-start{
+    display: flex;
+    justify-content: flex-start;
+}
+#grid-justify-end{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+#grid-holder-first{
+    padding-right: 0px;
+    
+    @media (min-width: 1585px){
+        padding-right: 12px;
+    }
+}
+#grid-holder-second{
+    padding-left: 0px;
+    
+    @media (min-width: 1585px){
+        padding-left: 12px;
+    }
+}

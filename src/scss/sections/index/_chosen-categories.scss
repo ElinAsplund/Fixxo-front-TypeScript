@@ -1,0 +1,134 @@
+.chosen-categories{
+    margin-bottom: 4rem;
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3{
+            font-size: $font-size-20;
+            font-weight: $font-weight-bold;
+            margin: 0;
+            margin-top: 4rem;
+
+            @include md{
+                margin-top: 0;
+            }
+        }
+
+        .grid{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            
+            @include md{
+                width: 100%;
+                height: 100%;
+                display: grid;
+                gap: 1.5rem;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4);
+            }
+            @include lg{                
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            h3{
+                text-align: center;
+                
+                @include md{
+                    text-align: left;
+                }
+            }
+
+            .first-coloumn{
+                order: 1;
+
+                @include md{
+                    order: 0;
+                }
+            }
+
+            .middle-coloumn{
+                order: 2;
+
+                @include md{
+                    order: 0;
+                }
+            }
+
+            .last-coloumn{
+                display: none;
+            
+                @include lg{                
+                    display: flex;
+                }
+            }
+
+            .mini-card{
+                margin-top: 1.5rem;
+                height: 190px;
+                
+                // removing overflowing cards
+                &:nth-child(n+9){
+                    display: none;
+                }
+
+                // first-column
+                &:nth-child(4),
+                &:nth-child(7),
+                &:nth-child(10){
+                    order: 1;
+
+                    @include md{
+                        order: 0;
+                    }
+                }
+                // middle-column
+                &:nth-child(5),
+                &:nth-child(8),
+                &:nth-child(11){
+                    order: 2;
+
+                    @include md{
+                        order: 0;
+                    }
+                }
+                // last-column
+                &:nth-child(6),
+                &:nth-child(9),
+                &:nth-child(12){
+                    display: none;
+            
+                    @include lg{                
+                        display: flex;
+                    }
+                }
+
+                // Hide mini-card on xtra-sm screens
+                &:nth-child(10),
+                &:nth-child(11){
+                    display: none;
+
+                    @include sm{
+                        display: flex;
+                    }
+                }
+
+                @include md{
+                    margin-top: 0rem;
+                    height: 150px;
+                }
+                
+                .placeholder-area{
+                    height: 190px;
+
+                    @include md{
+                        height: 150px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,151 @@
+.small-card{
+    text-align: center;
+    height: 100%;
+
+    .placeholder-area{                  
+        background-color: $color-grey-20;
+        width: 100%;
+        height: 60%;
+        transition: 0.2s ease-in-out;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        
+        @include md{
+            height: 65%;
+        }
+        
+        &:hover{
+            background-color: $color-grey-40;
+
+            img{
+                transform: scale(1.1);
+            }
+        }
+
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s ease-in-out;
+        }
+
+        // to make the placeholder border disappear, when no url is added:
+        img:not([src]){
+            opacity: 0;
+        } 
+
+        .card-menu{
+            position: absolute;
+            right: 0.6rem;
+            top: 0.6rem;
+            transition: 0.3s ease-in-out;
+            
+            @include lg{                
+                right: -10rem;
+            }
+
+            .btn-menu-icon{
+                padding: 0 !important;
+                text-decoration: none;
+                width: 36px;
+                height: 36px;
+                border-radius: $border-radius-rounded;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.2s ease-in-out;
+    
+                &:first-child{
+                    margin-bottom: 0.6rem;
+                }
+
+                &:last-child{
+                    margin-top: 0.6rem;
+                }
+    
+                &:hover{
+                    background-color: $color-dark;
+    
+                    i{
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+
+        .btn-quick-view{
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease-in-out;
+            
+            @include lg{
+                bottom: -10rem;
+            }
+        }
+    }
+
+    h2{
+        font-size: $font-size-13;
+        font-weight: $font-weight-regular;
+        margin-top: 1rem;
+    }
+
+    .product-name{
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-16;
+        color: $color-dark;
+        text-decoration: none;
+
+        &:hover{
+            color: $color-theme;
+        }
+    }
+
+    .star-holder{
+        margin-top: 0.6rem;
+        margin-bottom: 0.4rem;
+
+        i{
+            color: $color-theme;
+        }
+    }
+
+    p{
+        font-size: $font-size-18;
+        font-weight: $font-weight-semibold;
+        margin: 0;
+
+        span{
+            font-size: $font-size-16;
+            font-weight: $font-weight-regular;
+            text-decoration: line-through;
+        }
+    }
+}
+
+// Turns on the hover effect at larger screens:
+@include lg{
+    .small-card{
+        .placeholder-area{                  
+            &:hover{
+                background-color: $color-grey-40;
+    
+                img{
+                    transform: scale(1.1);
+                }
+    
+                .card-menu{
+                    right: 0.6rem;
+                }
+    
+                button{
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+    }   
+}

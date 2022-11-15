@@ -1,0 +1,47 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+// Core
+@import "./core/variables";
+@import "./core/breakpoints";
+@import "./core/colors";
+@import "./core/base";
+
+// Components
+@import "./components/button";
+@import "./components/small-card";
+@import "./components/mini-card";
+@import "./components/page-title";
+@import "./components/shopping-cart";
+
+// Section: ALL html-pages
+@import "./sections/main-menu";
+@import "./sections/footer";
+@import "./sections/breadcrumb";
+
+// Sections: index
+@import "./sections/index/showcase-top";
+@import "./sections/index/showcase-bottom";
+@import "./sections/index/featured-product";
+@import "./sections/index/top-picks";
+@import "./sections/index/our-speciality";
+@import "./sections/index/two-for-price-of";
+@import "./sections/index/highlight-sale";
+@import "./sections/index/chosen-categories";
+@import "./sections/index/webshop-info";
+
+// Sections: contacts
+@import "./sections/contact/map";
+@import "./sections/contact/contact-form";
+
+// Sections: products
+@import "./sections/products/product-browsing";
+
+// Sections: product-details
+@import "./sections/product-details/current-offer-banner";
+@import "./sections/product-details/product-overview";
+@import "./sections/product-details/product-in-depth-info";
+@import "./sections/product-details/related-product";
+
+// Views: page-not-found
+@import "./views/page-not-found"
