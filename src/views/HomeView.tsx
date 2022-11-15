@@ -1,13 +1,13 @@
 import React from 'react'
 import CurrentOfferBanner from '../sections/CurrentOfferBanner'
-import HighlightSales from '../sections/HighlightSales'
+import HighlightSale from '../sections/HighlightSale'
 
 const HomeView: React.FC = () => {
   document.title='Fixxo.'
 
   return (
     <>
-      <HighlightSales />
+      <HighlightSale />
     </>
     )
 }

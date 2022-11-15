@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HighlightSales: React.FC = () => {
+const HighlightSale: React.FC = () => {
   return (
     <section className="highlight-sale ">
       <div className="container">
@@ -14,4 +14,4 @@ const HighlightSales: React.FC = () => {
   )
 }
 
-export default HighlightSales
+export default HighlightSale
