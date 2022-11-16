@@ -1,11 +1,17 @@
-import React from 'react'
+import { useParams } from 'react-router-dom'
 import Breadcrumb from '../sections/Breadcrumb'
 import CurrentOfferBanner from '../sections/CurrentOfferBanner'
+import Footer from '../sections/Footer'
+import MainMenu from '../sections/MainMenu'
+import ProductInDepthInfo from '../sections/ProductInDepthInfo'
+import ProductOverview from '../sections/ProductOverview'
+import RelatedProducts from '../sections/RelatedProducts'
+import React, { useState, useEffect } from 'react';
 
 const ProductDetailsView: React.FC = () => {
 
-  // ------------------------------------------------------------------------------
-  // ENABLE RENDERING THE PRODUCT NAME IN THE BREADCRUMB SECTION AND IN THE DOCUMENT TITLE:  
+// ------------------------------------------------------------------------------
+// ENABLE RENDERING THE PRODUCT NAME IN THE BREADCRUMB SECTION AND IN THE DOCUMENT TITLE:  
 //   const [productInfo, setProductInfo] = useState({})  
 //   const params = useParams()
   
@@ -23,8 +29,15 @@ const ProductDetailsView: React.FC = () => {
 
   return (
     <>
-        {/* <Breadcrumb className="breadcrumb" hideOrShowProducts="d-block" currentPage={productInfo.name} /> */}
-        <CurrentOfferBanner />
+      <MainMenu className="bg-white" />
+      {/* <Breadcrumb className="breadcrumb" hideOrShowProducts="d-block" currentPage={productInfo.name} /> */}
+      <CurrentOfferBanner />
+      <ProductOverview />
+      <ProductInDepthInfo />
+      {/* PRODUCT INFO BUTTON: */}
+      {/* <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={productInformation}>PRODUCT INFO</button></div> */}
+      <RelatedProducts />
+      <Footer />
     </>
   )
 }
