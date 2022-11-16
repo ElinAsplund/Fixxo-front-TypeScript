@@ -1,27 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { IProduct } from '../models/productModel'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
-interface IItemProp {
-    articleNumber: string,
-    name: string,
-    description?: string,
-    category: string,
-    price: number,
-    rating: number,
-    imageName: string
-}
-
-interface IItem extends IItemProp{
-    item: IItemProp
-}
-
-const MiniCard: React.FC <IItem> = ( {item} ) => {
+const MiniCard: React.FC <IProduct> = ( {product} ) => {
   return (
     <div className="mini-card">
-    <NavLink className="placeholder-area" to={`/products/${item.articleNumber}`} end><img src={item.imageName} /></NavLink>
+    <NavLink className="placeholder-area" to={`/products/${product.articleNumber}`} end><img src={product.imageName} /></NavLink>
     <div className="text-holder">
-      <h2>{item.category}</h2>
-      <NavLink to={`/products/${item.articleNumber}`} className="product-name" end>{item.name}</NavLink>
+      <h2>{product.category}</h2>
+      <NavLink to={`/products/${product.articleNumber}`} className="product-name" end>{product.name}</NavLink>
       <div className="star-holder">
         <i className="fa-sharp fa-solid fa-star"></i>
         <i className="fa-sharp fa-solid fa-star"></i>
@@ -29,7 +17,7 @@ const MiniCard: React.FC <IItem> = ( {item} ) => {
         <i className="fa-sharp fa-solid fa-star"></i>
         <i className="fa-sharp fa-solid fa-star"></i>
       </div>
-      {/* <p>{currencyFormatter(item.price)}</p> */}
+      <p>{currencyFormatter(product.price)}</p>
     </div>
   </div>
   )
