@@ -1,9 +1,5 @@
 import React from 'react'
-
-interface ILgCard {
-    id: string,
-    heading: string
-}
+import { ILgCard } from '../models/sectionModel'
 
 const LgCard: React.FC <ILgCard> = ( {id, heading } ) => {
   return (

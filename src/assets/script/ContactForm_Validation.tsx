@@ -1,5 +1,3 @@
-export {}
-
 export const submitData =  async  (url: string, method: string, data: string, contentType = 'application/json') => {
     
     const res = await fetch(url, {

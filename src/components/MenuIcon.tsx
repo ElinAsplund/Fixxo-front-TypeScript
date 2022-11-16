@@ -1,9 +1,5 @@
 import React from 'react'
-
-interface IMenuIcon {
-    icon: string,
-    quantity?: number
-}
+import { IMenuIcon } from '../models/sectionModel'
 
 const MenuIcon: React.FC <IMenuIcon> = ({icon, quantity}) => {
   return (

@@ -6,12 +6,13 @@ import NotFoundView from './views/NotFoundView';
 import ProductsView from './views/ProductsView';
 import ProductDetailsView from './views/ProductDetailsView';
 // import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
-// import { ProductProvider } from './contexts/ProductContext';
+import { ProductProvider } from './contexts/ProductContext';
 
 const App: React.FC = () => {
 
   return (
     <BrowserRouter>
+      <ProductProvider>
         <Routes>
           <Route path="/" element={<HomeView />} />
           <Route path="/contacts" element={<ContactsView />} />
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
+      </ProductProvider>
     </BrowserRouter>
   );
 }

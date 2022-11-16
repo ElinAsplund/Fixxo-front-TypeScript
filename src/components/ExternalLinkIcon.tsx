@@ -1,9 +1,5 @@
 import React from 'react'
-
-interface IExternalLinkIcon {
-    link: string,
-    icon: string
-}
+import { IExternalLinkIcon } from '../models/sectionModel'
 
 const ExternalLinkIcon: React.FC <IExternalLinkIcon> = ({link, icon}) => {
   return (

@@ -1,10 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
-interface IBreadcrumbLink {
-    hideOrShow: string,
-    pageBefore: string
-}
+import { IBreadcrumbLink } from '../models/sectionModel'
 
 const BreadcrumbLink: React.FC <IBreadcrumbLink> = ({hideOrShow, pageBefore}) => {
   return (

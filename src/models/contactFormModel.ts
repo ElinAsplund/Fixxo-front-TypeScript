@@ -7,3 +7,17 @@ export interface IErrorProps {
 export interface IError extends IErrorProps{
     error: IErrorProps
 }
+
+export interface ISetFunctions { 
+    setErrorName: (value: React.SetStateAction<{
+    name: string;
+    }>) => void
+
+    setErrorEmail: (value: React.SetStateAction<{
+        email: string;
+    }>) => void
+
+    setErrorComments: (value: React.SetStateAction<{
+        comments: string;
+    }>) => void
+}

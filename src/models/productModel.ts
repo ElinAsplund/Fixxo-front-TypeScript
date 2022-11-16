@@ -21,10 +21,11 @@ export interface IProductProp {
     category: string,
     price: number,
     rating: number,
-    imageName: string
+    imageName: string,
+    idCardNumber?: string
 }
 
 export interface IProduct extends IProductProp{
     product: IProductProp
-    // item: IProductProp
+    item?: IProductProp
 }
