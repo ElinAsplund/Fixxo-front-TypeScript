@@ -1,4 +1,4 @@
-// With the name item
+// With the "name" item
 export interface IItemProp {
     articleNumber: string,
     name: string,
@@ -13,7 +13,7 @@ export interface IItem extends IItemProp{
     item: IItemProp
 }
 
-// With the name product
+// With the "name" product
 export interface IProductProp {
     articleNumber: string,
     name: string,
@@ -26,4 +26,5 @@ export interface IProductProp {
 
 export interface IProduct extends IProductProp{
     product: IProductProp
+    // item: IProductProp
 }

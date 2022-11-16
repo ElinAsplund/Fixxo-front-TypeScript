@@ -1,8 +1,9 @@
 import React, { useContext }  from 'react'
 import MiniCard from '../components/MiniCard'
 // import { NineProductsContext } from '../contexts/contexts'
+import { IProduct } from '../models/productModel'
 
-const ChosenCategories: React.FC = () => {
+const ChosenCategories: React.FC <IProduct> = () => {
     // const products = useContext(NineProductsContext)
 
   return (

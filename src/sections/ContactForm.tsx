@@ -1,24 +1,26 @@
 import React, { useState } from 'react'
-// import { submitData } from '../assets/script/ContactForm_Validation'
+import { submitData } from '../assets/script/ContactForm_Validation'
+// import { IError } from '../models/contactFormModel'
 
 
 const ContactForm: React.FC = () => {
+// const ContactForm: React.FC <IError> = () => {
     // ------------------------------------------------------------------------------
     // SETTING OF "GLOBAL VALUES":
     const [canSubmit, setCanSubmit] = useState(false)
     const [failedSubmit, setFailedSubmit] = useState(false)
     const [contactForm, setContactForm] = useState({ name: '', email: '', comments: '' })
-    const [errorName, setErrorName] = useState({})
-    const [errorEmail, setErrorEmail] = useState({})
-    const [errorComments, setErrorComments] = useState({})
+    const [errorName, setErrorName] = useState({name: ''})
+    const [errorEmail, setErrorEmail] = useState({email: ''})
+    const [errorComments, setErrorComments] = useState({comments: ''})
     const [submitMessage, setSubmitMessage] = useState('')
 
     // ------------------------------------------------------------------------------
     // HANDLE CHANGE:
-    const handleChange = () => {
-    // const handleChange = (e) => {
-        // const { id, value } = e.target
-        // setContactForm({ ...contactForm, [id]: value })
+    // const handleChange = () => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { id, value } = e.target
+        setContactForm({ ...contactForm, [id]: value })
     }
 
     // ------------------------------------------------------------------------------
@@ -44,21 +46,21 @@ const ContactForm: React.FC = () => {
             let json = JSON.stringify(contactForm)
 
             setContactForm({ name: '', email: '', comments: '' })
-            setErrorName({})
-            setErrorEmail({})
-            setErrorComments({})
+            // setErrorName({})
+            // setErrorEmail({})
+            // setErrorComments({})
             setSubmitMessage('')
 
-            // let result = await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json,)
-            // console.log("await result: " + result);
+            let result = await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json,)
+            console.log("await result: " + result);
 
-            // if (await result) {
-            //     setCanSubmit(true)
-            //     setFailedSubmit(false)
-            // } else {
-            //     setCanSubmit(false)
-            //     setFailedSubmit(true)
-            // }
+            if (await result) {
+                setCanSubmit(true)
+                setFailedSubmit(false)
+            } else {
+                setCanSubmit(false)
+                setFailedSubmit(true)
+            }
             console.log("validateSubmit: true")
         } else {
             setSubmitMessage('Please fill in the required information!')
@@ -69,24 +71,27 @@ const ContactForm: React.FC = () => {
 
     // ------------------------------------------------------------------------------
     // HANDLE SUBMIT:
-    const handleSubmit = async () => {
-    // const handleSubmit = async (e) => {
-        // e.preventDefault()
+    // const handleSubmit = async () => {
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
         await validateSubmit()
     }
 
     // ------------------------------------------------------------------------------
     // VALIDATE NAME:
     const validateName = () => {
-        let error = {}
+        let error = {
+            name: ""
+        }
+        
         const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
 
         if (!contactForm.name)
-            // error.name = "You must enter a name"
-        // else if (!regex_name.test(contactForm.name))
-            // error.name = "Your name can only contain letters"
-        // else if (contactForm.name.length < 2)
-            // error.name = "Your name must contain at least two letters"
+            error.name = "You must enter a name"
+        else if (!regex_name.test(contactForm.name))
+            error.name = "Your name can only contain letters"
+        else if (contactForm.name.length < 2)
+            error.name = "Your name must contain at least two letters"
 
         setErrorName(error)
 
@@ -97,13 +102,16 @@ const ContactForm: React.FC = () => {
     // ------------------------------------------------------------------------------
     // VALIDATE EMAIL:
     const validateEmail = () => {
-        let error = {}
+        let error = {
+            email: ""
+        }
+
         const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (!contactForm.email)
-            // error.email = "You must enter an email"
-        // else if (!regex_email.test(contactForm.email))
-            // error.email = "You must enter a valid email"
+            error.email = "You must enter an email"
+        else if (!regex_email.test(contactForm.email))
+            error.email = "You must enter a valid email"
 
         setErrorEmail(error)
 
@@ -114,12 +122,14 @@ const ContactForm: React.FC = () => {
     // ------------------------------------------------------------------------------
     // VALIDATE COMMENTS:
     const validateComments = () => {
-        let error = {}
+        let error = {
+            comments: ""
+        }
 
         if (!contactForm.comments)
-            // error.comments = "You must enter a comment"
-        // else if (contactForm.comments.length < 5)
-            // error.comments = "Your comment must be longer than 5 characters"
+            error.comments = "You must enter a comment"
+        else if (contactForm.comments.length < 5)
+            error.comments = "Your comment must be longer than 5 characters"
 
         setErrorComments(error)
 

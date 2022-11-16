@@ -26,7 +26,7 @@ const HomeView: React.FC = () => {
       <OurSpeciality />
       <TwoForPriceOf />
       <HighlightSale />
-      <ChosenCategories />
+      {/* <ChosenCategories /> */}
       <WebshopInfo />
       <Footer />
     </>
