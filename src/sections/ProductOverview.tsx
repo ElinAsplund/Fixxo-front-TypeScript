@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
-// import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
 // import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { Product } from '../models/productModel'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
 const ProductOverview: React.FC = () => {
 
@@ -12,26 +14,25 @@ const ProductOverview: React.FC = () => {
     const [activeSizeL, setActiveSizeL] = useState<boolean>(false)
     const [activeSizeXL, setActiveSizeXL] = useState<boolean>(false)
     const [count, setCount] = useState<number>(1)
-    // const params = useParams()
-    const [productInfo, setProductInfo] = useState({})
+    const params = useParams()
+    const [productInfo, setProductInfo] = useState<Product>({} as Product)
     // const { incrementQuantity } = useShoppingCart()
     
     // ------------------------------------------------------------------------------
     // FETCHING DATA ABOUT A SPECIFIC PRODUCT: 
-    // useEffect(() => {
-    //     const fetchProductInfo = async () => {
-    //       const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
-    //       setProductInfo(await result.json())
-    //     }
-    //     fetchProductInfo()
+    useEffect(() => {
+        const fetchProductInfo = async () => {
+          const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
+          setProductInfo(await result.json())
+        }
+        fetchProductInfo()
     
-    // }, [setProductInfo])
+    }, [setProductInfo])
 
     // ------------------------------------------------------------------------------
     // ON SUBMIT:
-    const handleSubmit = () => {
-    // const handleSubmit = (e) => {
-        // e.preventDefault()
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
 
         // Adds the product to the shopping cart, but the quantity itn't updated correctly:
         // incrementQuantity({articleNumber: productInfo.articleNumber, product: productInfo})
@@ -93,12 +94,12 @@ const ProductOverview: React.FC = () => {
     <section className="product-overview">
         <div className="container">
             <div className="grid">
-                {/* <div className="lg-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
+                <div className="lg-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
                 <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
                 <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
-                <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div> */}
+                <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
                 <div className="product-order-overview">
-                    {/* <h1>{productInfo.name}</h1> */}
+                    <h1>{productInfo.name}</h1>
                     <p className="small-print">SKU: 12345670 <span>BRAND: The Northland</span></p>
                     <div className="star-holder">
                         <i className="fa-sharp fa-solid fa-star"></i>
@@ -107,7 +108,7 @@ const ProductOverview: React.FC = () => {
                         <i className="fa-sharp fa-solid fa-star"></i>
                         <i className="fa-sharp fa-solid fa-star"></i>
                     </div>
-                    {/* <h2>${productInfo.price}.00</h2> */}
+                    <h2>{currencyFormatter(productInfo.price)}</h2>
                     <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (<a href="#">read more</a>)</p>
                     <form onSubmit={handleSubmit} noValidate>
                         <div className="form-grid">
@@ -120,7 +121,7 @@ const ProductOverview: React.FC = () => {
                             </div>
                             <label htmlFor="color-select" className="color">Color:</label>
                             <select className="form-select" aria-label="color selector" id="color-select">
-                                {/* <option defaultValue>Choose an option</option> */}
+                                <option defaultValue="choose an option">Choose an option</option>
                                 <option value="black">Black</option>
                                 <option value="white">White</option>
                                 <option value="navy">Navy</option>
