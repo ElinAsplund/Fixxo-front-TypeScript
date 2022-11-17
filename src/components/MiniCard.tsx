@@ -1,15 +1,20 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { IProduct } from '../models/productModel'
+import { Product } from '../models/productModel'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const MiniCard: React.FC <IProduct> = ( {product} ) => {
+
+interface IMiniCard{
+  item: Product
+}
+
+const MiniCard: React.FC <IMiniCard> = ( {item} ) => {
   return (
     <div className="mini-card">
-    <NavLink className="placeholder-area" to={`/products/${product.articleNumber}`} end><img src={product.imageName} /></NavLink>
+    <NavLink className="placeholder-area" to={`/products/${item.articleNumber}`} end><img src={item.imageName} /></NavLink>
     <div className="text-holder">
-      <h2>{product.category}</h2>
-      <NavLink to={`/products/${product.articleNumber}`} className="product-name" end>{product.name}</NavLink>
+      <h2>{item.category}</h2>
+      <NavLink to={`/products/${item.articleNumber}`} className="product-name" end>{item.name}</NavLink>
       <div className="star-holder">
         <i className="fa-sharp fa-solid fa-star"></i>
         <i className="fa-sharp fa-solid fa-star"></i>
@@ -17,7 +22,7 @@ const MiniCard: React.FC <IProduct> = ( {product} ) => {
         <i className="fa-sharp fa-solid fa-star"></i>
         <i className="fa-sharp fa-solid fa-star"></i>
       </div>
-      <p>{currencyFormatter(product.price)}</p>
+      <p>{currencyFormatter(item.price)}</p>
     </div>
   </div>
   )

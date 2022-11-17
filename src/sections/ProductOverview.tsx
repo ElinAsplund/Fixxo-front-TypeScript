@@ -7,11 +7,11 @@ const ProductOverview: React.FC = () => {
 
     // ------------------------------------------------------------------------------
     // SETTING OF "GLOBAL VALUES":
-    const [activeSizeS, setActiveSizeS] = useState(false)
-    const [activeSizeM, setActiveSizeM] = useState(false)
-    const [activeSizeL, setActiveSizeL] = useState(false)
-    const [activeSizeXL, setActiveSizeXL] = useState(false)
-    const [count, setCount] = useState(1)
+    const [activeSizeS, setActiveSizeS] = useState<boolean>(false)
+    const [activeSizeM, setActiveSizeM] = useState<boolean>(false)
+    const [activeSizeL, setActiveSizeL] = useState<boolean>(false)
+    const [activeSizeXL, setActiveSizeXL] = useState<boolean>(false)
+    const [count, setCount] = useState<number>(1)
     // const params = useParams()
     const [productInfo, setProductInfo] = useState({})
     // const { incrementQuantity } = useShoppingCart()

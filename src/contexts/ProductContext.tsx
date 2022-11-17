@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react"
-import { IProductProp } from "../models/productModel"
+import { Product } from "../models/productModel"
 
+// Flytta dessa två interface till productModel?
 interface IProductContext{
-    products: IProductProp[],
-    fourProducts: IProductProp[],
-    eighthProducts: IProductProp[],
-    nineProducts: IProductProp[]
+    products: Product[],
+    fourProducts: Product[],
+    eighthProducts: Product[],
+    nineProducts: Product[]
 }
 
 interface IProductProviderProps{
@@ -20,10 +21,10 @@ export const useProductContext = () => {
 
 export const ProductProvider = ({children}: IProductProviderProps) => {
 
-    const [products, setProducts] = useState<IProductProp[]>([])
-    const [fourProducts, setFourProducts] = useState<IProductProp[]>([])
-    const [eighthProducts, setEighthProducts] = useState<IProductProp[]>([])
-    const [nineProducts, setNineProducts] = useState<IProductProp[]>([])
+    const [products, setProducts] = useState<Product[]>([])
+    const [fourProducts, setFourProducts] = useState<Product[]>([])
+    const [eighthProducts, setEighthProducts] = useState<Product[]>([])
+    const [nineProducts, setNineProducts] = useState<Product[]>([])
     
     useEffect(() => {
       const fetchAllProducts = async () => {

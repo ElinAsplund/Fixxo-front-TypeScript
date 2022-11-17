@@ -1,17 +1,17 @@
 // With the "name" item
-export interface IItemProp {
-    articleNumber: string,
-    name: string,
-    description?: string,
-    category: string,
-    price: number,
-    rating: number,
-    imageName: string
-}
+// export interface IItemProp {
+//     articleNumber: string,
+//     name: string,
+//     description?: string,
+//     category: string,
+//     price: number,
+//     rating: number,
+//     imageName: string
+// }
 
-export interface IItem extends IItemProp{
-    item: IItemProp
-}
+// export interface IItem extends IItemProp{
+//     item: IItemProp
+// }
 
 // With the "name" product
 export interface IProductProp {
@@ -28,4 +28,15 @@ export interface IProductProp {
 export interface IProduct extends IProductProp{
     product: IProductProp
     item?: IProductProp
+}
+
+export interface Product {
+    articleNumber: string,
+    name: string,
+    description?: string,
+    category: string,
+    price: number,
+    rating: number,
+    imageName: string,
+    idCardNumber?: string
 }

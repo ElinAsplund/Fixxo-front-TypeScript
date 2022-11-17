@@ -1,11 +1,23 @@
 import React from 'react'
 import SmallCard from '../components/SmallCard'
+// import { IProductProp } from '../models/productModel'
+
+export interface IProduct {
+  articleNumber: string,
+  name: string,
+  description?: string,
+  category: string,
+  price: number,
+  rating: number,
+  imageName: string,
+  idCardNumber?: string
+}
 
 interface IFeaturedProducts{
     className: string,
     title: string
     // INNEHÅLLER FLERA OLIKA, vill initiera om på något sätt?? 
-    items: any[]
+    items: IProduct[]
 }
 
 const FeaturedProducts: React.FC <IFeaturedProducts> = ( {className, title, items=[]} ) => {

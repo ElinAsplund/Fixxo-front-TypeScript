@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '../components/MenuIcon'
+import { IMainMenu } from '../models/sectionModel'
 // import { useShoppingCart } from '../contexts/ShoppingCartContext'
-
-interface IMainMenu {
-    className: string,
-    quantity?: number,
-    cartQuantity?: number
-}
 
 const MainMenu: React.FC <IMainMenu> = ({className, quantity, cartQuantity}) => {
     const [showMenu, setShowMenu] = useState(false)

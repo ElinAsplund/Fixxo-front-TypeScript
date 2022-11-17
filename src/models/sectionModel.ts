@@ -23,3 +23,9 @@ export interface IMenuIcon {
     icon: string,
     quantity?: number
 }
+
+export interface IMainMenu {
+    className: string,
+    quantity?: number,
+    cartQuantity?: number
+}

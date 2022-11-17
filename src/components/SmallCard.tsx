@@ -4,7 +4,14 @@ import { IProduct } from '../models/productModel'
 // import { useShoppingCart } from '../contexts/ShoppingCartContext'
 // import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const SmallCard: React.FC <IProduct> = ( { product } ) => {
+
+
+// interface ISmallCardProp{
+//     product: IProductProp[]
+//     item: IProductProp[]
+// }
+
+const SmallCard: React.FC <IProduct> = ( product ) => {
     // const { incrementQuantity } = useShoppingCart()
 
     // card-menu onClick-events
