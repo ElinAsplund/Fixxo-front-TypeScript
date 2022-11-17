@@ -2,9 +2,14 @@ import React, { useContext }  from 'react'
 import SmallCard from '../components/SmallCard'
 import LgCard from '../components/LgCard'
 // import { FourProductsContext } from '../contexts/contexts'
+import { useProductContext } from '../contexts/ProductContext';
+import { Product } from '../models/productModel';
 
 const TwoForPriceOf: React.FC = () => {
     // const products = useContext(FourProductsContext)
+
+    const { fourProducts } = useProductContext()
+
 
   return (
     <section className="two-for-price-of ">
@@ -14,7 +19,7 @@ const TwoForPriceOf: React.FC = () => {
                 <div className="grid-1">
                     <LgCard heading="2 FOR USD $29" id="lg-card-1"/>
                     {
-                        // products.map(product => <SmallCard item={product} key={product.articleNumber} />)
+                        fourProducts.map((product: Product) => <SmallCard item={product} key={product.articleNumber} />)
                     } 
                 </div>
             </div>
@@ -24,7 +29,7 @@ const TwoForPriceOf: React.FC = () => {
             <div className="grid-holder" id="grid-holder-second">
                 <div className="grid-2">
                     {
-                        // products.map(product => <SmallCard item={product} key={product.articleNumber} />)
+                        fourProducts.map((product: Product) => <SmallCard item={product} key={product.articleNumber} />)
                     } 
                     <LgCard heading="2 FOR USD $49" id="lg-card-2"/>
                 </div>

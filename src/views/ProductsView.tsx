@@ -15,7 +15,6 @@ const ProductsView: React.FC = () => {
     <>
       <MainMenu className="bg-white" />
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
-      {/* <FeaturedProducts className='product-browsing mt-0' title="Products" items={productContext}/> */}
       <FeaturedProducts className='product-browsing mt-0' title="Products" items={products}/>
       <Footer />    
     </>

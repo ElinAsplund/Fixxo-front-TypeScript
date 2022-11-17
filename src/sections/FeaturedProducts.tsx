@@ -1,23 +1,11 @@
 import React from 'react'
 import SmallCard from '../components/SmallCard'
-// import { IProductProp } from '../models/productModel'
-
-export interface IProduct {
-  articleNumber: string,
-  name: string,
-  description?: string,
-  category: string,
-  price: number,
-  rating: number,
-  imageName: string,
-  idCardNumber?: string
-}
+import { Product } from '../models/productModel'
 
 interface IFeaturedProducts{
     className: string,
     title: string
-    // INNEHÅLLER FLERA OLIKA, vill initiera om på något sätt?? 
-    items: IProduct[]
+    items: Product[]
 }
 
 const FeaturedProducts: React.FC <IFeaturedProducts> = ( {className, title, items=[]} ) => {
@@ -27,7 +15,7 @@ const FeaturedProducts: React.FC <IFeaturedProducts> = ( {className, title, item
         <h3>{title}</h3>
         <div className="grid">
           {
-            // items.map(product => <SmallCard item={product} key={product.articleNumber} />)
+            items.map((product: Product) => <SmallCard item={product} key={product.articleNumber} />)
           }
         </div>
       </div>        

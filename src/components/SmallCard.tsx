@@ -1,17 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { IProduct } from '../models/productModel'
+import { Product } from '../models/productModel'
 // import { useShoppingCart } from '../contexts/ShoppingCartContext'
-// import { currencyFormatter } from '../utilities/currencyFormatter'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
+interface ISmallCard{
+    item: Product
+}
 
-
-// interface ISmallCardProp{
-//     product: IProductProp[]
-//     item: IProductProp[]
-// }
-
-const SmallCard: React.FC <IProduct> = ( product ) => {
+const SmallCard: React.FC <ISmallCard> = ( {item}) => {
     // const { incrementQuantity } = useShoppingCart()
 
     // card-menu onClick-events
@@ -23,20 +20,20 @@ const SmallCard: React.FC <IProduct> = ( product ) => {
     }
 
   return (
-    <div className="small-card" id={product.idCardNumber}>
+    <div className="small-card" id={item.idCardNumber}>
         <div className="placeholder-area">
-            <img src={product.imageName} />
+            <img src={item.imageName} />
             <div className="card-menu btn-no-corners">
                 <button onClick={addToWishList} className='btn-menu-icon'><i className='fa-regular fa-heart'></i></button>
                 <button onClick={addToCompare} className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
                 {/* <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button> */}
             </div>
-            <NavLink to={`/products/${product.articleNumber}`}end>
+            <NavLink to={`/products/${item.articleNumber}`}end>
                 <button className="btn-bg-theme btn-quick-view">QUICK VIEW</button>
             </NavLink>
         </div>
-        <h2>{product.category}</h2>
-        <NavLink to={`/products/${product.articleNumber}`} className="product-name" end>{product.name}</NavLink>
+        <h2>{item.category}</h2>
+        <NavLink to={`/products/${item.articleNumber}`} className="product-name" end>{item.name}</NavLink>
         <div className="star-holder">
             <i className="fa-sharp fa-solid fa-star"></i>
             <i className="fa-sharp fa-solid fa-star"></i>
@@ -44,7 +41,7 @@ const SmallCard: React.FC <IProduct> = ( product ) => {
             <i className="fa-sharp fa-solid fa-star"></i>
             <i className="fa-sharp fa-solid fa-star"></i>
         </div>
-        {/* <p><span id="before-discount-price">{item.initialPrice}</span> {currencyFormatter(item.price)}</p> */}
+        <p><span id="before-discount-price">{item.initialPrice}</span> {currencyFormatter(item.price)}</p>
     </div>
   )
 }

@@ -39,4 +39,5 @@ export interface Product {
     rating: number,
     imageName: string,
     idCardNumber?: string
+    initialPrice?: number 
 }
