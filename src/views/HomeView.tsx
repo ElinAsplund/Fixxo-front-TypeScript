@@ -1,4 +1,3 @@
-import CurrentOfferBanner from '../sections/CurrentOfferBanner'
 import ShowcaseTop from '../sections/ShowcaseTop';
 import ShowcaseBottom from '../sections/ShowcaseBottom';
 import FeaturedProducts from '../sections/FeaturedProducts';
@@ -10,8 +9,7 @@ import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
 import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
-import React, { useContext } from 'react';
-// import { EighthProductsContext } from '../contexts/contexts'
+import React from 'react';
 import { useProductContext } from '../contexts/ProductContext'
 
 const HomeView: React.FC = () => {
@@ -31,7 +29,8 @@ const HomeView: React.FC = () => {
     <>
       <MainMenu className="gradient-grey" />
       <ShowcaseTop />
-      <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div>
+      {/* DEBUG BUTTON */}
+      {/* <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div> */}
       <ShowcaseBottom />
       <FeaturedProducts className="featured-products" title="Featured Products" items={eighthProducts} />
       <TopPicks />

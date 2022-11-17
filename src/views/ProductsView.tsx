@@ -2,8 +2,7 @@ import Breadcrumb from '../sections/Breadcrumb'
 import FeaturedProducts from '../sections/FeaturedProducts'
 import Footer from '../sections/Footer'
 import MainMenu from '../sections/MainMenu'
-import React, { useContext } from 'react';
-// import { ProductContext } from '../contexts/contexts'
+import React from 'react';
 import { useProductContext } from '../contexts/ProductContext';
 
 const ProductsView: React.FC = () => {
