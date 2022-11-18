@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import SmallCard from '../components/SmallCard'
 import { Product } from '../models/productModel'
+import { CartItem } from '../contexts/ShoppingCartContext'
 // import { FourProductsContext } from '../contexts/contexts'
 import { useProductContext } from '../contexts/ProductContext';
 
@@ -25,7 +26,7 @@ const RelatedProducts: React.FC = () => {
             </div>    
             <div className="grid">
                 {
-                    fourProducts.map((product: Product) => <SmallCard item={product} key={product.articleNumber} />)
+                    fourProducts.map((product: CartItem) => <SmallCard item={product} key={product.item.articleNumber} />)
                 }
             </div>
         </div>

@@ -3,7 +3,7 @@ import MiniCard from '../components/MiniCard'
 // import { NineProductsContext } from '../contexts/contexts'
 import { Product } from '../models/productModel'
 import { useProductContext } from '../contexts/ProductContext';
-
+import { CartItem } from '../contexts/ShoppingCartContext'
 
 const ChosenCategories: React.FC = () => {
   // const products = useContext(NineProductsContext)
@@ -18,7 +18,7 @@ const ChosenCategories: React.FC = () => {
           <h3 className="middle-coloumn">Best Selling Products</h3>
           <h3 className="last-coloumn">Top Reacted Products</h3>
           {
-            nineProducts.map((product: Product) => <MiniCard item={product} key={product.articleNumber} />)
+            nineProducts.map((product: CartItem) => <MiniCard item={product} key={product.item.articleNumber} />)
           }
         </div>
       </div>

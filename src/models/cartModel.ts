@@ -1,8 +1,8 @@
-import { IProduct } from "./productModel"
+import { Product } from "./productModel"
 
 export interface ICartItem {
     articleNumber: string
-    item: IProduct[]
+    item: Product[]
     quantity: number
 }
 
