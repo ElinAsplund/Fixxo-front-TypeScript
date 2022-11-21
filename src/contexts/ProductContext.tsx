@@ -1,6 +1,8 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { Product } from "../models/productModel"
 import { CartItem } from '../contexts/ShoppingCartContext'
+
+// Solved this part with help from Sara Lindström and Joakim:
 
 // ------------------------------------------------------------------------------
 // INTERFACES
@@ -14,23 +16,6 @@ interface IProductContext {
 interface IProductProviderProps {
   children: any
 }
-
-// export interface CartItem {
-//   item: Product
-//   quantity: number
-// }
-
-// export interface Product {
-//   articleNumber: string,
-//   name: string,
-//   description?: string,
-//   category: string,
-//   price: number,
-//   rating: number,
-//   imageName: string,
-//   idCardNumber?: string
-//   initialPrice?: number 
-// }
 
 // ------------------------------------------------------------------------------
 
@@ -51,7 +36,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     const fetchAllProducts = async () => {
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
       const products: Product[] = await result.json()
-      
+
       const cartItems: CartItem[] = products.map((product: Product) => {
         return {
           item: product,
@@ -64,8 +49,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
 
     const fetchFourProducts = async () => {
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')
-      const data = await result.json()
-      const cartItems = data.map((product: Product) => {
+      const products: Product[] = await result.json()
+      const cartItems: CartItem[] = products.map((product: Product) => {
         return {
           item: product,
           quantity: 0
@@ -77,8 +62,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
 
     const fetchEighthProducts = async () => {
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')
-      const data = await result.json()
-      const cartItems = data.map((product: Product) => {
+      const products: Product[] = await result.json()
+      const cartItems: CartItem[] = products.map((product: Product) => {
         return {
           item: product,
           quantity: 0
@@ -90,8 +75,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
 
     const fetchNineProducts = async () => {
       let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')
-      const data = await result.json()
-      const cartItems = data.map((product: Product) => {
+      const products: Product[] = await result.json()
+      const cartItems: CartItem[] = products.map((product: Product) => {
         return {
           item: product,
           quantity: 0

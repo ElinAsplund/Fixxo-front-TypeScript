@@ -11,17 +11,19 @@ import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
 import React from 'react';
 import { useProductContext } from '../contexts/ProductContext'
+import { useShoppingCart } from '../contexts/ShoppingCartContext';
 
 const HomeView: React.FC = () => {
-  document.title='Fixxo.'
+  document.title = 'Fixxo.'
 
   const { products, fourProducts, eighthProducts, nineProducts } = useProductContext()
 
+
   const debug = () => {
-    console.log( products );
-    console.log( fourProducts );
-    console.log( eighthProducts );
-    console.log( nineProducts );
+    console.log(products);
+    console.log(fourProducts);
+    console.log(eighthProducts);
+    console.log(nineProducts);
   }
 
 
@@ -30,7 +32,7 @@ const HomeView: React.FC = () => {
       <MainMenu className="gradient-grey" />
       <ShowcaseTop />
       {/* DEBUG BUTTON */}
-      <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div>
+      {/* <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div> */}
       <ShowcaseBottom />
       <FeaturedProducts className="featured-products" title="Featured Products" items={eighthProducts} />
       <TopPicks />

@@ -1,12 +1,9 @@
-import React, { useContext }  from 'react'
+import React from 'react'
 import MiniCard from '../components/MiniCard'
-// import { NineProductsContext } from '../contexts/contexts'
-import { Product } from '../models/productModel'
 import { useProductContext } from '../contexts/ProductContext';
 import { CartItem } from '../contexts/ShoppingCartContext'
 
 const ChosenCategories: React.FC = () => {
-  // const products = useContext(NineProductsContext)
 
   const { nineProducts } = useProductContext()
 

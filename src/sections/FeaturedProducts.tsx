@@ -11,9 +11,9 @@ interface IFeaturedProducts {
 
 const FeaturedProducts: React.FC<IFeaturedProducts> = ({ className, title, items }) => {
 
-  React.useEffect(() => {
-    console.log(items)
-  }, [items])
+  // React.useEffect(() => {
+  //   console.log(items)
+  // }, [items])
 
   return (
     <section className={className}>
