@@ -37,6 +37,7 @@ export const ShoppingCartProvider  = ({children}: ShoppingCartProvider) => {
 
     const cartQuantity = cartItems.reduce(
         (quantity, item) => item.quantity + quantity, 0
+        // (quantity, item) => item.quantity?  item.quantity + quantity: 0, 0
     )
 
     const getItemQuantity = (articleNumber: string) =>{
@@ -52,6 +53,7 @@ export const ShoppingCartProvider  = ({children}: ShoppingCartProvider) => {
                 return items.map(item => {
                     if(item.item.articleNumber === cartItem.item.articleNumber){
                         return {...item, quantity: item.quantity + 1}
+                        // return {...item, quantity: item.quantity? item.quantity + 1: 0}
                     } else {
                         return item
                     }
@@ -69,6 +71,7 @@ export const ShoppingCartProvider  = ({children}: ShoppingCartProvider) => {
                 return items.map(item => {
                     if(item.item.articleNumber === cartItem.item.articleNumber){
                         return {...item, quantity: item.quantity - 1}
+                        // return {...item, quantity: item.quantity? item.quantity - 1: 0}
                     } else {
                         return item
                     }
