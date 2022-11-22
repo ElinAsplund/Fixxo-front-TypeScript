@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon from '../components/MenuIcon'
 import { IMainMenu } from '../models/sectionModel'
-// import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { useShoppingCart } from '../contexts/ShoppingCartContext'
 
-const MainMenu: React.FC <IMainMenu> = ({className, quantity, cartQuantity}) => {
+const MainMenu: React.FC <IMainMenu> = ({className, quantity}) => {
     const [showMenu, setShowMenu] = useState(false)
-    // const  { cartQuantity } = useShoppingCart()
+    const  cart = useShoppingCart()
   
     const toggleMenu = () => {
       setShowMenu(!showMenu)
@@ -28,7 +28,7 @@ const MainMenu: React.FC <IMainMenu> = ({className, quantity, cartQuantity}) => 
           <MenuIcon icon="fa-regular fa-heart" quantity={quantity} />
           <button className="menu-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
             <i className="fa-regular fa-bag-shopping"></i>
-            <div className="badge rounded-pill">{cartQuantity}</div>
+            <div className="badge rounded-pill">{cart?.cartQuantity}</div>
           </button>
           <button onClick={toggleMenu} className={`menu-icon ${ showMenu ? "btn-menu-icon-white" : "btn-menu-icon" }`}><i className='fa-regular fa-bars'></i></button>
         </div>

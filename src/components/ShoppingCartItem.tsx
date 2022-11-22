@@ -1,7 +1,7 @@
 import React from 'react'
 import { CartItem } from '../contexts/ShoppingCartContext'
-// import { useShoppingCart } from '../contexts/ShoppingCartContext'
-// import { currencyFormatter } from '../utilities/currencyFormatter'
+import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
 interface ShoppingCartProp {
     item: CartItem
@@ -9,24 +9,31 @@ interface ShoppingCartProp {
 
 const ShoppingCartItem: React.FC<ShoppingCartProp> = ({ item }) => {
     // const { incrementQuantity, decrementQuantity, removeItem } = useShoppingCart()
+    // const cart = useShoppingCart()
+    const incrementQuantity = useShoppingCart()?.incrementQuantity
+    const decrementQuantity = useShoppingCart()?.decrementQuantity
+    const removeItem = useShoppingCart()?.removeItem
+
+
 
     return (
         <div className='shopping-cart-item'>
             <div className='item-holder-left d-flex'>
                 <div className='item-image'>
-                    {/* <img src={item.product.imageName} alt={item.product.name} /> */}
+                    <img src={item.item.imageName} alt={item.item.name} />
                 </div>
                 <div className='item-info'>
-                    {/* <div className='item-info-name'>{item.product.name}</div> */}
+                    <div className='item-info-name'>{item.item.name}</div>
                     <div className='item-info-quantity btn-no-corners'>
-                        {/* <button className='btn-canvas' onClick={() => decrementQuantity(item)}>-</button> */}
-                        {/* <span>{item.quantity}</span> */}
-                        {/* <button className='btn-canvas' onClick={() => incrementQuantity(item)}>+</button> */}
+                        <button className='btn-canvas' onClick={() => decrementQuantity !== undefined ? decrementQuantity(item) : {}}>-</button>
+                        <span>{item.quantity}</span>
+                        <button className='btn-canvas' onClick={() => incrementQuantity !== undefined ? incrementQuantity(item) : {}}>+</button>
                     </div>
                 </div>
             </div>
             <div className='item-price btn-no-corners'>
-                {/* <div className='price-tag'>{currencyFormatter(item.product.price * item.quantity)}</div> */}
+                <div className='price-tag'>{currencyFormatter(item.item.price * item.quantity)}</div>
+                <button className='btn-canvas remove-btn' onClick={() => () => removeItem !== undefined ? removeItem(item.item.articleNumber) : {}}><i className='fa-solid fa-trash'></i></button>
                 {/* <button className='btn-canvas remove-btn' onClick={() => removeItem(item.articleNumber)}><i className='fa-solid fa-trash'></i></button> */}
             </div>
         </div>

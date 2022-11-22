@@ -4,10 +4,6 @@ import { Product } from '../models/productModel'
 import { CartItem, useShoppingCart } from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-interface ISmallCard{
-    item: Product
-}
-
 // const SmallCard: React.FC <ISmallCard> = ( {item} ) => {
 const SmallCard: React.FC <{item: CartItem}> = ({item}) => {    
     const incrementQuantity = useShoppingCart()?.incrementQuantity
