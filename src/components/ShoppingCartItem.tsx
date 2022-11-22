@@ -1,6 +1,6 @@
 import React from 'react'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
-import { ShoppingCartProp } from '../models/sectionModel'
+import { ShoppingCartProp } from '../models/sectionsModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
 

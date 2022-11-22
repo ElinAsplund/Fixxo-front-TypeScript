@@ -1,7 +1,7 @@
 import React from 'react'
 import SmallCard from '../components/SmallCard'
-import { CartItem } from '../contexts/ShoppingCartContext'
-import { IFeaturedProducts } from '../models/sectionModel'
+import { CartItem } from '../models/cartModels'
+import { IFeaturedProducts } from '../models/sectionsModels'
 
 
 const FeaturedProducts: React.FC<IFeaturedProducts> = ({ className, title, items }) => {

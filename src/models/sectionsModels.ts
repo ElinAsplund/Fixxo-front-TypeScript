@@ -1,4 +1,4 @@
-import { CartItem } from '../models/cartModel'
+import { CartItem } from './cartModels'
 
 export interface IBreadcrumb {
     className: string,
@@ -39,4 +39,4 @@ export interface IFeaturedProducts {
     className: string,
     title: string,
     items: CartItem[]
-  }
+}

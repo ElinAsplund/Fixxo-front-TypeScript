@@ -7,25 +7,25 @@ import ProductOverview from '../sections/ProductOverview'
 import RelatedProducts from '../sections/RelatedProducts'
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
-import { Product } from '../models/productModel'
+import { Product } from '../models/productModels'
 
 const ProductDetailsView: React.FC = () => {
 
-// ------------------------------------------------------------------------------
-// ENABLING RENDERING THE PRODUCT NAME IN THE BREADCRUMB SECTION AND IN THE DOCUMENT TITLE:  
-  const [productInfo, setProductInfo] = useState<Product>({} as Product)  
+  // ------------------------------------------------------------------------------
+  // ENABLING RENDERING THE PRODUCT NAME IN THE BREADCRUMB SECTION AND IN THE DOCUMENT TITLE:  
+  const [productInfo, setProductInfo] = useState<Product>({} as Product)
   const params = useParams()
-  
+
   useEffect(() => {
     const fetchProductInfo = async () => {
       const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
       setProductInfo(await result.json())
     }
     fetchProductInfo()
-    
+
   }, [setProductInfo])
-  
-  document.title = productInfo.name +' | Fixxo.'
+
+  document.title = productInfo.name + ' | Fixxo.'
 
 
   return (

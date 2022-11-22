@@ -1,57 +1,33 @@
 import { createContext, useContext, useState } from "react";
 import ShoppingCart from "../components/ShoppingCart";
-import { Product } from "../models/productModel"
+import { CartItem, ShoppingCartContextProps, ShoppingCartProviderProp } from "../models/cartModels";
 
-
-// ------------------------------------------------------------------------------------
-// INTERFACES
-
-interface ShoppingCartContext{
-    cartItems: CartItem[]
-    cartQuantity: number
-    getItemQuantity: (articleNumber: string) => number
-    incrementQuantity: (cartItem: CartItem) => void
-    decrementQuantity: (cartItem: CartItem) => void
-    removeItem: (articleNumber: string) => void
-}
-
-export interface CartItem {
-    item: Product
-    quantity: number
-}
-
-interface ShoppingCartProvider{
-    children: any
-}
-
-// ------------------------------------------------------------------------------------
-
-const ShoppingCartContext = createContext<ShoppingCartContext | null>(null);
+const ShoppingCartContext = createContext<ShoppingCartContextProps | null>(null);
 
 export const useShoppingCart = () => {
     return useContext(ShoppingCartContext)
 }
 
-export const ShoppingCartProvider  = ({children}: ShoppingCartProvider) => {
+export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
 
     const cartQuantity = cartItems.reduce(
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber: string) =>{
+    const getItemQuantity = (articleNumber: string) => {
         return cartItems.find(item => item.item.articleNumber === articleNumber)?.quantity || 0
     }
 
-    const incrementQuantity = (cartItem: CartItem) =>{
+    const incrementQuantity = (cartItem: CartItem) => {
 
         setCartItems(items => {
-            if(items.find(item => item.item.articleNumber === cartItem.item.articleNumber) == null){
-                return [...items, {item: cartItem.item, quantity: 1}]
+            if (items.find(item => item.item.articleNumber === cartItem.item.articleNumber) == null) {
+                return [...items, { item: cartItem.item, quantity: 1 }]
             } else {
                 return items.map(item => {
-                    if(item.item.articleNumber === cartItem.item.articleNumber){
-                        return {...item, quantity: item.quantity + 1}
+                    if (item.item.articleNumber === cartItem.item.articleNumber) {
+                        return { ...item, quantity: item.quantity + 1 }
                     } else {
                         return item
                     }
@@ -60,15 +36,15 @@ export const ShoppingCartProvider  = ({children}: ShoppingCartProvider) => {
         })
     }
 
-    const decrementQuantity = (cartItem: CartItem) =>{
+    const decrementQuantity = (cartItem: CartItem) => {
 
         setCartItems(items => {
-            if(items.find(item => item.item.articleNumber === cartItem.item.articleNumber)?.quantity === 1){
+            if (items.find(item => item.item.articleNumber === cartItem.item.articleNumber)?.quantity === 1) {
                 return items.filter(item => item.item.articleNumber !== cartItem.item.articleNumber)
             } else {
                 return items.map(item => {
-                    if(item.item.articleNumber === cartItem.item.articleNumber){
-                        return {...item, quantity: item.quantity - 1}
+                    if (item.item.articleNumber === cartItem.item.articleNumber) {
+                        return { ...item, quantity: item.quantity - 1 }
                     } else {
                         return item
                     }
@@ -83,7 +59,7 @@ export const ShoppingCartProvider  = ({children}: ShoppingCartProvider) => {
         })
     }
 
-    const result: ShoppingCartContext = {
+    const result: ShoppingCartContextProps = {
         cartItems,
         cartQuantity,
         getItemQuantity,
@@ -94,7 +70,7 @@ export const ShoppingCartProvider  = ({children}: ShoppingCartProvider) => {
 
 
     return <ShoppingCartContext.Provider value={result}>
-            {children}
-            <ShoppingCart />
-        </ShoppingCartContext.Provider>
+        {children}
+        <ShoppingCart />
+    </ShoppingCartContext.Provider>
 }

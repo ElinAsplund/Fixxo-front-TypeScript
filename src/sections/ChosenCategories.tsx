@@ -1,7 +1,7 @@
 import React from 'react'
 import MiniCard from '../components/MiniCard'
 import { useProductContext } from '../contexts/ProductContext';
-import { CartItem } from '../contexts/ShoppingCartContext'
+import { CartItem } from '../models/cartModels'
 
 const ChosenCategories: React.FC = () => {
 

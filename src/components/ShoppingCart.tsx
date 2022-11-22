@@ -1,7 +1,7 @@
 import React from 'react'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
 import ShoppingCartItem from './ShoppingCartItem'
-import { CartItem } from '../models/cartModel'
+import { CartItem } from '../models/cartModels'
 
 const ShoppingCart: React.FC = () => {
     const cart = useShoppingCart()

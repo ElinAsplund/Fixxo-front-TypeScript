@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { IProductContext, IProductProviderProps, Product } from "../models/productModel"
-import { CartItem } from '../models/cartModel'
+import { IProductContext, IProductProviderProps, Product } from "../models/productModels"
+import { CartItem } from '../models/cartModels'
 
 // Solved this part with help from Sara Lindström and Joakim:
 
