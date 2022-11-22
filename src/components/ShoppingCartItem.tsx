@@ -8,8 +8,6 @@ interface ShoppingCartProp {
 }
 
 const ShoppingCartItem: React.FC<ShoppingCartProp> = ({ item }) => {
-    // const { incrementQuantity, decrementQuantity, removeItem } = useShoppingCart()
-    // const cart = useShoppingCart()
     const incrementQuantity = useShoppingCart()?.incrementQuantity
     const decrementQuantity = useShoppingCart()?.decrementQuantity
     const removeItem = useShoppingCart()?.removeItem
@@ -33,8 +31,7 @@ const ShoppingCartItem: React.FC<ShoppingCartProp> = ({ item }) => {
             </div>
             <div className='item-price btn-no-corners'>
                 <div className='price-tag'>{currencyFormatter(item.item.price * item.quantity)}</div>
-                <button className='btn-canvas remove-btn' onClick={() => () => removeItem !== undefined ? removeItem(item.item.articleNumber) : {}}><i className='fa-solid fa-trash'></i></button>
-                {/* <button className='btn-canvas remove-btn' onClick={() => removeItem(item.articleNumber)}><i className='fa-solid fa-trash'></i></button> */}
+                <button className='btn-canvas remove-btn' onClick={() => removeItem !== undefined ? removeItem(item.item.articleNumber) : {}}><i className='fa-solid fa-trash'></i></button>
             </div>
         </div>
     )
