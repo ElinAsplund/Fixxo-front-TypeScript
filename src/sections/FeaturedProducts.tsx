@@ -1,16 +1,12 @@
 import React from 'react'
 import SmallCard from '../components/SmallCard'
 import { CartItem } from '../contexts/ShoppingCartContext'
-import { Product } from '../models/productModel'
+import { IFeaturedProducts } from '../models/sectionModel'
 
-interface IFeaturedProducts {
-  className: string,
-  title: string,
-  items: CartItem[]
-}
 
 const FeaturedProducts: React.FC<IFeaturedProducts> = ({ className, title, items }) => {
 
+  // Debugging with Joakim:
   // React.useEffect(() => {
   //   console.log(items)
   // }, [items])

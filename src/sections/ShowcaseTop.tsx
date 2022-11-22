@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const ShowcaseTop = () => {
+const ShowcaseTop: React.FC = () => {
   return (
     <section className="showcase-top gradient-grey">
       <div className="content-holder">

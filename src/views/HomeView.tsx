@@ -11,7 +11,6 @@ import Footer from '../sections/Footer';
 import MainMenu from '../sections/MainMenu';
 import React from 'react';
 import { useProductContext } from '../contexts/ProductContext'
-import { useShoppingCart } from '../contexts/ShoppingCartContext';
 
 const HomeView: React.FC = () => {
   document.title = 'Fixxo.'

@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { submitData } from '../assets/script/ContactForm_Validation'
-// Debugging:
-// import { useProductContext } from '../contexts/ProductContext'
 
 const ContactForm: React.FC = () => {
-// const ContactForm: React.FC <IError> = () => {
     // ------------------------------------------------------------------------------
     // SETTING OF "GLOBAL VALUES":
     const [canSubmit, setCanSubmit] = useState<boolean>(false)
@@ -14,8 +11,6 @@ const ContactForm: React.FC = () => {
     const [errorEmail, setErrorEmail] = useState<{email?: string}>({})
     const [errorComments, setErrorComments] = useState<{comments?: string}>({})
     const [submitMessage, setSubmitMessage] = useState<string>('')
-    // Debugging:
-    // const { products, fourProducts, eighthProducts, nineProducts } = useProductContext()
 
     // ------------------------------------------------------------------------------
     // HANDLE CHANGE:
@@ -75,12 +70,6 @@ const ContactForm: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         await validateSubmit()
-        
-        // Debugging: 
-        // console.log( products );
-        // console.log( fourProducts );
-        // console.log( eighthProducts );
-        // console.log( nineProducts );
     }
 
     // ------------------------------------------------------------------------------
@@ -141,8 +130,6 @@ const ContactForm: React.FC = () => {
     }
 
     // ------------------------------------------------------------------------------
-
-
   return (
     <section className="contact-form">
         <div className="container">

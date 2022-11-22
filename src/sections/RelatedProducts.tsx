@@ -1,13 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import SmallCard from '../components/SmallCard'
-import { Product } from '../models/productModel'
 import { CartItem } from '../contexts/ShoppingCartContext'
-// import { FourProductsContext } from '../contexts/contexts'
 import { useProductContext } from '../contexts/ProductContext';
 
 const RelatedProducts: React.FC = () => {
-    // const products = useContext(FourProductsContext)
-
     const { fourProducts } = useProductContext()
 
   return (

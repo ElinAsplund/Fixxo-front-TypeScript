@@ -34,3 +34,9 @@ export interface IMainMenu {
 export interface ShoppingCartProp {
     item: CartItem
 }
+
+export interface IFeaturedProducts {
+    className: string,
+    title: string,
+    items: CartItem[]
+  }
