@@ -1,34 +1,4 @@
-// With the "name" item
-// export interface IItemProp {
-//     articleNumber: string,
-//     name: string,
-//     description?: string,
-//     category: string,
-//     price: number,
-//     rating: number,
-//     imageName: string
-// }
-
-// export interface IItem extends IItemProp{
-//     item: IItemProp
-// }
-
-// With the "name" product
-export interface IProductProp {
-    articleNumber: string,
-    name: string,
-    description?: string,
-    category: string,
-    price: number,
-    rating: number,
-    imageName: string,
-    idCardNumber?: string
-}
-
-export interface IProduct extends IProductProp{
-    product: IProductProp
-    item?: IProductProp
-}
+import { CartItem } from '../models/cartModel'
 
 export interface Product {
     articleNumber: string,
@@ -41,3 +11,14 @@ export interface Product {
     idCardNumber?: string
     initialPrice?: number 
 }
+
+export interface IProductContext {
+    products: CartItem[],
+    fourProducts: CartItem[],
+    eighthProducts: CartItem[],
+    nineProducts: CartItem[]
+  }
+  
+  export interface IProductProviderProps {
+    children: any
+  }

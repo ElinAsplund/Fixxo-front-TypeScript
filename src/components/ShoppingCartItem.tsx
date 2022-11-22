@@ -1,18 +1,13 @@
 import React from 'react'
-import { CartItem } from '../contexts/ShoppingCartContext'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { ShoppingCartProp } from '../models/sectionModel'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-interface ShoppingCartProp {
-    item: CartItem
-}
 
 const ShoppingCartItem: React.FC<ShoppingCartProp> = ({ item }) => {
     const incrementQuantity = useShoppingCart()?.incrementQuantity
     const decrementQuantity = useShoppingCart()?.decrementQuantity
     const removeItem = useShoppingCart()?.removeItem
-
-
 
     return (
         <div className='shopping-cart-item'>

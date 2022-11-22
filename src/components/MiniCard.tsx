@@ -1,8 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Product } from '../models/productModel'
 import { currencyFormatter } from '../utilities/currencyFormatter'
-import { CartItem } from '../contexts/ShoppingCartContext'
+import { CartItem } from '../models/cartModel'
 
 interface IMiniCard{
   item: CartItem

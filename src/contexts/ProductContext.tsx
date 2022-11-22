@@ -1,23 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { Product } from "../models/productModel"
-import { CartItem } from '../contexts/ShoppingCartContext'
+import { IProductContext, IProductProviderProps, Product } from "../models/productModel"
+import { CartItem } from '../models/cartModel'
 
 // Solved this part with help from Sara Lindström and Joakim:
-
-// ------------------------------------------------------------------------------
-// INTERFACES
-interface IProductContext {
-  products: CartItem[],
-  fourProducts: CartItem[],
-  eighthProducts: CartItem[],
-  nineProducts: CartItem[]
-}
-
-interface IProductProviderProps {
-  children: any
-}
-
-// ------------------------------------------------------------------------------
 
 const ProductContext = React.createContext<IProductContext | null>(null)
 
@@ -93,46 +78,3 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     {children}
   </ProductContext.Provider>
 }
-
-
-// export const UseGetFeaturedProducts = (cardAmount:number) => {
-
-//   const [isReady, setIsReady] = useState<boolean>(false);
-//   const [featuredProducts, setFeaturedProducts] = useState<IProduct[]>([])
-
-//   //-----------useEffect to fetch from api
-//   useEffect (() => {
-//       const fetchFeaturedData = async () => {
-//           let result = await fetch(https://win22-webapi.azurewebsites.net/api/products?take=${cardAmount})
-//           setFeaturedProducts(await result.json());
-//           setIsReady(true)
-//       }
-//       fetchFeaturedData();
-
-//   },[cardAmount])
-
-//   const [featuredCartItems, setFeaturedCartItems] = useState<ICartItem[]>([])
-
-//   //------------useEffect to create ICartItems from result from api
-//   useEffect(() => {
-//       if(isReady === false){
-//           return;
-//       }
-
-//       let cartItems = featuredProducts.map(p =>  {
-//           let cartItem: ICartItem = {
-//               quantity: 0,
-//               product: p
-//           }
-
-//           return cartItem;
-//       })
-
-//       setFeaturedCartItems(cartItems)
-
-//   }, [isReady])
-
-// return featuredCartItems
-// }
-
-// export default UseGetFeaturedProducts

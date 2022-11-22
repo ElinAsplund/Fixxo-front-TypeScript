@@ -1,13 +1,12 @@
 import React from 'react'
-import { CartItem, useShoppingCart } from '../contexts/ShoppingCartContext'
+import { useShoppingCart } from '../contexts/ShoppingCartContext'
 import ShoppingCartItem from './ShoppingCartItem'
-
-
-
+import { CartItem } from '../models/cartModel'
 
 const ShoppingCart: React.FC = () => {
     const cart = useShoppingCart()
 
+    // Debugging with Joakim:
     // React.useEffect(() => {
     //     console.log('test', test)
     // }, [test])

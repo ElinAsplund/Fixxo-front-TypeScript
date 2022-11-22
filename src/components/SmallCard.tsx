@@ -1,10 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Product } from '../models/productModel'
-import { CartItem, useShoppingCart } from '../contexts/ShoppingCartContext'
+import { useShoppingCart } from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/currencyFormatter'
+import { CartItem } from '../models/cartModel'
 
-// const SmallCard: React.FC <ISmallCard> = ( {item} ) => {
 const SmallCard: React.FC <{item: CartItem}> = ({item}) => {    
     const incrementQuantity = useShoppingCart()?.incrementQuantity
 
@@ -24,7 +23,6 @@ const SmallCard: React.FC <{item: CartItem}> = ({item}) => {
                 <button onClick={addToWishList} className='btn-menu-icon'><i className='fa-regular fa-heart'></i></button>
                 <button onClick={addToCompare} className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
                 <button onClick={() => incrementQuantity !== undefined ? incrementQuantity(item) : {}} className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
-                {/* <button onClick={() => incrementQuantity ({articleNumber: item.item.articleNumber, product: item})} className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button> */}
             </div>
             <NavLink to={`/products/${item.item.articleNumber}`}end>
                 <button className="btn-bg-theme btn-quick-view">QUICK VIEW</button>

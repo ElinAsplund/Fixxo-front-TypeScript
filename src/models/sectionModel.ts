@@ -1,3 +1,5 @@
+import { CartItem } from '../models/cartModel'
+
 export interface IBreadcrumb {
     className: string,
     hideOrShowProducts: string,
@@ -27,5 +29,8 @@ export interface IMenuIcon {
 export interface IMainMenu {
     className: string,
     quantity?: number,
-    cartQuantity?: number
+}
+
+export interface ShoppingCartProp {
+    item: CartItem
 }
