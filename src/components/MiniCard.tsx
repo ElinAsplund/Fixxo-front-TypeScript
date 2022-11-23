@@ -1,11 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { currencyFormatter } from '../utilities/currencyFormatter'
-import { CartItem } from '../models/cartModels'
-
-interface IMiniCard {
-  item: CartItem
-}
+import { IMiniCard } from '../models/sectionsModels'
 
 const MiniCard: React.FC<IMiniCard> = ({ item }) => {
   return (

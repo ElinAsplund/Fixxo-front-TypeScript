@@ -40,3 +40,7 @@ export interface IFeaturedProducts {
     title: string,
     items: CartItem[]
 }
+
+export interface IMiniCard {
+    item: CartItem
+  }
