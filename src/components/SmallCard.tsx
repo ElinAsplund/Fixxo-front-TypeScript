@@ -16,7 +16,7 @@ const SmallCard: React.FC<{ item: CartItem }> = ({ item }) => {
     }
 
     return (
-        <div className="small-card" id={item.item.idCardNumber}>
+        <div className="small-card">
             <div className="placeholder-area">
                 <img src={item.item.imageName} />
                 <div className="card-menu btn-no-corners">

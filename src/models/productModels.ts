@@ -1,6 +1,7 @@
 import { CartItem } from './cartModels'
 
 export interface Product {
+  id?: number,
   articleNumber: string,
   name: string,
   description?: string,
@@ -8,7 +9,18 @@ export interface Product {
   price: number,
   rating: number,
   imageName: string,
-  idCardNumber?: string
+  initialPrice?: number
+}
+
+// "NÄR VI SKAPAR EN PRODUKT"?
+export interface ProductRequest {
+  articleNumber: string,
+  name: string,
+  description?: string,
+  category: string,
+  price: number,
+  rating: number,
+  imageName: string,
   initialPrice?: number
 }
 
