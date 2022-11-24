@@ -7,6 +7,7 @@ import ProductsView from './views/ProductsView';
 import ProductDetailsView from './views/ProductDetailsView';
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 import { ProductProvider } from './contexts/ProductContext';
+import ManageProductsView from './views/ManageProductsView';
 
 const App: React.FC = () => {
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
             <Route path="/contacts" element={<ContactsView />} />
             <Route path="/products/" element={<ProductsView />} />
             <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
+            <Route path="/manage_products" element={<ManageProductsView />} />
             <Route path="*" element={<NotFoundView />} />
           </Routes>
         </ShoppingCartProvider>
