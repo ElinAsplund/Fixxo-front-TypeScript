@@ -24,8 +24,8 @@ export const useProductAPIContext = () => {return useContext(ProductAPIContext)}
 
 const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const baseUrl = 'http://localhost:5000/api/products'
-  const product_default: Product = { id: 0, articleNumber: '', name: '', category: '', price: 0, rating: 0, imageName: '' }
-  const productRequest_default: ProductRequest = { articleNumber: '', name: '', category: '', price: 0, rating: 0, imageName: '' }
+  const product_default: Product = { id: 0, articleNumber: '', name: '', description: '', category: '', price: 0, rating: 0, imageName: '' }
+  const productRequest_default: ProductRequest = { articleNumber: '', name: '', description: '',category: '', price: 0, rating: 0, imageName: '' }
 
   const [product, setProduct] = useState<Product>(product_default)
   const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)

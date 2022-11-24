@@ -20,8 +20,7 @@ export interface ProductRequest {
   category: string,
   price: number,
   rating: number,
-  imageName: string,
-  initialPrice?: number
+  imageName: string
 }
 
 export interface IProductContext {
