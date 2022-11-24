@@ -13,6 +13,7 @@
 @import "./components/mini-card";
 @import "./components/page-title";
 @import "./components/shopping-cart";
+@import "./components/product-list-item";
 
 // Section: ALL html-pages
 @import "./sections/main-menu";
@@ -29,6 +30,9 @@
 @import "./sections/index/highlight-sale";
 @import "./sections/index/chosen-categories";
 @import "./sections/index/webshop-info";
+
+// Sections: contacts
+@import "./sections/manage-products/product-form";
 
 // Sections: contacts
 @import "./sections/contact/map";
