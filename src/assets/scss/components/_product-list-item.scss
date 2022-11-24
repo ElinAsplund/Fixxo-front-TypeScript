@@ -31,6 +31,7 @@
     .left-side{
         display: flex;
         align-items: center;
+        flex: 4;
 
         .placeholder-area{                  
             display: inline-block;
@@ -53,33 +54,34 @@
             }
         }
     
-        h2{
-            font-size: $font-size-13;
-            font-weight: $font-weight-regular;
-            margin-top: 1rem;
-        }
     
         .product-name{
             font-weight: $font-weight-semibold;
-            font-size: $font-size-16;
+            font-size: $font-size-18;
             color: $color-dark;
             text-decoration: none;
         }
     
         p{
-            font-size: $font-size-18;
             font-weight: $font-weight-semibold;
+            font-size: $font-size-16;
             margin: 0rem 1rem;
-    
-            span{
-                font-size: $font-size-16;
-                font-weight: $font-weight-regular;
-                text-decoration: line-through;
-            }
-        }    
+        }        
+    }
+
+    .product-price{
+        margin: 0;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        font-weight: $font-weight-regular;
+        font-size: $font-size-16;
     }
 
     .right-side{
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
 
         button{
             margin-right: 1rem;
