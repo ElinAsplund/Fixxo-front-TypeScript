@@ -18,9 +18,9 @@ const ProductForm: React.FC = () => {
       <div className="container">
         <h3 className='d-flex justify-content-center' style={{ marginTop: "100px" }}>Manage Products</h3>
         <form onSubmit={create} noValidate>
-            <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({...productRequest, articleNumber: e.target.value})} type='text'className='form-control my-3' placeholder="Enter product's article number..." />
+            <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({...productRequest, articleNumber: e.target.value})} type='hidden'className='form-control my-3' placeholder="Enter product's article number..." />
             <input value={productRequest.name} onChange={(e) => setProductRequest({...productRequest, name: e.target.value})} type='text'className='form-control my-3' placeholder='Enter product name...' />
-            <textarea value={productRequest.description} onChange={(e) => setProductRequest({...productRequest, description: e.target.value})} className='form-control my-3' placeholder="Enter product description..." />
+            {/* <textarea value={productRequest.description} onChange={(e) => setProductRequest({...productRequest, description: e.target.value})} className='form-control my-3' placeholder="Enter product description..." /> */}
             <select value={productRequest.category} onChange={(e) => setProductRequest({...productRequest, category: e.target.value})} className="form-select">
                 <option defaultValue="">Enter product category...</option>
                 <option value="Coats">Coats</option>
@@ -37,15 +37,14 @@ const ProductForm: React.FC = () => {
                 <option value="Pants">Pants</option>
             </select>
             <input onChange={(e) => setProductRequest({...productRequest, price: parseFloat(e.target.value)})} type='number'step="any" className='form-control my-3' placeholder='Enter product price...' />
-            {/* <input value={productRequest.price} onChange={(e) => setProductRequest({...productRequest, price: parseFloat(e.target.value)})} type='number'step="any" className='form-control my-3' placeholder='Enter product price...' /> */}
-            <select value={productRequest.rating} onChange={(e) => setProductRequest({...productRequest, rating: parseFloat(e.target.value)})} className="form-select">
+            {/* <select value={productRequest.rating} onChange={(e) => setProductRequest({...productRequest, rating: parseFloat(e.target.value)})} className="form-select">
                 <option defaultValue="">Enter product rating...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-            </select>
+            </select> */}
             <input value={productRequest.imageName} onChange={(e) => setProductRequest({...productRequest, imageName: e.target.value})} type='text'className='form-control my-3' placeholder='Enter product image link...' />
             <div className='d-flex justify-content-center'>
                 <button type='submit' className='btn-bg-theme mb-5'>ENTER NEW PRODUCT</button>

@@ -3,7 +3,7 @@ import ProductListItem from '../components/ProductListItem'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 import { useProductContext } from '../contexts/ProductContext'
 import { CartItem } from '../models/cartModels'
-import { Product } from '../models/productModels'
+import { Product, ProductAPI } from '../models/productModels'
 
 const ProductList: React.FC = () => {
 
@@ -22,7 +22,7 @@ const ProductList: React.FC = () => {
             products.length > 0 && products.map((product: Product) => <div className='my-3' key={product.id}>ID: {product.id} NAME: {product.name} PRICE: {product.price}</div>)
           } */}
           {
-            products.length > 0 && products.map((product: Product) => <ProductListItem item={product} key={product.id} />)
+            products.length > 0 && products.map((product: ProductAPI) => <ProductListItem item={product} key={product.id} />)
           }
         </div>
       </div>

@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    // background-color: green;
     background-color: #ffe8e8;
     border-radius: 3px;
     border: #ffe8e8 solid 10px;
@@ -53,8 +54,7 @@
                 } 
             }
         }
-    
-    
+
         .product-name{
             font-weight: $font-weight-semibold;
             font-size: $font-size-18;
@@ -85,6 +85,10 @@
 
         button{
             margin-right: 1rem;
+        }
+
+        .edit-btn{
+            margin-left: 1rem;
         }
     }
 }

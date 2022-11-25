@@ -23,6 +23,18 @@ export interface ProductRequest {
   imageName: string
 }
 
+// "ALLT ANNAT FRÅN API"?
+export interface ProductAPI {
+  id: number,
+  articleNumber?: string,
+  name: string,
+  description?: string,
+  category: string,
+  price: number,
+  rating?: number,
+  imageName: string
+}
+
 export interface IProductContext {
   products: CartItem[],
   fourProducts: CartItem[],
