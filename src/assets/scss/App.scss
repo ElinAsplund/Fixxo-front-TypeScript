@@ -32,11 +32,12 @@
 @import "./sections/index/webshop-info";
 
 // Sections: contacts
-@import "./sections/manage-products/product-form";
-
-// Sections: contacts
 @import "./sections/contact/map";
 @import "./sections/contact/contact-form";
+
+// Sections: manage-products
+@import "./sections/manage-products/product-form";
+@import "./sections/manage-products/product-info-box";
 
 // Sections: products
 @import "./sections/products/product-browsing";

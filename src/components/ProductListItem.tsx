@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
-// import { currencyFormatter } from '../utilities/currencyFormatter'
 import { CartItem } from '../models/cartModels'
 import { Product, ProductAPI } from '../models/productModels'
+import { currencyFormatter } from '../utilities/currencyFormatter'
 
 const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
 
@@ -20,7 +20,7 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
                 <p className="product-name">{item.name}</p>
                 {/* <p><span id="before-discount-price">{item.item.initialPrice}</span> {currencyFormatter(item.item.price)}</p> */}
             </div>
-            <p className="product-price">Price: ${item.price}</p>
+            <p className="product-price">Price: {currencyFormatter(item.price)}</p>
             <div className='right-side'>
                 <NavLink to={`/update_product/${item.id}`} end>
                     <button className='btn-product edit-btn'><i className="fa-solid fa-pen"></i></button>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import TrashCanBtn from '../components/TrashCanBtn'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 
 const ProductUpdateForm: React.FC = () => {
@@ -16,7 +17,6 @@ const ProductUpdateForm: React.FC = () => {
   return (
     <section className='product-form'>
       <div className="container">
-        <h3 className='d-flex justify-content-center' style={{ marginTop: "100px" }}>Update Product</h3>
         <form onSubmit={update} noValidate>
             <input value={product.articleNumber || ''} onChange={(e) => setProduct({...product, articleNumber: e.target.value})} type='hidden'className='form-control my-3' placeholder="Enter product's article number..." />
             <input value={product.name || ''} onChange={(e) => setProduct({...product, name: e.target.value})} type='text'className='form-control my-3' placeholder='Enter product name...' />
@@ -51,6 +51,7 @@ const ProductUpdateForm: React.FC = () => {
             <div className='d-flex justify-content-center'>
                 <button type='submit' className='btn-bg-theme mb-5'>UPDATE PRODUCT</button>
             </div>
+            {/* <TrashCanBtn /> */}
         </form>
       </div>
     </section>

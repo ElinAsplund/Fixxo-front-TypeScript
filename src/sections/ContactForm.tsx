@@ -162,19 +162,19 @@ const ContactForm: React.FC = () => {
                             <div className="top-form">
                                 <div className="input-holder">
                                     <label htmlFor="name" id="name-label" className="d-none">Name</label>
-                                    <input type="text" id="name" placeholder="Your Name" value={contactForm.name} onChange={handleChange} onKeyUp={validateName} className={`${(errorName.name) ? "error-input" : ""}`} required />
+                                    <input type="text" id="name" placeholder="Your Name" value={contactForm.name || ''} onChange={handleChange} onKeyUp={validateName} className={`${(errorName.name) ? "error-input" : ""}`} required />
                                     <div id="name-error" className="error-text">{errorName.name}</div>
                                 </div>
                                 <div className="input-holder">
                                     <label htmlFor="email" id="email-label" className="d-none">Email</label>
-                                    <input type="email" id="email" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} onKeyUp={validateEmail} className={`${(errorEmail.email) ? "error-input" : ""}`} required />
+                                    <input type="email" id="email" placeholder="Your Mail" value={contactForm.email || ''} onChange={handleChange} onKeyUp={validateEmail} className={`${(errorEmail.email) ? "error-input" : ""}`} required />
                                     <div id="email-error" className="error-text">{errorEmail.email}</div>
                                 </div>
                             </div>
                             <div className="bottom-form btn-no-corners">
                                 <div className="textarea-holder">
                                     <label htmlFor="comments" id="Comments-label" className="d-none">Comment</label>
-                                    <textarea id="comments" placeholder="Comment" value={contactForm.comments} onChange={handleChange} onKeyUp={validateComments} className={`${(errorComments.comments) ? "error-input" : ""}`} required></textarea>
+                                    <textarea id="comments" placeholder="Comment" value={contactForm.comments || ''} onChange={handleChange} onKeyUp={validateComments} className={`${(errorComments.comments) ? "error-input" : ""}`} required></textarea>
                                     <div id="comments-error" className="error-text">{errorComments.comments}</div>
                                 </div>
                                 <button className="btn-bg-theme" type="submit">Post Comment</button>
