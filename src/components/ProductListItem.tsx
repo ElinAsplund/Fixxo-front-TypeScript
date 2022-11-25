@@ -1,6 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
-// import { NavLink } from 'react-router-dom'
 // import { currencyFormatter } from '../utilities/currencyFormatter'
 import { CartItem } from '../models/cartModels'
 import { Product, ProductAPI } from '../models/productModels'
@@ -22,7 +22,9 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
             </div>
             <p className="product-price">Price: ${item.price}</p>
             <div className='right-side'>
-                <button className='btn-product edit-btn'><i className="fa-solid fa-pen"></i></button>
+                <NavLink to={`/update_product/${item.id}`} end>
+                    <button className='btn-product edit-btn'><i className="fa-solid fa-pen"></i></button>
+                </NavLink>
                 <button className='btn-product remove-btn' onClick={() => remove(item.id)} ><i className='fa-solid fa-trash'></i></button>
                 {/* <button className='btn-product remove-btn' onClick={() => item.id !== undefined ? remove(item.id): 0} ><i className='fa-solid fa-trash'></i></button> */}
                 {/* <button className='btn-product remove-btn' onClick={() => (item.id) ? remove(item.id) : "" } ><i className='fa-solid fa-trash'></i></button> */}
@@ -32,5 +34,3 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
 }
 
 export default ProductListItem
-
-// onClick={() => removeItem !== undefined ? removeItem(item.item.articleNumber) : {}}

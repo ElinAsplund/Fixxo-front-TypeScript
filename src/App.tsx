@@ -9,6 +9,7 @@ import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 import { ProductProvider } from './contexts/ProductContext';
 import ManageProductsView from './views/ManageProductsView';
 import ProductAPIProvider from './contexts/ProductAPIContext';
+import UpdateProductView from './views/UpdateProductView';
 
 const App: React.FC = () => {
 
@@ -23,6 +24,7 @@ const App: React.FC = () => {
               <Route path="/products/" element={<ProductsView />} />
               <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
               <Route path="/manage_products" element={<ManageProductsView />} />
+              <Route path="/update_product/:id" element={<UpdateProductView />} />
               <Route path="*" element={<NotFoundView />} />
             </Routes>
           </ProductAPIProvider>
