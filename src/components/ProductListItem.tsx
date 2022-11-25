@@ -17,7 +17,10 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
                     <img src={item.imageName} />
                 </div>
                 {/* <h2>{item.item.category}</h2> */}
-                <p className="product-name">{item.name}</p>
+                <div>
+                    <p className="product-name">{item.name}</p>
+                    <p className="product-category">{item.category}</p>
+                </div>
                 {/* <p><span id="before-discount-price">{item.item.initialPrice}</span> {currencyFormatter(item.item.price)}</p> */}
             </div>
             <p className="product-price">Price: {currencyFormatter(item.price)}</p>

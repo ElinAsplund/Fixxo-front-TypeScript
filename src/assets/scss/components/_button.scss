@@ -62,6 +62,27 @@ button{
 
     }
 
+    &.btn-bg-theme-dark{
+        background-color: $color-dark;
+        color: $color-white;
+        transition: 0.2s ease-in-out;
+        
+        &:hover{
+            background-color: $color-theme;
+            color: $color-white;
+            
+            &::before{
+                border-left-color: $color-white;
+                border-top-color: $color-white;
+            }
+            &::after{
+                border-right-color: $color-white;
+                border-bottom-color: $color-white;
+            }
+        }
+
+    }
+
     &.btn-bg-white{
         background-color: $color-white;
         color: $color-dark;

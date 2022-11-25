@@ -1,0 +1,17 @@
+.product-update-form{
+    .container{
+        form{
+            input:focus,
+            textarea:focus,
+            select:focus{
+                box-shadow: 0 0 0 0.15rem #ffacac !important;
+                border: none !important;
+            }
+        
+            ::placeholder{
+                color: black;
+                opacity: 1;
+            }
+        }
+    }
+}
