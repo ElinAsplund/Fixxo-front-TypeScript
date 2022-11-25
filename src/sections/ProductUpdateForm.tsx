@@ -15,7 +15,7 @@ const ProductUpdateForm: React.FC = () => {
     }, [])
 
   return (
-    <section className='product-form'>
+    <section className='product-update-form'>
       <div className="container">
         <form onSubmit={update} noValidate>
             <input value={product.articleNumber || ''} onChange={(e) => setProduct({...product, articleNumber: e.target.value})} type='hidden'className='form-control my-3' placeholder="Enter product's article number..." />

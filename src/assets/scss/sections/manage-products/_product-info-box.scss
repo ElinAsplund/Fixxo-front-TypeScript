@@ -5,7 +5,7 @@
         font-weight: $font-weight-bold;
         margin-bottom: 1.5rem;
     }
-    
+
     .container{
         display: flex;
         justify-content: center;
@@ -22,7 +22,6 @@
             
             .left-side{
                 display: flex;
-                // background-color: aqua;
                 
                 .img-holder{
                     display: inline-block;
@@ -31,6 +30,17 @@
                     height: 250px;
                     overflow: hidden;
                     border: none;
+                    position: relative;
+
+                    span{
+                        position: absolute;
+                        font-weight: $font-weight-semibold;
+                        font-size: $font-size-18;
+                        color: $color-theme;
+                        background-color: $color-white;
+                        padding: 6px 15px;
+                        border-radius: 0 0 3px 0;
+                    }
         
                     img{
                         object-fit: cover;
@@ -54,22 +64,11 @@
                         font-weight: $font-weight-semibold;
                         font-size: $font-size-18;
                         color: $color-dark;
-                        text-decoration: none;
-                        
-                        // &:last-child{
-                        //     margin-bottom: 0;
-                        // }
                     }
-    
-        
-                    // p{
-                    //     margin: 0;
-                    // }
                 }
             }
     
             .right-side{
-                // background-color: hotpink;
                 
                 button{
                     width: 60px;

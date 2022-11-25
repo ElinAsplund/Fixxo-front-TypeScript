@@ -21,6 +21,7 @@ const ProductInfoBox : React.FC = () => {
             <div className='info-box mb-3'>
                 <div className="left-side">
                     <div className='img-holder'>
+                        <span>id: {product.id}</span>
                         <img src={product.imageName} />
                     </div>
                     <div className='text-holder'>
