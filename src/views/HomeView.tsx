@@ -7,8 +7,6 @@ import TwoForPriceOf from '../sections/TwoForPriceOf';
 import HighlightSale from '../sections/HighlightSale'
 import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
-import Footer from '../sections/Footer';
-import MainMenu from '../sections/MainMenu';
 import React from 'react';
 import { useProductContext } from '../contexts/ProductContext'
 
@@ -28,7 +26,6 @@ const HomeView: React.FC = () => {
 
   return (
     <>
-      {/* <MainMenu className="gradient-grey" /> */}
       <ShowcaseTop />
       {/* DEBUG BUTTON */}
       {/* <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div> */}
@@ -40,7 +37,6 @@ const HomeView: React.FC = () => {
       <HighlightSale />
       <ChosenCategories />
       <WebshopInfo />
-      {/* <Footer isFixed="" /> */}
     </>
   )
 }

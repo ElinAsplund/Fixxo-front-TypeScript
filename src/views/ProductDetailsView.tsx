@@ -1,7 +1,5 @@
 import Breadcrumb from '../sections/Breadcrumb'
 import CurrentOfferBanner from '../sections/CurrentOfferBanner'
-import Footer from '../sections/Footer'
-import MainMenu from '../sections/MainMenu'
 import ProductInDepthInfo from '../sections/ProductInDepthInfo'
 import ProductOverview from '../sections/ProductOverview'
 import RelatedProducts from '../sections/RelatedProducts'
@@ -30,7 +28,6 @@ const ProductDetailsView: React.FC = () => {
 
   return (
     <>
-      {/* <MainMenu className="bg-white" /> */}
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-block" currentPage={productInfo.name} />
       <CurrentOfferBanner />
       <ProductOverview />
@@ -38,7 +35,6 @@ const ProductDetailsView: React.FC = () => {
       {/* PRODUCT INFO BUTTON: */}
       {/* <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={productInformation}>PRODUCT INFO</button></div> */}
       <RelatedProducts />
-      {/* <Footer isFixed="" /> */}
     </>
   )
 }
