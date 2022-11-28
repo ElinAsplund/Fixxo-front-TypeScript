@@ -30,9 +30,23 @@
                 // }
             }
             
-            .left-side{
+            
+            .content-holder{
                 display: flex;
+                flex-direction: column;
+                align-items: center;
                 
+                p{
+                    font-style: italic;
+                    margin-bottom: 10px;
+                    // text-decoration: underline;
+                    color: $color-theme;
+                    background-color: $color-white;
+                    border-radius: 3px;
+                    padding: 0 15px;
+                    width: max-content;
+                }
+
                 .img-holder{
                     display: inline-block;
                     background-color: $color-grey-20;
@@ -75,18 +89,6 @@
                         font-weight: $font-weight-semibold;
                         font-size: $font-size-18;
                         color: $color-dark;
-                    }
-                }
-            }
-    
-            .right-side{
-                
-                button{
-                    width: 60px;
-                    height: 60px;
-    
-                    i{
-                        font-size: 1.3em;
                     }
                 }
             }

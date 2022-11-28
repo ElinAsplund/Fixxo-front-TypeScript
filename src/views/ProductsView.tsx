@@ -12,10 +12,10 @@ const ProductsView: React.FC = () => {
 
   return (
     <>
-      <MainMenu className="bg-white" />
+      {/* <MainMenu className="bg-white" /> */}
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
       <FeaturedProducts className='product-browsing mt-0' title="Products" items={products}/>
-      <Footer />    
+      {/* <Footer isFixed="" />     */}
     </>
   )
 }

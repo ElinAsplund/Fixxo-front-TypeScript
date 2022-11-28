@@ -9,10 +9,10 @@ const ManageProductsView: React.FC = () => {
 
   return (
     <>
-        <MainMenu className="bg-white" />
+        {/* <MainMenu className="bg-white" /> */}
         <ProductForm />
         <ProductList />
-        <Footer />
+        {/* <Footer isFixed="fixed-footer" /> */}
     </>
   )
 }

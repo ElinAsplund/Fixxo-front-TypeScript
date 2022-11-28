@@ -10,11 +10,11 @@ const ContactsView: React.FC = () => {
 
   return (
     <>
-      <MainMenu className="bg-white" />
+      {/* <MainMenu className="bg-white" /> */}
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Contacts" />
       <Map />
       <ContactForm />
-      <Footer />
+      {/* <Footer isFixed="" /> */}
     </>
   )
 }

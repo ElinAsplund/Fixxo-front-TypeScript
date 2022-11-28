@@ -8,3 +8,13 @@
     color: $color-dark;
     // background-color: aqua;
 }
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.whole-view {
+    flex: 1;
+}

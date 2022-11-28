@@ -13,7 +13,7 @@ const MainMenu: React.FC<IMainMenu> = ({ className, quantity }) => {
   }
 
   return (
-    <header className={className}>
+    <header className={className} id="mainMenu">
       <nav>
         <NavLink to="/" className="logo-link" end>Fixxo.</NavLink>
         <div className={`nav-links ${showMenu ? "d-grid" : ""}`}>

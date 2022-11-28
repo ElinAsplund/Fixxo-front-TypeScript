@@ -28,7 +28,7 @@ const HomeView: React.FC = () => {
 
   return (
     <>
-      <MainMenu className="gradient-grey" />
+      {/* <MainMenu className="gradient-grey" /> */}
       <ShowcaseTop />
       {/* DEBUG BUTTON */}
       {/* <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div> */}
@@ -40,7 +40,7 @@ const HomeView: React.FC = () => {
       <HighlightSale />
       <ChosenCategories />
       <WebshopInfo />
-      <Footer />
+      {/* <Footer isFixed="" /> */}
     </>
   )
 }

@@ -10,25 +10,31 @@ import { ProductProvider } from './contexts/ProductContext';
 import ManageProductsView from './views/ManageProductsView';
 import ProductAPIProvider from './contexts/ProductAPIContext';
 import UpdateProductView from './views/UpdateProductView';
+import MainMenu from './sections/MainMenu';
+import Footer from './sections/Footer';
 
 const App: React.FC = () => {
 
   return (
     <BrowserRouter>
       <ProductProvider>
-        <ShoppingCartProvider>
-          <ProductAPIProvider>
-            <Routes>
-              <Route path="/" element={<HomeView />} />
-              <Route path="/contacts" element={<ContactsView />} />
-              <Route path="/products/" element={<ProductsView />} />
-              <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
-              <Route path="/manage_products" element={<ManageProductsView />} />
-              <Route path="/update_product/:id" element={<UpdateProductView />} />
-              <Route path="*" element={<NotFoundView />} />
-            </Routes>
-          </ProductAPIProvider>
-        </ShoppingCartProvider>
+      <ShoppingCartProvider>
+      <ProductAPIProvider>
+        <MainMenu className="gradient-grey" />
+        <div className="whole-view">
+          <Routes>
+            <Route path="/" element={<HomeView />} />
+            <Route path="/contacts" element={<ContactsView />} />
+            <Route path="/products/" element={<ProductsView />} />
+            <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
+            <Route path="/manage_products" element={<ManageProductsView />} />
+            <Route path="/update_product/:id" element={<UpdateProductView />} />
+            <Route path="*" element={<NotFoundView />} />
+          </Routes>
+        </div>
+        <Footer />
+      </ProductAPIProvider>
+      </ShoppingCartProvider>
       </ProductProvider>
     </BrowserRouter>
   );

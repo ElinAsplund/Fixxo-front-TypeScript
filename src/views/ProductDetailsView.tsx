@@ -30,7 +30,7 @@ const ProductDetailsView: React.FC = () => {
 
   return (
     <>
-      <MainMenu className="bg-white" />
+      {/* <MainMenu className="bg-white" /> */}
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-block" currentPage={productInfo.name} />
       <CurrentOfferBanner />
       <ProductOverview />
@@ -38,7 +38,7 @@ const ProductDetailsView: React.FC = () => {
       {/* PRODUCT INFO BUTTON: */}
       {/* <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={productInformation}>PRODUCT INFO</button></div> */}
       <RelatedProducts />
-      <Footer />
+      {/* <Footer isFixed="" /> */}
     </>
   )
 }

@@ -1,4 +1,6 @@
 .product-update-form{
+    
+    
     .container{
         form{
             input:focus,
@@ -11,6 +13,10 @@
             ::placeholder{
                 color: black;
                 opacity: 1;
+            }
+
+            a{
+                text-decoration: none;
             }
         }
     }

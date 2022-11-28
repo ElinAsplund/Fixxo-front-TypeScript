@@ -3,7 +3,7 @@ import ExternalLinkIcon from '../components/ExternalLinkIcon'
 
 const Footer: React.FC = () => {
   return (
-    <footer>
+    <footer className="footer">
       <div className="icon-holder">
         <ExternalLinkIcon link="https://www.facebook.com" icon="fa-brands fa-facebook-f" />
         <ExternalLinkIcon link="https://www.instagram.com" icon="fa-brands fa-instagram" />

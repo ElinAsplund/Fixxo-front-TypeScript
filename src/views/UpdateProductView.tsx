@@ -10,10 +10,10 @@ const UpdateProductView: React.FC = () => {
 
   return (
     <>
-        <MainMenu className="bg-white" />
+        {/* <MainMenu className="bg-white" /> */}
         <ProductInfoBox />
         <ProductUpdateForm />
-        <Footer />
+        {/* <Footer isFixed="fixed-footer" /> */}
     </>
   )
 }
