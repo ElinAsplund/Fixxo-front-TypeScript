@@ -1,8 +1,13 @@
 .product-update-form{
-    
-    
+     
     .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
         form{
+            width: 80%;
+
             input:focus,
             textarea:focus,
             select:focus{

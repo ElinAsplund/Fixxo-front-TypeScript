@@ -13,7 +13,7 @@ const ProductForm: React.FC = () => {
   return (
     <section className='product-form'>
       <div className="container">
-        <h3 className='d-flex justify-content-center' style={{ marginTop: "100px" }}>Manage Products</h3>
+        <h3 style={{ marginTop: "100px" }}>Manage Products</h3>
         <form onSubmit={create} noValidate>
           <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({ ...productRequest, articleNumber: e.target.value })} type='hidden' className='form-control my-3' placeholder="Enter product's article number..." />
           <input value={productRequest.name} onChange={(e) => setProductRequest({ ...productRequest, name: e.target.value })} type='text' className='form-control my-3' placeholder='Enter product name...' />

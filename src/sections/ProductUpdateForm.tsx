@@ -40,10 +40,10 @@ const ProductUpdateForm: React.FC = () => {
                     <option value="Watches">Watches</option>
                 </select>
                 <input value={product.price} onChange={(e) => setProduct({...product, price: Number(e.target.value)})} type='number'step="any" min={0} className='form-control my-3' placeholder='Enter product price...' />
-                <input value={product.imageName || ''} onChange={(e) => setProduct({...product, imageName: e.target.value})} type='text'className='form-control my-3' placeholder='Enter product image link...' />
+                <input value={product.imageName || ''} onChange={(e) => setProduct({...product, imageName: e.target.value})} type='text'className='form-control my-4' placeholder='Enter product image link...' />
                 <div className='d-grid justify-content-center'>
                     <button type='submit' className='btn-bg-theme mb-3'>UPDATE PRODUCT</button>
-                    <NavLink to={`/manage_products`} className="d-flex justify-content-center" end>
+                    <NavLink to={`/manage_products`} className="d-flex justify-content-center btn-no-corners" end>
                         <button className='btn-bg-theme-dark mb-5'>GO BACK</button>
                     </NavLink>
                 </div>

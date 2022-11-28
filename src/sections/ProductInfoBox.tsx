@@ -37,7 +37,7 @@ const ProductInfoBox: React.FC = () => {
             <h3 className='d-flex justify-content-center' style={{ marginTop: "100px" }}>Update Product</h3>
             {/* CURRENT */}
             <div className='container'>
-                <div className='info-box mb-3'>
+                <div className='info-box'>
                     <p className='d-flex justify-content-center' id="current-product">Current Information</p>
                     <div className="content-holder">
                         <div className='d-flex'>
