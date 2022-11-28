@@ -38,8 +38,8 @@ const ProductInfoBox: React.FC = () => {
             {/* CURRENT */}
             <div className='container'>
                 <div className='info-box mb-3'>
+                    <p className='d-flex justify-content-center' id="current-product">Current Information</p>
                     <div className="content-holder">
-                        <p className='d-flex justify-content-center'>Current product</p>
                         <div className='d-flex'>
                             <div className='img-holder'>
                                 <span>id: {product.id}</span>
