@@ -19,7 +19,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
 
   useEffect(() => {
     const fetchAllProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
+      let result = await fetch('http://localhost:5000/api/products')
+      // let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
       const products: Product[] = await result.json()
 
       const cartItems: CartItem[] = products.map((product: Product) => {
@@ -33,7 +34,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     fetchAllProducts()
 
     const fetchFourProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')
+      let result = await fetch('http://localhost:5000/api/products/take=4')
+      // let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')
       const products: Product[] = await result.json()
       const cartItems: CartItem[] = products.map((product: Product) => {
         return {
@@ -46,7 +48,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     fetchFourProducts()
 
     const fetchEighthProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')
+      let result = await fetch('http://localhost:5000/api/products/take=8')
+      // let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')
       const products: Product[] = await result.json()
       const cartItems: CartItem[] = products.map((product: Product) => {
         return {
@@ -59,7 +62,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     fetchEighthProducts()
 
     const fetchNineProducts = async () => {
-      let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')
+      let result = await fetch('http://localhost:5000/api/products/take=9')
+      // let result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=9')
       const products: Product[] = await result.json()
       const cartItems: CartItem[] = products.map((product: Product) => {
         return {

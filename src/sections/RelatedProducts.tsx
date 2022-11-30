@@ -22,7 +22,7 @@ const RelatedProducts: React.FC = () => {
                 </div>
                 <div className="grid">
                     {
-                        fourProducts.map((product: CartItem) => <SmallCard item={product} key={product.item.articleNumber} />)
+                        fourProducts.map((product: CartItem) => <SmallCard item={product} key={product.item.id} />)
                     }
                 </div>
             </div>

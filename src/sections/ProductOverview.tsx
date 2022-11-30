@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState } from 'react'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
 import { Product } from '../models/productModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const ProductOverview: React.FC = () => {
+interface Params {
+    productInfo: Product
+}
+
+const ProductOverview: React.FC<Params> = ({productInfo}) => {
 
     // ------------------------------------------------------------------------------
     // SETTING OF "GLOBAL VALUES":
@@ -13,19 +16,6 @@ const ProductOverview: React.FC = () => {
     const [activeSizeL, setActiveSizeL] = useState<boolean>(false)
     const [activeSizeXL, setActiveSizeXL] = useState<boolean>(false)
     const [count, setCount] = useState<number>(1)
-    const params = useParams()
-    const [productInfo, setProductInfo] = useState<Product>({} as Product)
-
-    // ------------------------------------------------------------------------------
-    // FETCHING DATA ABOUT A SPECIFIC PRODUCT: 
-    useEffect(() => {
-        const fetchProductInfo = async () => {
-            const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${params.articleNumber}`)
-            setProductInfo(await result.json())
-        }
-        fetchProductInfo()
-
-    }, [setProductInfo])
 
     // ------------------------------------------------------------------------------
     // ON SUBMIT:
@@ -89,10 +79,10 @@ const ProductOverview: React.FC = () => {
         <section className="product-overview">
             <div className="container">
                 <div className="grid">
-                    <div className="lg-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
-                    <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
-                    <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
-                    <div className="sm-placeholder-area"><img src={productInfo.imageName} className="lg-placeholder-area" /></div>
+                    <div className="lg-placeholder-area"><img src={productInfo.imageName} /></div>
+                    <div className="sm-placeholder-area"><img src={productInfo.imageName} /></div>
+                    <div className="sm-placeholder-area"><img src={productInfo.imageName} /></div>
+                    <div className="sm-placeholder-area"><img src={productInfo.imageName} /></div>
                     <div className="product-order-overview">
                         <h1>{productInfo.name}</h1>
                         <p className="small-print">SKU: 12345670 <span>BRAND: The Northland</span></p>

@@ -17,7 +17,7 @@ const FeaturedProducts: React.FC<IFeaturedProducts> = ({ className, title, items
         <h3>{title}</h3>
         <div className="grid">
           {
-            items.length > 0 && items.map((product: CartItem) => <SmallCard item={product} key={product.item.articleNumber} />)
+            items.length > 0 && items.map((product: CartItem) => <SmallCard item={product} key={product.item.id} />)
           }
         </div>
       </div>

@@ -52,7 +52,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     }
   }
 
-  // HÄMTA SPECIFIK(?) PRODUKT
+  // HÄMTA SPECIFIK PRODUKT
   const get = async (id: number) => {
     const result = await fetch(`${baseUrl}/${id}`)
     if( result.status === 200 )

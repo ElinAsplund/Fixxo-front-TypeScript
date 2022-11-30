@@ -24,12 +24,12 @@ const SmallCard: React.FC<{ item: CartItem }> = ({ item }) => {
                     <button onClick={addToCompare} className='btn-menu-icon'><i className='fa-regular fa-code-compare fa-flip-horizontal'></i></button>
                     <button onClick={() => incrementQuantity !== undefined ? incrementQuantity(item) : {}} className='btn-menu-icon'><i className='fa-regular fa-bag-shopping'></i></button>
                 </div>
-                <NavLink to={`/products/${item.item.articleNumber}`} end>
+                <NavLink to={`/products/${item.item.id}`} end>
                     <button className="btn-bg-theme btn-quick-view">QUICK VIEW</button>
                 </NavLink>
             </div>
             <h2>{item.item.category}</h2>
-            <NavLink to={`/products/${item.item.articleNumber}`} className="product-name" end>{item.item.name}</NavLink>
+            <NavLink to={`/products/${item.item.id}`} className="product-name" end>{item.item.name}</NavLink>
             <div className="star-holder">
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>

@@ -15,7 +15,7 @@ const ChosenCategories: React.FC = () => {
           <h3 className="middle-coloumn">Best Selling Products</h3>
           <h3 className="last-coloumn">Top Reacted Products</h3>
           {
-            nineProducts.map((product: CartItem) => <MiniCard item={product} key={product.item.articleNumber} />)
+            nineProducts.map((product: CartItem) => <MiniCard item={product} key={product.item.id} />)
           }
         </div>
       </div>
