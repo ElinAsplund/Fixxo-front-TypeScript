@@ -8,7 +8,7 @@ const ShowcaseTop: React.FC = () => {
         <div className="img-holder"><img src='https://win22imgstorage.blob.core.windows.net/images/showcase-img-1.png' alt=""/></div>
           <div className="text-holder">
             <h1>Sale&nbsp;Up<br/>To&nbsp;50%&nbsp;Off</h1>
-            <p>Online shopping free home delivery over $100</p>
+            <p>Online shopping free home delivery over&nbsp;$100</p>
             <NavLink to={`/products`}end>
               <button className="btn-bg-theme">SHOP NOW</button>
             </NavLink>

@@ -21,7 +21,7 @@ const ProductDetailsView: React.FC = () => {
 
   useEffect(() => {
     const fetchProductInfo = async () => {
-      const result = await fetch(`http://localhost:5000/api/products/${articleNumber}`)
+      const result = await fetch(`http://localhost:5000/api/products/details/${articleNumber}`)
       const data = await result.json()
       setProductInfo(data)
     }

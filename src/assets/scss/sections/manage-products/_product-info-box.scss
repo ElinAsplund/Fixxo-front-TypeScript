@@ -41,6 +41,12 @@
                 &:hover{
                     background-color: #ffd5d5;
                     border: #ffd5d5 solid 20px;
+
+                    .img-holder{
+                        span{
+                            bottom: 0;
+                        }
+                    }
                 }
                 
 
@@ -59,9 +65,10 @@
                         font-size: $font-size-18;
                         // color: $color-theme;
                         background-color: $color-white;
-                        padding: 6px 15px;
+                        padding: 4px 15px 3px 15px;
                         border-radius: 0 10px 0 0;
-                        bottom: 0;
+                        bottom: -3px;
+                        transition: 0.3s ease-in;
                     }
         
                     img{

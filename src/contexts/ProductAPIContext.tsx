@@ -14,6 +14,7 @@ export interface IProductAPIContext{
   getAll: () => void
   update: (e: React.FormEvent) => void
   remove: (id: number) => void
+  getFeatured: (tag: string) => void
 }
 
 export interface ProductAPIProviderProps{
@@ -54,9 +55,16 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
 
   // HÄMTA SPECIFIK PRODUKT
   const get = async (id: number) => {
-    const result = await fetch(`${baseUrl}/${id}`)
+    const result = await fetch(`${baseUrl}/details/${id}`)
     if( result.status === 200 )
       setProduct(await result.json())
+  }
+
+  // HÄMTA FEATURED PRODUKT-TAG
+  const getFeatured = async (tag: string) => {
+    const result = await fetch(`${baseUrl}/${tag}`)
+    if( result.status === 200 )
+      setProducts(await result.json())
   }
 
   // HÄMTA ALLA PRODUKTER
@@ -70,7 +78,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const update = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const result = await fetch(`${baseUrl}/${product.id}`, {
+    const result = await fetch(`${baseUrl}/details/${product.id}`, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json'
@@ -85,7 +93,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   // TA BORT PRODUKT
   const remove = async (id: number) => {
     
-    const result = await fetch(`${baseUrl}/${id}`, { 
+    const result = await fetch(`${baseUrl}/details/${id}`, { 
       method: 'delete' 
     })
 
@@ -94,7 +102,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   }
 
   return (
-    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, remove }}>
+    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, getFeatured, products, create, get, getAll, update, remove }}>
       {children}
     </ProductAPIContext.Provider>
   )

@@ -13,7 +13,7 @@ import { useProductContext } from '../contexts/ProductContext'
 const HomeView: React.FC = () => {
   document.title = 'Fixxo.'
 
-  const { products, fourProducts, eighthProducts, nineProducts } = useProductContext()
+  const { products, fourProducts, eighthProducts, nineProducts, featuredProducts } = useProductContext()
 
 
   const debug = () => {
@@ -30,7 +30,7 @@ const HomeView: React.FC = () => {
       {/* DEBUG BUTTON */}
       {/* <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div> */}
       <ShowcaseBottom />
-      <FeaturedProducts className="featured-products" title="Featured Products" items={eighthProducts} />
+      <FeaturedProducts className="featured-products" title="Featured Products" items={featuredProducts} />
       <TopPicks />
       <OurSpeciality />
       <TwoForPriceOf />

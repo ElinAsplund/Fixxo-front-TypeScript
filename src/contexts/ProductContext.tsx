@@ -16,6 +16,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
   const [fourProducts, setFourProducts] = useState<CartItem[]>([])
   const [eighthProducts, setEighthProducts] = useState<CartItem[]>([])
   const [nineProducts, setNineProducts] = useState<CartItem[]>([])
+  const [featuredProducts, setFeaturedProducts] = useState<CartItem[]>([])
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -75,10 +76,23 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     }
     fetchNineProducts()
 
-  }, [setProducts, setFourProducts, setEighthProducts, setNineProducts])
+    const fetchFeaturedProducts = async () => {
+      let result = await fetch('http://localhost:5000/api/products/featured')
+      const products: Product[] = await result.json()
+      const cartItems: CartItem[] = products.map((product: Product) => {
+        return {
+          item: product,
+          quantity: 0
+        }
+      })
+      setFeaturedProducts(cartItems)
+    }
+    fetchFeaturedProducts()
+
+  }, [setProducts, setFourProducts, setEighthProducts, setNineProducts, setFeaturedProducts])
 
 
-  return <ProductContext.Provider value={{ products, fourProducts, eighthProducts, nineProducts }}>
+  return <ProductContext.Provider value={{ products, fourProducts, eighthProducts, nineProducts, featuredProducts }}>
     {children}
   </ProductContext.Provider>
 }

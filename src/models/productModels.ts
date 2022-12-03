@@ -27,6 +27,7 @@ export interface ProductRequest {
 export interface ProductAPI {
   id: number,
   articleNumber?: string,
+  tag?: string,
   name: string,
   description?: string,
   category: string,
@@ -40,6 +41,7 @@ export interface IProductContext {
   fourProducts: CartItem[],
   eighthProducts: CartItem[],
   nineProducts: CartItem[]
+  featuredProducts: CartItem[]
 }
 
 export interface IProductProviderProps {
