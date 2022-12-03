@@ -22,7 +22,7 @@ const ShoppingCart: React.FC = () => {
             </div>
             <div className="offcanvas-body">
                 {
-                    cart && cart.cartItems.map((item: CartItem) => (<ShoppingCartItem key={item.item.articleNumber} item={item} />))
+                    cart && cart.cartItems.map((item: CartItem) => (<ShoppingCartItem key={item.item.id} item={item} />))
                 }
             </div>
         </div>

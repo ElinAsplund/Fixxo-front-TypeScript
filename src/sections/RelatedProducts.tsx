@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SmallCard from '../components/SmallCard'
 import { CartItem } from '../models/cartModels'
 import { useProductContext } from '../contexts/ProductContext';
 
 const RelatedProducts: React.FC = () => {
-    const { fourProducts } = useProductContext()
+    const { special, getSpecial } = useProductContext()
+
+    useEffect(() => {
+        getSpecial(4)
+      }, [])
 
     return (
         <section className="related-products">
@@ -22,7 +26,7 @@ const RelatedProducts: React.FC = () => {
                 </div>
                 <div className="grid">
                     {
-                        fourProducts.map((product: CartItem) => <SmallCard item={product} key={product.item.id} />)
+                        special.map((product: CartItem) => <SmallCard item={product} key={product.item.id} />)
                     }
                 </div>
             </div>

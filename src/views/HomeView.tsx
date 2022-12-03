@@ -7,30 +7,32 @@ import TwoForPriceOf from '../sections/TwoForPriceOf';
 import HighlightSale from '../sections/HighlightSale'
 import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useProductContext } from '../contexts/ProductContext'
+import { useLocation } from 'react-router-dom';
 
 const HomeView: React.FC = () => {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+
   document.title = 'Fixxo.'
 
-  const { products, fourProducts, eighthProducts, nineProducts, featuredProducts } = useProductContext()
+  const { getFeatured, featured } = useProductContext()
 
-
-  const debug = () => {
-    console.log(products);
-    console.log(fourProducts);
-    console.log(eighthProducts);
-    console.log(nineProducts);
-  }
+  useEffect(() => {
+    getFeatured(8)
+  }, [])
 
 
   return (
     <>
       <ShowcaseTop />
-      {/* DEBUG BUTTON */}
-      {/* <div className='container d-flex justify-content-center align-items-center mb-4 mt-4'><button className='btn-bg-theme' onClick={debug}>PRODUCTS FETCHED?</button></div> */}
       <ShowcaseBottom />
-      <FeaturedProducts className="featured-products" title="Featured Products" items={featuredProducts} />
+      <FeaturedProducts className="featured-products" title="Featured Products" items={featured} />
       <TopPicks />
       <OurSpeciality />
       <TwoForPriceOf />
