@@ -18,13 +18,15 @@ const HomeView: React.FC = () => {
     window.scrollTo(0, 0)
   }, [pathname])
 
-
   document.title = 'Fixxo.'
 
-  const { getFeatured, featured } = useProductContext()
+  const { featured, getFeatured, theRemains, getTheRemains, special, getSpecial, specialTwo, getSpecialTwo } = useProductContext()
 
   useEffect(() => {
     getFeatured(8)
+    getSpecial(4)
+    getSpecialTwo(4)
+    getTheRemains(9)
   }, [])
 
 
@@ -35,9 +37,9 @@ const HomeView: React.FC = () => {
       <FeaturedProducts className="featured-products" title="Featured Products" items={featured} />
       <TopPicks />
       <OurSpeciality />
-      <TwoForPriceOf />
+      <TwoForPriceOf special={special} specialTwo={specialTwo} />
       <HighlightSale />
-      <ChosenCategories />
+      <ChosenCategories items={theRemains} />
       <WebshopInfo />
     </>
   )

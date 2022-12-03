@@ -37,11 +37,13 @@ export interface ProductAPI {
 }
 
 export interface IProductContext {
-  products: CartItem[],
+  // products: CartItem[],
   // fourProducts: CartItem[],
   // eighthProducts: CartItem[],
   // nineProducts: CartItem[]
   // featuredProducts: CartItem[]
+  getAll: () => void
+  all: CartItem[]
   getFeatured: (amount: number) => void
   featured: CartItem[]
   getSpecial: (amount: number) => void

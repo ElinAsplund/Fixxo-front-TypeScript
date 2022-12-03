@@ -5,13 +5,13 @@ import ProductOverview from '../sections/ProductOverview'
 import RelatedProducts from '../sections/RelatedProducts'
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom'
-import { Product } from '../models/productModels'
+import { ProductAPI } from '../models/productModels'
 
 const ProductDetailsView: React.FC = () => {
 
   // ------------------------------------------------------------------------------
   // ENABLING RENDERING THE PRODUCT NAME IN THE BREADCRUMB SECTION AND IN THE DOCUMENT TITLE:  
-  const [productInfo, setProductInfo] = useState<Product>({} as Product)
+  const [productInfo, setProductInfo] = useState<ProductAPI>({} as ProductAPI)
   const { articleNumber } = useParams()
   const { pathname } = useLocation()
 
@@ -26,7 +26,6 @@ const ProductDetailsView: React.FC = () => {
       setProductInfo(data)
     }
     fetchProductInfo()
-
   }, [articleNumber])
 
   document.title = productInfo.name + ' | Fixxo.'
@@ -38,8 +37,6 @@ const ProductDetailsView: React.FC = () => {
       <CurrentOfferBanner />
       <ProductOverview productInfo={productInfo} />
       <ProductInDepthInfo />
-      {/* PRODUCT INFO BUTTON: */}
-      {/* <div className='container d-flex justify-content-center align-items-center mb-4'><button className="btn-bg-theme" onClick={productInformation}>PRODUCT INFO</button></div> */}
       <RelatedProducts />
     </>
   )

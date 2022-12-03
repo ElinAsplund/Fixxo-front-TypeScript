@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import SmallCard from '../components/SmallCard'
 import LgCard from '../components/LgCard'
-import { useProductContext } from '../contexts/ProductContext';
 import { CartItem } from '../models/cartModels'
 
-const TwoForPriceOf: React.FC = () => {
-    const { getSpecial, special, specialTwo, getSpecialTwo } = useProductContext()
+interface ITwoForPriceOf{
+    special: CartItem[]
+    specialTwo: CartItem[]
+}
 
-    useEffect(() => {
-        getSpecial(4)
-        getSpecialTwo(4)
-      }, [])
+const TwoForPriceOf: React.FC <ITwoForPriceOf> = ({ special, specialTwo }) => {
 
     return (
         <section className="two-for-price-of ">

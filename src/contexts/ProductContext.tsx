@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { IProductContext, IProductProviderProps, Product } from "../models/productModels"
 import { CartItem } from '../models/cartModels'
 
@@ -12,31 +12,32 @@ export const useProductContext = () => {
 
 export const ProductProvider = ({ children }: IProductProviderProps) => {
 
-  const [products, setProducts] = useState<CartItem[]>([])
+  // const [products, setProducts] = useState<CartItem[]>([])
   // const [fourProducts, setFourProducts] = useState<CartItem[]>([])
   // const [eighthProducts, setEighthProducts] = useState<CartItem[]>([])
   // const [nineProducts, setNineProducts] = useState<CartItem[]>([])
   // const [featuredProducts, setFeaturedProducts] = useState<CartItem[]>([])
+  const [all, setAll] = useState<CartItem[]>([])
   const [featured, setFeatured] = useState<CartItem[]>([])
   const [special, setSpecial] = useState<CartItem[]>([])
   const [specialTwo, setSpecialTwo] = useState<CartItem[]>([])
   const [theRemains, setTheRemains] = useState<CartItem[]>([])
 
-  useEffect(() => {
-    const fetchAllProducts = async () => {
-      let result = await fetch('http://localhost:5000/api/products')
-      // let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
-      const products: Product[] = await result.json()
+  // useEffect(() => {
+  //   const fetchAllProducts = async () => {
+  //     let result = await fetch('http://localhost:5000/api/products')
+  //     // let result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
+  //     const products: Product[] = await result.json()
 
-      const cartItems: CartItem[] = products.map((product: Product) => {
-        return {
-          item: product,
-          quantity: 0
-        }
-      })
-      setProducts(cartItems)
-    }
-    fetchAllProducts()
+  //     const cartItems: CartItem[] = products.map((product: Product) => {
+  //       return {
+  //         item: product,
+  //         quantity: 0
+  //       }
+  //     })
+  //     setProducts(cartItems)
+  //   }
+  //   fetchAllProducts()
 
     // const fetchFourProducts = async () => {
     // let result = await fetch('http://localhost:5000/api/products/take=4')
@@ -93,8 +94,24 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     // }
     // fetchFeaturedProducts()
 
-  }, [setProducts])
+  // }, [setProducts])
 
+
+
+  const getAll =async () => {
+    let url = 'http://localhost:5000/api/products/'
+
+    const result = await fetch(url)
+    const products: Product[] = await result.json()
+    const cartItems: CartItem[] = products.map((product: Product) => {
+      return {
+        item: product,
+        quantity: 0
+      }
+    })
+
+    setAll(cartItems)
+  }
 
   const getFeatured =async (amount: number = 0) => {
     let url = 'http://localhost:5000/api/products/featured'
@@ -169,7 +186,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
   }
 
 
-  return <ProductContext.Provider value={{ special, getSpecial, specialTwo, getSpecialTwo, featured, getFeatured, theRemains, getTheRemains, products }}>
+  return <ProductContext.Provider value={{ all, getAll, special, getSpecial, specialTwo, getSpecialTwo, featured, getFeatured, theRemains, getTheRemains }}>
     {children}
   </ProductContext.Provider>
 }
