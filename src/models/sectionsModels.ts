@@ -32,7 +32,7 @@ export interface IMainMenu {
 }
 
 export interface ShoppingCartProp {
-    item: CartItem
+    item: CartItem,
 }
 
 export interface IFeaturedProducts {

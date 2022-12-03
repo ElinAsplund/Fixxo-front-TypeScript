@@ -1,7 +1,7 @@
 import { CartItem } from './cartModels'
 
 export interface Product {
-  id?: number,
+  id: number,
   articleNumber: string,
   name: string,
   description?: string,

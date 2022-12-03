@@ -3,10 +3,10 @@ import { Product } from "./productModels"
 export interface ShoppingCartContextProps {
     cartItems: CartItem[]
     cartQuantity: number
-    getItemQuantity: (articleNumber: string) => number
+    getItemQuantity: (id: number) => number
     incrementQuantity: (cartItem: CartItem) => void
     decrementQuantity: (cartItem: CartItem) => void
-    removeItem: (articleNumber: string) => void
+    removeItem: (id: number) => void
 }
 
 export interface CartItem {

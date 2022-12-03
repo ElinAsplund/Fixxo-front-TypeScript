@@ -15,18 +15,18 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber: string) => {
-        return cartItems.find(item => item.item.articleNumber === articleNumber)?.quantity || 0
+    const getItemQuantity = (id: number) => {
+        return cartItems.find(item => item.item.id === id)?.quantity || 0
     }
 
     const incrementQuantity = (cartItem: CartItem) => {
 
         setCartItems(items => {
-            if (items.find(item => item.item.articleNumber === cartItem.item.articleNumber) == null) {
+            if (items.find(item => item.item.id === cartItem.item.id) == null) {
                 return [...items, { item: cartItem.item, quantity: 1 }]
             } else {
                 return items.map(item => {
-                    if (item.item.articleNumber === cartItem.item.articleNumber) {
+                    if (item.item.id === cartItem.item.id) {
                         return { ...item, quantity: item.quantity + 1 }
                     } else {
                         return item
@@ -39,11 +39,11 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
     const decrementQuantity = (cartItem: CartItem) => {
 
         setCartItems(items => {
-            if (items.find(item => item.item.articleNumber === cartItem.item.articleNumber)?.quantity === 1) {
-                return items.filter(item => item.item.articleNumber !== cartItem.item.articleNumber)
+            if (items.find(item => item.item.id === cartItem.item.id)?.quantity === 1) {
+                return items.filter(item => item.item.id !== cartItem.item.id)
             } else {
                 return items.map(item => {
-                    if (item.item.articleNumber === cartItem.item.articleNumber) {
+                    if (item.item.id === cartItem.item.id) {
                         return { ...item, quantity: item.quantity - 1 }
                     } else {
                         return item
@@ -53,9 +53,9 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         })
     }
 
-    const removeItem = (articleNumber: string) => {
+    const removeItem = (id: number) => {
         setCartItems(items => {
-            return items.filter(item => item.item.articleNumber !== articleNumber)
+            return items.filter(item => item.item.id !== id)
         })
     }
 
