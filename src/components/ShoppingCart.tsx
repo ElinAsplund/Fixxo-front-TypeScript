@@ -2,17 +2,18 @@ import React from 'react'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
 import ShoppingCartItem from './ShoppingCartItem'
 import { CartItem } from '../models/cartModels'
+import { currencyFormatter } from '../utilities/currencyFormatter'
+
 
 const ShoppingCart: React.FC = () => {
     const cart = useShoppingCart()
+    const cartQuantity = useShoppingCart()?.cartQuantity
+    const cartTotal = useShoppingCart()?.cartTotal
 
     // Debugging with Joakim:
     // React.useEffect(() => {
     //     console.log('test', test)
     // }, [test])
-
-    // Solving tabIndex problem:
-    // https://stackoverflow.com/questions/73230435/how-to-add-tabindex-0-in-typescript-div
 
     return (
         <div className="offcanvas offcanvas-end shopping-cart" tabIndex={-1} id="shoppingCart" aria-labelledby="shoppingCartLabel">
@@ -24,6 +25,8 @@ const ShoppingCart: React.FC = () => {
                 {
                     cart && cart.cartItems.map((item: CartItem) => (<ShoppingCartItem key={item.item.id} item={item} />))
                 }
+                {/* <p>Total quantity: {cartQuantity}</p> */}
+                <p>Total price: {currencyFormatter(cartTotal !== undefined ? cartTotal: 0)}</p>
             </div>
         </div>
     )

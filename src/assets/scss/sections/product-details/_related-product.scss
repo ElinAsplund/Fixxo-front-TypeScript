@@ -77,15 +77,15 @@
         }
 
         .small-card{
-            &:nth-child(3),
-            &:nth-child(4){
-                display: none;
-            }
+            // &:nth-child(3),
+            // &:nth-child(4){
+            //     display: none;
+            // }
 
             // removing overflowing cards
-            &:nth-child(n+5){
-                display: none;
-            }
+            // &:nth-child(n+5){
+            //     display: none;
+            // }
 
             @include lg{
                 &:nth-child(3){

@@ -15,8 +15,21 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         (quantity, item) => item.quantity + quantity, 0
     )
 
+    const cartTotal = cartItems.reduce(
+        (total, item) => total + (item.quantity * item.item.price), 0
+    )
+
     const getItemQuantity = (id: number) => {
         return cartItems.find(item => item.item.id === id)?.quantity || 0
+    }
+
+    const getItemPrice = (id: number) => {
+        let quantity = cartItems.find(item => item.item.id === id)?.quantity || 0
+        let price = cartItems.find(item => item.item.id === id)?.item.price || 0
+
+        let itemTotal = quantity * price
+
+        return itemTotal
     }
 
     const incrementQuantity = (cartItem: CartItem) => {
@@ -62,7 +75,9 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
     const result: ShoppingCartContextProps = {
         cartItems,
         cartQuantity,
+        cartTotal,
         getItemQuantity,
+        getItemPrice,
         incrementQuantity,
         decrementQuantity,
         removeItem
