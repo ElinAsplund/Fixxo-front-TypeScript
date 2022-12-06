@@ -1,7 +1,7 @@
 import { CartItem } from './cartModels'
 
 export interface Product {
-  id: number,
+  id: string,
   articleNumber: string,
   name: string,
   description?: string,
@@ -25,7 +25,7 @@ export interface ProductRequest {
 
 // "ALLT ANNAT FRÅN API"?
 export interface ProductAPI {
-  id: number,
+  id: string,
   articleNumber?: string,
   tag?: string,
   name: string,

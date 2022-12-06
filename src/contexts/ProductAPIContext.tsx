@@ -10,10 +10,10 @@ export interface IProductAPIContext{
   setProductRequest: React.Dispatch<React.SetStateAction<ProductRequest>>
   products: ProductAPI[]
   create: (e: React.FormEvent) => void
-  get: (id: number) => void
+  get: (id: string) => void
   getAll: () => void
   update: (e: React.FormEvent) => void
-  remove: (id: number) => void
+  remove: (id: string) => void
   getFeatured: (tag: string) => void
 }
 
@@ -27,7 +27,7 @@ export const useProductAPIContext = () => {return useContext(ProductAPIContext)}
 
 const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const baseUrl = 'http://localhost:5000/api/products'
-  const product_default: ProductAPI = { id: 0, articleNumber: '', name: '', description: '', category: '', price: 0, rating: 0, imageName: '' }
+  const product_default: ProductAPI = { id: '', articleNumber: '', name: '', description: '', category: '', price: 0, rating: 0, imageName: '' }
   const productRequest_default: ProductRequest = { articleNumber: '', name: '', description: '',category: '', price: 0, rating: 0, imageName: '' }
 
   const [product, setProduct] = useState<ProductAPI>(product_default)
@@ -54,7 +54,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   }
 
   // HÄMTA SPECIFIK PRODUKT
-  const get = async (id: number) => {
+  const get = async (id: string) => {
     const result = await fetch(`${baseUrl}/details/${id}`)
     if( result.status === 200 )
       setProduct(await result.json())
@@ -91,7 +91,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   }
   
   // TA BORT PRODUKT
-  const remove = async (id: number) => {
+  const remove = async (id: string) => {
     
     const result = await fetch(`${baseUrl}/details/${id}`, { 
       method: 'delete' 

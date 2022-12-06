@@ -12,7 +12,7 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
     return (
         <div className="product-list-item btn-no-corners">
             <div className='left-side'>
-                <p>id: {item.id}</p>
+                {/* <p>id: {item.id}</p> */}
                 <div className="placeholder-area">
                     <img src={item.imageName} />
                 </div>

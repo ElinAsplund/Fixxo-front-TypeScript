@@ -6,7 +6,7 @@ const ProductUpdateForm: React.FC = () => {
     const { update, get, product, setProduct } = React.useContext(ProductAPIContext) as IProductAPIContext
         
     const id = useParams().id
-    const parseId = id !== undefined ? Number(id): 0;
+    const parseId = id !== undefined ? id: "";
     
     
     useEffect (() => {

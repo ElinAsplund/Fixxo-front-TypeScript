@@ -6,7 +6,8 @@ import { currencyFormatter } from '../utilities/currencyFormatter'
 const ProductInfoBox: React.FC = () => {
 
     const id = useParams().id
-    const parseId = id !== undefined ? Number(id) : 0;
+    const parseId = id !== undefined ? id : "";
+    // const parseId = id !== undefined ? Number(id) : 0;
 
     const { get, product, products, getAll } = React.useContext(ProductAPIContext) as IProductAPIContext
 
@@ -38,11 +39,11 @@ const ProductInfoBox: React.FC = () => {
             {/* CURRENT */}
             <div className='container'>
                 <div className='info-box'>
-                    <p className='d-flex justify-content-center' id="current-product">Current Information</p>
+                    <p id="current-product">Current Information <span>id: {product.id}</span></p>
                     <div className="content-holder">
                         <div className='d-flex'>
                             <div className='img-holder'>
-                                <span>id: {product.id}</span>
+                                {/* <span>id: {product.id}</span> */}
                                 {
                                     products.filter(product => product.id === parseId).map(filteredProduct => (
                                         <img key={filteredProduct.id} src={filteredProduct.imageName} />

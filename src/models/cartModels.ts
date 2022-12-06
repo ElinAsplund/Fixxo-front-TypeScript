@@ -4,11 +4,11 @@ export interface ShoppingCartContextProps {
     cartItems: CartItem[]
     cartQuantity: number
     cartTotal: number
-    getItemQuantity: (id: number) => number
-    getItemPrice: (id: number) => number
+    getItemQuantity: (id: string) => number
+    getItemPrice: (id: string) => number
     incrementQuantity: (cartItem: CartItem) => void
     decrementQuantity: (cartItem: CartItem) => void
-    removeItem: (id: number) => void
+    removeItem: (id: string) => void
 }
 
 export interface CartItem {

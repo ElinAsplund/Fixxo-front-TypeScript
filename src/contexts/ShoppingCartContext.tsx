@@ -19,11 +19,11 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         (total, item) => total + (item.quantity * item.item.price), 0
     )
 
-    const getItemQuantity = (id: number) => {
+    const getItemQuantity = (id: string) => {
         return cartItems.find(item => item.item.id === id)?.quantity || 0
     }
 
-    const getItemPrice = (id: number) => {
+    const getItemPrice = (id: string) => {
         let quantity = cartItems.find(item => item.item.id === id)?.quantity || 0
         let price = cartItems.find(item => item.item.id === id)?.item.price || 0
 
@@ -66,7 +66,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         })
     }
 
-    const removeItem = (id: number) => {
+    const removeItem = (id: string) => {
         setCartItems(items => {
             return items.filter(item => item.item.id !== id)
         })
