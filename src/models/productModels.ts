@@ -1,18 +1,6 @@
 import { CartItem } from './cartModels'
 
-export interface Product {
-  id: string,
-  articleNumber: string,
-  name: string,
-  description?: string,
-  category: string,
-  price: number,
-  rating: number,
-  imageName: string,
-  initialPrice?: number
-}
-
-// "NÄR VI SKAPAR EN PRODUKT"?
+// when you are creating a new product
 export interface ProductRequest {
   articleNumber: string,
   name: string,
@@ -23,12 +11,11 @@ export interface ProductRequest {
   imageName: string
 }
 
-// "ALLT ANNAT FRÅN API"?
+// everything else using product
 export interface ProductAPI {
   id: string,
-  _id?: string,
   articleNumber?: string,
-  tag?: string,
+  tag: string,
   name: string,
   description?: string,
   category: string,

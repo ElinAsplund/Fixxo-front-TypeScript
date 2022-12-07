@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { IProductContext, IProductProviderProps, Product } from "../models/productModels"
+import { IProductContext, IProductProviderProps, ProductAPI } from "../models/productModels"
 import { CartItem } from '../models/cartModels'
 
 // Solved this part with help from Sara Lindström and Joakim:
@@ -21,8 +21,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     let url = 'http://localhost:5000/api/products/'
 
     const result = await fetch(url)
-    const products: Product[] = await result.json()
-    const cartItems: CartItem[] = products.map((product: Product) => {
+    const products: ProductAPI[] = await result.json()
+    const cartItems: CartItem[] = products.map((product: ProductAPI) => {
       return {
         item: product,
         quantity: 0
@@ -39,8 +39,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
       url += `/take=${amount}`
   
     const result = await fetch(url)
-    const products: Product[] = await result.json()
-    const cartItems: CartItem[] = products.map((product: Product) => {
+    const products: ProductAPI[] = await result.json()
+    const cartItems: CartItem[] = products.map((product: ProductAPI) => {
       return {
         item: product,
         quantity: 0
@@ -57,8 +57,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
       url += `/take=${amount}`
   
     const result = await fetch(url)
-    const products: Product[] = await result.json()
-    const cartItems: CartItem[] = products.map((product: Product) => {
+    const products: ProductAPI[] = await result.json()
+    const cartItems: CartItem[] = products.map((product: ProductAPI) => {
       return {
         item: product,
         quantity: 0
@@ -75,8 +75,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
       url += `/take=${amount}`
   
     const result = await fetch(url)
-    const products: Product[] = await result.json()
-    const cartItems: CartItem[] = products.map((product: Product) => {
+    const products: ProductAPI[] = await result.json()
+    const cartItems: CartItem[] = products.map((product: ProductAPI) => {
       return {
         item: product,
         quantity: 0
@@ -93,8 +93,8 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
       url += `/take=${amount}`
   
     const result = await fetch(url)
-    const products: Product[] = await result.json()
-    const cartItems: CartItem[] = products.map((product: Product) => {
+    const products: ProductAPI[] = await result.json()
+    const cartItems: CartItem[] = products.map((product: ProductAPI) => {
       return {
         item: product,
         quantity: 0

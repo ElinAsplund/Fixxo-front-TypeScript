@@ -1,4 +1,4 @@
-import { Product } from "./productModels"
+import { ProductAPI } from "./productModels"
 
 export interface ShoppingCartContextProps {
     cartItems: CartItem[]
@@ -12,7 +12,7 @@ export interface ShoppingCartContextProps {
 }
 
 export interface CartItem {
-    item: Product
+    item: ProductAPI
     quantity: number
 }
 

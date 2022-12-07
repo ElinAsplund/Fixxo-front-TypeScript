@@ -37,7 +37,7 @@ const SmallCard: React.FC<{ item: CartItem }> = ({ item }) => {
                 <i className="fa-sharp fa-solid fa-star"></i>
                 <i className="fa-sharp fa-solid fa-star"></i>
             </div>
-            <p><span id="before-discount-price">{item.item.initialPrice}</span> {currencyFormatter(item.item.price)}</p>
+            <p><span id="before-discount-price"></span> {currencyFormatter(item.item.price)}</p>
         </div>
     )
 }
