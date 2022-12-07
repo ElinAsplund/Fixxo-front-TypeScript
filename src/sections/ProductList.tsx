@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ProductListItem from '../components/ProductListItem'
-import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 import { ProductAPI } from '../models/productModels'
 
-const ProductList: React.FC = () => {
+interface IProductList{
+  products: ProductAPI[]
+}
 
-  const { products, getAll } = React.useContext(ProductAPIContext) as IProductAPIContext
-
-  useEffect(() => {
-    getAll()
-  }, [getAll])
+const ProductList: React.FC <IProductList> = ( {products} ) => {
 
   return (
     <section className='product-list'>
