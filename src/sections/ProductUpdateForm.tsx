@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
+import { ProductAPI } from '../models/productModels'
 
-const ProductUpdateForm: React.FC = () => {
-    const { update, get, product, setProduct } = React.useContext(ProductAPIContext) as IProductAPIContext
+interface IProductUpdateForm{
+    product: ProductAPI
+}
+
+const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
+    const { update, setProduct } = React.useContext(ProductAPIContext) as IProductAPIContext
         
-    const id = useParams().id
-    const parseId = id !== undefined ? id: "";
+    // const id = useParams().id
+    // const parseId = id !== undefined ? id: "";
     
+    // useEffect (() => {
+    //     get(parseId)
+    // }, [])
     
-    useEffect (() => {
-        get(parseId)
-    }, [])
-    
-
   return (
     <section className='product-update-form'>
         <div className="container">

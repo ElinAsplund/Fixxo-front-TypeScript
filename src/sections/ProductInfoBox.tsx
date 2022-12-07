@@ -1,24 +1,30 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
+import { ProductAPI } from '../models/productModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const ProductInfoBox: React.FC = () => {
+interface IProductInfoBox{
+    product: ProductAPI
+    products: ProductAPI[]
+}
+
+const ProductInfoBox: React.FC <IProductInfoBox> = ( {product, products} ) => {
 
     const id = useParams().id
     const parseId = id !== undefined ? id : "";
     // const parseId = id !== undefined ? Number(id) : 0;
 
-    const { get, product, products, getAll } = React.useContext(ProductAPIContext) as IProductAPIContext
+    // const { get, product, products, getAll } = React.useContext(ProductAPIContext) as IProductAPIContext
 
 
-    useEffect(() => {
-        getAll()
-    }, [getAll])
+    // useEffect(() => {
+    //     getAll()
+    // }, [getAll])
 
-    useEffect(() => {
-        get(parseId)
-    }, [])
+    // useEffect(() => {
+    //     get(parseId)
+    // }, [])
 
     
     const debug = () => {
@@ -39,11 +45,18 @@ const ProductInfoBox: React.FC = () => {
             {/* CURRENT */}
             <div className='container'>
                 <div className='info-box'>
-                    <p id="current-product">Current Information <span>id: {product.id}</span></p>
+                    <p id="current-product">Current Information
+                        {
+                            products.filter(product => product.id === parseId).map(filteredProduct => (
+                            <span key={filteredProduct.id}>
+                                id: {filteredProduct.id}
+                            </span>
+                            ))
+                        }
+                    </p>
                     <div className="content-holder">
                         <div className='d-flex'>
                             <div className='img-holder'>
-                                {/* <span>id: {product.id}</span> */}
                                 {
                                     products.filter(product => product.id === parseId).map(filteredProduct => (
                                         <img key={filteredProduct.id} src={filteredProduct.imageName} />
