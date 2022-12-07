@@ -1,8 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
-import { CartItem } from '../models/cartModels'
-import { Product, ProductAPI } from '../models/productModels'
+import { ProductAPI } from '../models/productModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
 const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {

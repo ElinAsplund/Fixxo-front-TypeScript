@@ -1,7 +1,5 @@
 import React, { useState, useContext, createContext } from 'react'
-import { CartItem } from '../models/cartModels'
-import { Product, ProductAPI, ProductRequest } from '../models/productModels'
-// import { useProductChangesContext } from '../sections/ProductUpdateForm'
+import { ProductAPI, ProductRequest } from '../models/productModels'
 
 export interface IProductAPIContext{
   product: ProductAPI

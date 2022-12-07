@@ -7,13 +7,7 @@ import { currencyFormatter } from '../utilities/currencyFormatter'
 
 const ShoppingCart: React.FC = () => {
     const cart = useShoppingCart()
-    const cartQuantity = useShoppingCart()?.cartQuantity
     const cartTotal = useShoppingCart()?.cartTotal
-
-    // Debugging with Joakim:
-    // React.useEffect(() => {
-    //     console.log('test', test)
-    // }, [test])
 
     return (
         <div className="offcanvas offcanvas-end shopping-cart" tabIndex={-1} id="shoppingCart" aria-labelledby="shoppingCartLabel">
@@ -25,7 +19,6 @@ const ShoppingCart: React.FC = () => {
                 {
                     cart && cart.cartItems.map((item: CartItem) => (<ShoppingCartItem key={item.item.id} item={item} />))
                 }
-                {/* <p>Total quantity: {cartQuantity}</p> */}
                 <p>Total price: {currencyFormatter(cartTotal !== undefined ? cartTotal: 0)}</p>
             </div>
         </div>

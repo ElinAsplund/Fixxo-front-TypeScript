@@ -1,14 +1,9 @@
 import React from 'react'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 
-// interface IProductForm{
-//   // parsePrice: (e: React.ChangeEvent<HTMLSelectElement>) => DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
-// }
-
 const ProductForm: React.FC = () => {
 
   const { productRequest, setProductRequest, create } = React.useContext(ProductAPIContext) as IProductAPIContext
-
 
   return (
     <section className='product-form'>

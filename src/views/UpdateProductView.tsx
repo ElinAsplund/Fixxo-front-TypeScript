@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { ProductAPIContext, IProductAPIContext } from '../contexts/ProductAPIContext'
 import ProductInfoBox from '../sections/ProductInfoBox'

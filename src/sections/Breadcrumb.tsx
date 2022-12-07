@@ -3,11 +3,7 @@ import { NavLink } from 'react-router-dom'
 import BreadcrumbLink from '../components/BreadcrumbLink'
 import { IBreadcrumb } from '../models/sectionsModels'
 
-// How to declare the component type properly:
-// https://stackoverflow.com/questions/48240449/type-is-not-assignable-to-type-intrinsicattributes-intrinsicclassattribu
-
 const Breadcrumb: React.FC<IBreadcrumb> = ({ className, hideOrShowProducts, currentPage }) => {
-
   return (
     <section className={className}>
       <div className="container">

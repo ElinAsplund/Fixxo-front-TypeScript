@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import MiniCard from '../components/MiniCard'
-import { useProductContext } from '../contexts/ProductTagContext';
 import { CartItem } from '../models/cartModels'
 
 interface IChoseCategories {
@@ -8,7 +7,6 @@ interface IChoseCategories {
 }
 
 const ChosenCategories: React.FC<IChoseCategories> = ({ items }) => {
-
   return (
     <section className="chosen-categories ">
       <div className="container">
