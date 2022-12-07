@@ -8,7 +8,7 @@ import HighlightSale from '../sections/HighlightSale'
 import ChosenCategories from '../sections/ChosenCategories';
 import WebshopInfo from '../sections/WebshopInfo';
 import React, { useEffect } from 'react';
-import { useProductContext } from '../contexts/ProductContext'
+import { useProductContext } from '../contexts/ProductTagContext'
 import { useLocation } from 'react-router-dom';
 
 const HomeView: React.FC = () => {

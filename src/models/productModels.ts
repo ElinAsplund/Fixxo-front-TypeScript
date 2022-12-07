@@ -26,6 +26,7 @@ export interface ProductRequest {
 // "ALLT ANNAT FRÅN API"?
 export interface ProductAPI {
   id: string,
+  _id?: string,
   articleNumber?: string,
   tag?: string,
   name: string,
@@ -37,11 +38,6 @@ export interface ProductAPI {
 }
 
 export interface IProductContext {
-  // products: CartItem[],
-  // fourProducts: CartItem[],
-  // eighthProducts: CartItem[],
-  // nineProducts: CartItem[]
-  // featuredProducts: CartItem[]
   getAll: () => void
   all: CartItem[]
   getFeatured: (amount: number) => void

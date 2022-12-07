@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import MiniCard from '../components/MiniCard'
-import { useProductContext } from '../contexts/ProductContext';
+import { useProductContext } from '../contexts/ProductTagContext';
 import { CartItem } from '../models/cartModels'
 
-interface IChoseCategories{
+interface IChoseCategories {
   items: CartItem[]
 }
 

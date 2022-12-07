@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import SmallCard from '../components/SmallCard'
 import { CartItem } from '../models/cartModels'
-import { useProductContext } from '../contexts/ProductContext';
+import { useProductContext } from '../contexts/ProductTagContext';
 
 const RelatedProducts: React.FC = () => {
     const { special, getSpecial } = useProductContext()
 
     useEffect(() => {
         getSpecial(4)
-      }, [])
+    }, [])
 
     return (
         <section className="related-products">

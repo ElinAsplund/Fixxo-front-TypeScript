@@ -10,7 +10,7 @@ interface IProductUpdateForm{
 const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
     const { update, setProduct } = React.useContext(ProductAPIContext) as IProductAPIContext
         
-    // const id = useParams().id
+    const id = useParams().id
     // const parseId = id !== undefined ? id: "";
     
     // useEffect (() => {

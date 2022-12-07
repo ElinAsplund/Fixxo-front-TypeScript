@@ -14,7 +14,6 @@ export interface IProductAPIContext{
   getAll: () => void
   update: (e: React.FormEvent) => void
   remove: (id: string) => void
-  getFeatured: (tag: string) => void
 }
 
 export interface ProductAPIProviderProps{
@@ -59,14 +58,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     if( result.status === 200 )
       setProduct(await result.json())
   }
-
-  // HÄMTA FEATURED PRODUKT-TAG
-  const getFeatured = async (tag: string) => {
-    const result = await fetch(`${baseUrl}/${tag}`)
-    if( result.status === 200 )
-      setProducts(await result.json())
-  }
-
+  
   // HÄMTA ALLA PRODUKTER
   const getAll = async () => {
     const result = await fetch(`${baseUrl}`)
@@ -89,7 +81,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     if (result.status === 200)
       setProduct(await result.json())
   }
-  
+
   // TA BORT PRODUKT
   const remove = async (id: string) => {
     
@@ -102,7 +94,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   }
 
   return (
-    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, getFeatured, products, create, get, getAll, update, remove }}>
+    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, remove }}>
       {children}
     </ProductAPIContext.Provider>
   )

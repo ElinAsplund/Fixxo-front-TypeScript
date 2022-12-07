@@ -1,7 +1,7 @@
 import Breadcrumb from '../sections/Breadcrumb'
 import FeaturedProducts from '../sections/FeaturedProducts'
-import React, { useEffect, useState } from 'react';
-import { useProductContext } from '../contexts/ProductContext';
+import React, { useEffect } from 'react';
+import { useProductContext } from '../contexts/ProductTagContext';
 import { useLocation } from 'react-router-dom';
 
 const ProductsView: React.FC = () => {
@@ -16,12 +16,12 @@ const ProductsView: React.FC = () => {
     getAll()
   }, [])
 
-  document.title='Products | Fixxo.'
+  document.title = 'Products | Fixxo.'
 
   return (
     <>
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-none" currentPage="Products" />
-      <FeaturedProducts className='product-browsing mt-0' title="Products" items={all}/>
+      <FeaturedProducts className='product-browsing mt-0' title="Products" items={all} />
     </>
   )
 }
