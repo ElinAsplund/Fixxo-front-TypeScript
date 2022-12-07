@@ -3,7 +3,6 @@ import { useShoppingCart } from '../contexts/ShoppingCartContext'
 import { ShoppingCartProp } from '../models/sectionsModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-
 const ShoppingCartItem: React.FC<ShoppingCartProp> = ({ item }) => {
     const incrementQuantity = useShoppingCart()?.incrementQuantity
     const decrementQuantity = useShoppingCart()?.decrementQuantity

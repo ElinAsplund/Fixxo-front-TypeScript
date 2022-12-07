@@ -1,10 +1,7 @@
 import React from 'react'
 import ProductListItem from '../components/ProductListItem'
 import { ProductAPI } from '../models/productModels'
-
-interface IProductList{
-  products: ProductAPI[]
-}
+import { IProductList } from '../models/sectionsModels'
 
 const ProductList: React.FC <IProductList> = ( {products} ) => {
 

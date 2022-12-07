@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 import ExternalLinkIcon from '../components/ExternalLinkIcon'
-import { ProductAPI } from '../models/productModels'
+import { IProductOverview } from '../models/sectionsModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-interface IProductOverview {
-    productInfo: ProductAPI
-}
-
-const ProductOverview: React.FC<IProductOverview> = ({productInfo}) => {
+const ProductOverview: React.FC <IProductOverview> = ({productInfo}) => {
 
     // ------------------------------------------------------------------------------
     // SETTING OF "GLOBAL VALUES":

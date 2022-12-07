@@ -1,11 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
-import { ProductAPI } from '../models/productModels'
-
-interface IProductUpdateForm{
-    product: ProductAPI
-}
+import { IProductUpdateForm } from '../models/sectionsModels'
 
 const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
     const { update, setProduct } = React.useContext(ProductAPIContext) as IProductAPIContext

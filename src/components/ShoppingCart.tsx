@@ -4,7 +4,6 @@ import ShoppingCartItem from './ShoppingCartItem'
 import { CartItem } from '../models/cartModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-
 const ShoppingCart: React.FC = () => {
     const cart = useShoppingCart()
     const cartTotal = useShoppingCart()?.cartTotal

@@ -2,11 +2,7 @@ import React from 'react'
 import SmallCard from '../components/SmallCard'
 import LgCard from '../components/LgCard'
 import { CartItem } from '../models/cartModels'
-
-interface ITwoForPriceOf{
-    special: CartItem[]
-    specialTwo: CartItem[]
-}
+import { ITwoForPriceOf } from '../models/sectionsModels'
 
 const TwoForPriceOf: React.FC <ITwoForPriceOf> = ({ special, specialTwo }) => {
 

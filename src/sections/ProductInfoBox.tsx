@@ -1,12 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { ProductAPI } from '../models/productModels'
+import { IProductInfoBox } from '../models/sectionsModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
-
-interface IProductInfoBox{
-    product: ProductAPI
-    products: ProductAPI[]
-}
 
 const ProductInfoBox: React.FC <IProductInfoBox> = ( {product, products} ) => {
 

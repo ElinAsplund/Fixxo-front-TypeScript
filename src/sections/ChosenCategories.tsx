@@ -1,12 +1,9 @@
 import React from 'react'
 import MiniCard from '../components/MiniCard'
 import { CartItem } from '../models/cartModels'
+import { IChoseCategories } from '../models/sectionsModels'
 
-interface IChoseCategories {
-  items: CartItem[]
-}
-
-const ChosenCategories: React.FC<IChoseCategories> = ({ items }) => {
+const ChosenCategories: React.FC <IChoseCategories> = ({ items }) => {
   return (
     <section className="chosen-categories ">
       <div className="container">

@@ -1,4 +1,5 @@
 import { CartItem } from './cartModels'
+import { ProductAPI } from './productModels'
 
 export interface IBreadcrumb {
     className: string,
@@ -43,4 +44,30 @@ export interface IFeaturedProducts {
 
 export interface IMiniCard {
     item: CartItem
-  }
+}
+
+export interface IChoseCategories {
+    items: CartItem[]
+}
+
+export interface IProductInfoBox{
+    product: ProductAPI
+    products: ProductAPI[]
+}
+
+export interface IProductList{
+    products: ProductAPI[]
+}
+
+export interface IProductOverview {
+    productInfo: ProductAPI
+}
+
+export interface IProductUpdateForm{
+    product: ProductAPI
+}
+
+export interface ITwoForPriceOf{
+    special: CartItem[]
+    specialTwo: CartItem[]
+}
