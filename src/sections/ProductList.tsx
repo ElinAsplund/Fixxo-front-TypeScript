@@ -8,7 +8,7 @@ const ProductList: React.FC <IProductList> = ( {products} ) => {
   return (
     <section className='product-list'>
       <div className="container">
-        <div className="grid">
+        <div className="list">
           {
             products.length > 0 && products.map((product: ProductAPI) => <ProductListItem item={product} key={product.id} />)
           }

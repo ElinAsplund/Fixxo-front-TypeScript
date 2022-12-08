@@ -5,11 +5,19 @@ const ProductForm: React.FC = () => {
   const { productRequest, setProductRequest, create } = React.useContext(ProductAPIContext) as IProductAPIContext
   const [errorName, setErrorName] = useState<{name?: string}>({})
   const [errorCategory, setErrorCategory] = useState<{category?: string}>({})
+  const [errorPrice, setErrorPrice] = useState<{price?: string}>({})
+  const [errorImageName, setErrorImageName] = useState<{imageName?: string}>({})
+  const [errorSubmit, setErrorSubmit] = useState<{submit?: string}>({})
 
   // ------------------------------------------------------------------------------
-  // VALIDATE NAME:
-  const validateName = () => {
-    
+  // VALIDATE NAME and SETTING OF PRODUCTREQUEST
+  const validateName = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
+    const { target } = e
+
+    // Setting the price for productRequest
+    setProductRequest({...productRequest, name: target.value })
+
     let error = {
         name: ""
     }
@@ -47,14 +55,104 @@ const ProductForm: React.FC = () => {
   }
 
   // ------------------------------------------------------------------------------
+  // VALIDATE PRICE and SETTING OF PRODUCTREQUEST
+  const validatePrice = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
+    const { target } = e
+
+    // Setting the price for productRequest
+    setProductRequest({...productRequest, price: Number(target.value) })
+
+    // Validate of price:
+    let error = {
+      price: ""
+    }
+
+    if (Number(target.value) === 0 )
+      error.price = "Error: You must enter a product price"
+    else if(Number(target.value) <= 0 )
+      error.price = "Error: A product price can't be a negative number"
+    
+    setErrorPrice(error)
+    
+    return error.price === "" ? true : false;
+  }
+
+  // ------------------------------------------------------------------------------
+  // VALIDATE IMAGENAME and SETTING OF PRODUCTREQUEST
+  const validateImageName = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
+    const { target } = e
+
+    // Setting the imageName for productRequest
+    setProductRequest({...productRequest, imageName: target.value })
+
+    // const regex_link = /^[a-zA-Z\u0080-\uFFFF]*$/;
+    const regex_link = /https?:\/\//g;
+
+    // Validate of imageName:
+    let error = {
+      imageName: ""
+    }
+
+    if (target.value === "" )
+      error.imageName = "Error: You must enter a product image link"
+    else if(!regex_link.test(target.value))
+      error.imageName = "Error: You must enter a valid link, starting with https:// or http://"
+
+
+    setErrorImageName(error)
+    
+    return error.imageName === "" ? true : false;
+  }
+
+  // ------------------------------------------------------------------------------
+  // VALIDATE SUBMIT and SETTING OF PRODUCTREQUEST
+  const validateSubmit = (e:  React.FormEvent<Element>) => {
+    console.log("---CLICK---")
+    e.preventDefault()
+
+    let nameOK = errorName.name
+    let categoryOK = errorCategory.category
+    let priceOK = errorPrice.price
+    let imageNameOK = errorImageName.imageName
+
+    let allOK = false
+
+    if (nameOK === "" && categoryOK === "" && priceOK === "" && imageNameOK === "")
+        allOK = true
+    else
+        allOK = false
+
+    console.log("allOK: " + allOK)
+
+    if (allOK === true) {
+      setErrorName({name: ''})
+      setErrorCategory({category: ''})
+      setErrorPrice({price: ''})
+      setErrorImageName({imageName: ''})
+      setErrorSubmit({submit: ''})
+
+      create(e)
+
+      console.log("validateSubmit: true")
+      return true
+    } else {
+      setErrorSubmit({submit: 'Please fill in the required information!'})
+      console.log("validateSubmit: false")
+      return false
+    }
+  }
+
+  // ------------------------------------------------------------------------------
 
   return (
     <section className='product-form'>
       <div className="container">
         <h3 style={{ marginTop: "100px" }}>Manage Products</h3>
-        <form onSubmit={create} noValidate>
+        <form onSubmit={validateSubmit} noValidate>
           <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({ ...productRequest, articleNumber: e.target.value })} type='hidden' className='form-control my-3' placeholder="Enter product's article number..." />
-          <input value={productRequest.name} onKeyUp={validateName} onChange={(e) => setProductRequest({ ...productRequest, name: e.target.value })} type='text' className='form-control my-3' placeholder='Enter product name...' />
+          <input value={productRequest.name} onChange={validateName} type='text' className='form-control my-3' placeholder='Enter product name...' />
           <div className="error-text">{errorName.name}</div>
           {/* <textarea value={productRequest.description} onChange={(e) => setProductRequest({...productRequest, description: e.target.value})} className='form-control my-3' placeholder="Enter product description..." /> */}
           <select value={productRequest.category} onChange={validateCategory} className="form-select">
@@ -77,7 +175,8 @@ const ProductForm: React.FC = () => {
               <option value="Watches">Watches</option>
           </select>
           <div className="error-text">{errorCategory.category}</div>
-          <input value={productRequest.price || ''} onChange={(e) => setProductRequest({ ...productRequest, price: Number(e.target.value) })} type='number' min={0} step="any" className='form-control my-3' placeholder='Enter product price...' />
+          <input value={productRequest.price || ''} onChange={validatePrice} type='number' min={0} step="any" className='form-control my-3' placeholder='Enter product price...' />
+          <div className="error-text">{errorPrice.price}</div>
           {/* <select value={productRequest.rating} onChange={(e) => setProductRequest({...productRequest, rating: Number(e.target.value)})} className="form-select">
                 <option defaultValue="">Enter product rating...</option>
                 <option value="1">1</option>
@@ -85,10 +184,12 @@ const ProductForm: React.FC = () => {
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-            </select> */}
-          <input value={productRequest.imageName} onChange={(e) => setProductRequest({ ...productRequest, imageName: e.target.value })} type='text' className='form-control my-3' placeholder='Enter product image link...' />
-          <div className='d-flex justify-content-center'>
-            <button type='submit' className='btn-bg-theme mb-5'>ENTER NEW PRODUCT</button>
+              </select> */}
+          <input value={productRequest.imageName} onChange={validateImageName} type='text' className='form-control my-3' placeholder='Enter product image link...' />
+          <div className="error-text">{errorImageName.imageName}</div>
+          <div className='d-flex justify-content-center flex-column'>
+            <button type='submit' className='btn-bg-theme'>ENTER NEW PRODUCT</button>
+            <div className="error-text mb-5">{errorSubmit.submit}</div>
           </div>
         </form>
       </div>
