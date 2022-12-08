@@ -4,6 +4,7 @@ import { CartItem } from './cartModels'
 export interface ProductRequest {
   articleNumber: string,
   name: string,
+  tag?: string,
   description?: string,
   category: string,
   price: number,

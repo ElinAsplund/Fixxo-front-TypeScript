@@ -40,6 +40,14 @@ const ProductInfoBox: React.FC <IProductInfoBox> = ( {product, products} ) => {
                                     </h3>
                                     ))
                                 }
+                                <span>Product tag:</span>
+                                {
+                                    products.filter(product => product.id === parseId).map(filteredProduct => (
+                                    <h3 key={filteredProduct.id}>
+                                        {filteredProduct.tag}
+                                    </h3>
+                                    ))
+                                }
                                 <span>Category:</span>
                                 {
                                     products.filter(product => product.id === parseId).map(filteredProduct => (
