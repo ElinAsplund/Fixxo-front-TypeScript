@@ -37,7 +37,7 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
 
     // ------------------------------------------------------------------------------
     // VALIDATE TAG and SETTING OF PRODUCTREQUEST
-    const validateTag = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    const validateTag = (e: React.ChangeEvent<HTMLSelectElement> & { target: HTMLSelectElement }) => {
         // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
         const { target } = e
 
@@ -48,10 +48,8 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
             tag: ""
         }
 
-        if (!target.value)
+        if (target.value === "Enter product tag...")
             error.tag = "Error: You must enter a product tag"     
-        else if (target.value.length < 2)
-            error.tag = "Error: Your product tag must contain at least two letters"
 
         setErrorTag(error)
 
@@ -180,7 +178,13 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
                 <input value={product.articleNumber || ''} onChange={(e) => setProduct({...product, articleNumber: e.target.value})} type='hidden'className='form-control my-3' placeholder="Enter product's article number..." />
                 <input value={product.name || ''} onChange={validateName} type='text'className='form-control my-3' placeholder='Enter product name...' />
                 <div className="error-text">{errorName.name}</div>
-                <input value={product.tag || ''} onChange={validateTag} type='text'className='form-control my-3' placeholder='Enter product tag...' />
+                <select value={product.tag} onChange={validateTag} className="form-select my-3">
+                    <option defaultValue="">Enter product tag...</option>
+                    <option value="featured">Featured</option>
+                    <option value="special">Special</option>
+                    <option value="special-two">Special - two</option>
+                    <option value="the-remains">The Remains</option>
+                </select>
                 <div className="error-text">{errorTag.tag}</div>
                 <select value={product.category || ''} onChange={validateCategory} className="form-select">
                     <option defaultValue="">Enter product category...</option>

@@ -35,7 +35,7 @@ const ProductForm: React.FC = () => {
 
   // ------------------------------------------------------------------------------
   // VALIDATE TAG and SETTING OF PRODUCTREQUEST
-  const validateTag = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+  const validateTag = (e: React.ChangeEvent<HTMLSelectElement> & { target: HTMLSelectElement }) => {
     // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
     const { target } = e
 
@@ -46,10 +46,8 @@ const ProductForm: React.FC = () => {
         tag: ""
     }
 
-    if (!target.value)
-        error.tag = "Error: You must enter a product tag"     
-    else if (target.value.length < 2)
-        error.tag = "Error: Your product tag must contain at least two letters"
+    if (target.value === "Enter product tag...")
+      error.tag = "Error: You must enter a product tag"     
 
     setErrorTag(error)
 
@@ -180,10 +178,16 @@ const ProductForm: React.FC = () => {
           <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({ ...productRequest, articleNumber: e.target.value })} type='hidden' className='form-control my-3' placeholder="Enter product's article number..." />
           <input value={productRequest.name || ''} onChange={validateName} type='text' className='form-control my-3' placeholder='Enter product name...' />
           <div className="error-text">{errorName.name}</div>
-          <input value={productRequest.tag || ''} onChange={validateTag} type='text' className='form-control my-3' placeholder='Enter product tag...' />
+          <select value={productRequest.tag} onChange={validateTag} className="form-select my-3">
+            <option defaultValue="">Enter product tag...</option>
+              <option value="featured">Featured</option>
+              <option value="special">Special</option>
+              <option value="special-two">Special - two</option>
+              <option value="the-remains">The Remains</option>
+          </select>
           <div className="error-text">{errorTag.tag}</div>
           {/* <textarea value={productRequest.description} onChange={(e) => setProductRequest({...productRequest, description: e.target.value})} className='form-control my-3' placeholder="Enter product description..." /> */}
-          <select value={productRequest.category} onChange={validateCategory} className="form-select">
+          <select value={productRequest.category} onChange={validateCategory} className="form-select my-3">
             <option defaultValue="">Enter product category...</option>
               <option value="Accessories">Accessories</option>
               <option value="Bags">Bags</option>
