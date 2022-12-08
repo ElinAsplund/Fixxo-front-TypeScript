@@ -1,9 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 
 const ProductForm: React.FC = () => {
-
   const { productRequest, setProductRequest, create } = React.useContext(ProductAPIContext) as IProductAPIContext
+  const [errorName, setErrorName] = useState<{name?: string}>({})
+  const [errorCategory, setErrorCategory] = useState<{category?: string}>({})
+
+  // ------------------------------------------------------------------------------
+  // VALIDATE NAME:
+  const validateName = () => {
+    
+    let error = {
+        name: ""
+    }
+
+    if (!productRequest.name)
+        error.name = "Error: You must enter a product name"     
+    else if (productRequest.name.length < 2)
+        error.name = "Error: Your product name must contain at least two letters"
+
+    setErrorName(error)
+
+    return error.name === "" ? true : false;
+  }
+
+  // ------------------------------------------------------------------------------
+  // VALIDATE CATEGORY and SETTING OF PRODUCTREQUEST
+  const validateCategory = (e: React.ChangeEvent<HTMLSelectElement> & { target: HTMLSelectElement }) => {
+    // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
+    const { target } = e
+
+    // Setting the category for productRequest
+    setProductRequest({...productRequest, category: target.value })
+
+    // Validate of category:
+    let error = {
+      category: ""
+    }
+
+    if (target.value === "Enter product category...")
+      error.category = "Error: You must enter a product category"     
+    
+    setErrorCategory(error)
+    
+    return error.category === "" ? true : false;
+  }
+
+  // ------------------------------------------------------------------------------
 
   return (
     <section className='product-form'>
@@ -11,9 +54,10 @@ const ProductForm: React.FC = () => {
         <h3 style={{ marginTop: "100px" }}>Manage Products</h3>
         <form onSubmit={create} noValidate>
           <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({ ...productRequest, articleNumber: e.target.value })} type='hidden' className='form-control my-3' placeholder="Enter product's article number..." />
-          <input value={productRequest.name} onChange={(e) => setProductRequest({ ...productRequest, name: e.target.value })} type='text' className='form-control my-3' placeholder='Enter product name...' />
+          <input value={productRequest.name} onKeyUp={validateName} onChange={(e) => setProductRequest({ ...productRequest, name: e.target.value })} type='text' className='form-control my-3' placeholder='Enter product name...' />
+          <div className="error-text">{errorName.name}</div>
           {/* <textarea value={productRequest.description} onChange={(e) => setProductRequest({...productRequest, description: e.target.value})} className='form-control my-3' placeholder="Enter product description..." /> */}
-          <select value={productRequest.category} onChange={(e) => setProductRequest({ ...productRequest, category: e.target.value })} className="form-select">
+          <select value={productRequest.category} onChange={validateCategory} className="form-select">
             <option defaultValue="">Enter product category...</option>
               <option value="Accessories">Accessories</option>
               <option value="Bags">Bags</option>
@@ -32,6 +76,7 @@ const ProductForm: React.FC = () => {
               <option value="Tops">Tops</option>
               <option value="Watches">Watches</option>
           </select>
+          <div className="error-text">{errorCategory.category}</div>
           <input value={productRequest.price || ''} onChange={(e) => setProductRequest({ ...productRequest, price: Number(e.target.value) })} type='number' min={0} step="any" className='form-control my-3' placeholder='Enter product price...' />
           {/* <select value={productRequest.rating} onChange={(e) => setProductRequest({...productRequest, rating: Number(e.target.value)})} className="form-select">
                 <option defaultValue="">Enter product rating...</option>
