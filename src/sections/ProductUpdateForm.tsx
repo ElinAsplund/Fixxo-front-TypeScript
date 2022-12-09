@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 import { IProductUpdateForm } from '../models/sectionsModels'
 
 const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
-    const { update, setProduct } = React.useContext(ProductAPIContext) as IProductAPIContext
+    const { update, setProduct, errorText, setErrorText } = React.useContext(ProductAPIContext) as IProductAPIContext
     const [errorName, setErrorName] = useState<{name: string}>({name: ''})
     const [errorTag, setErrorTag] = useState<{tag: string}>({tag: ''})
     const [errorCategory, setErrorCategory] = useState<{category: string}>({category: ''})
@@ -12,17 +12,21 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
     const [errorImageName, setErrorImageName] = useState<{imageName: string}>({imageName: ''})
     const [errorSubmit, setErrorSubmit] = useState<{submit: string}>({submit: ''})
 
-  // ------------------------------------------------------------------------------
-  // VALIDATE NAME and SETTING OF PRODUCTREQUEST
-  const validateName = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
-      // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
-      const { target } = e
-      
-      // Setting the price for productRequest
-      setProduct({...product, name: target.value })
-      
-      let error = {
-          name: ""
+    useEffect(() => {
+        setErrorText('')
+      }, [])
+
+    // ------------------------------------------------------------------------------
+    // VALIDATE NAME and SETTING OF PRODUCTREQUEST
+    const validateName = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+        // https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
+        const { target } = e
+        
+        // Setting the price for productRequest
+        setProduct({...product, name: target.value })
+        
+        let error = {
+            name: ""
         }
         
         if (!target.value)
@@ -162,7 +166,8 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
           update(e)
     
           console.log("validateSubmit: true")
-          return true
+        
+
         } else {
           setErrorSubmit({submit: 'Please fill in the required information!'})
           console.log("validateSubmit: false")
@@ -211,8 +216,9 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
                 <input value={product.imageName || ''} onChange={validateImageName} type='text'className='form-control my-4' placeholder='Enter product image link...' />
                 <div className="error-text">{errorImageName.imageName}</div>
                 <div className='d-grid justify-content-center'>
-                    <button type='submit' className='btn-bg-theme'>UPDATE PRODUCT</button>
-                    <div className="error-text mb-3">{errorSubmit.submit}</div>
+                    <button type='submit' className='btn-bg-theme mb-3'>UPDATE PRODUCT</button>
+                    <div className="error-text text-center mt-0 mb-3">{errorSubmit.submit}</div>
+                    <div className="error-text text-center mt-0 mb-4">{errorText}</div>
                     <NavLink to={`/manage_products`} className="d-flex justify-content-center btn-no-corners" end>
                         <button className='btn-bg-theme-dark mb-5'>GO BACK</button>
                     </NavLink>

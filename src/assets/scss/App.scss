@@ -31,6 +31,10 @@
 @import "./sections/index/chosen-categories";
 @import "./sections/index/webshop-info";
 
+// Sections: admin
+@import "./sections/admin-login/admin-log-in";
+@import "./sections/admin-login/admin-register-form";
+
 // Sections: contacts
 @import "./sections/contact/map";
 @import "./sections/contact/contact-form";

@@ -35,6 +35,8 @@ header {
 
             .nav-link {
                 color: $color-dark;
+                text-align: center;
+                width: max-content;
                 text-decoration: none;
                 font-weight: $font-weight-medium;
                 margin: 15px 15px;

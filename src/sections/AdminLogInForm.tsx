@@ -40,16 +40,19 @@ const AdminLogInForm: React.FC = () => {
   return (
     <section className='admin-log-in'>
         <div className='container'>
-            <form onSubmit={handleLogIn} noValidate>
-                <label className='mt-5 mb-1'>User email:</label>
-                <input type='text' className='form-control mb-3' placeholder='User Email'/>
-                <label className='mb-1'>User password:</label>
-                <input type='password' className='form-control mb-3' placeholder='User Password'/>
-                <div className='btn-no-corners d-flex justify-content-center'>
-                    <button type='submit' className='btn-bg-theme-dark my-3'>LOGIN</button>
-                </div>
-                <div className='error-text text-center'>{errorSubmit}</div>
-            </form>
+            <div className='form-holder'>
+                <form onSubmit={handleLogIn} className='pink-focus' noValidate>
+                    <h3 className='mt-5 mb-3 small-h3'>Log In - admin</h3>
+                    <label className='mb-1'>User email:</label>
+                    <input type='text' className='form-control mb-3' placeholder='User Email'/>
+                    <label className='mb-1'>User password:</label>
+                    <input type='password' className='form-control mb-3' placeholder='User Password'/>
+                    <div className='btn-no-corners d-flex justify-content-center'>
+                        <button type='submit' className='btn-bg-theme-dark my-3'>LOGIN</button>
+                    </div>
+                    <div className='error-text text-center'>{errorSubmit}</div>
+                </form>
+            </div>
         </div>
     </section>
   )

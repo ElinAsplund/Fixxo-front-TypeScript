@@ -12,6 +12,8 @@ export interface IProductAPIContext{
   getAll: () => void
   update: (e: React.FormEvent) => void
   remove: (id: string) => void
+  errorText: string
+  setErrorText: React.Dispatch<React.SetStateAction<string>>
 }
 
 export interface ProductAPIProviderProps{
@@ -30,6 +32,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const [product, setProduct] = useState<ProductAPI>(product_default)
   const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
   const [products, setProducts] = useState<ProductAPI[]>([])
+  const [errorText, setErrorText] = useState<string>('')
 
 
   // UNSECURED ROUTES
@@ -65,9 +68,11 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     })
 
     if (result.status === 201){
-        setProductRequest(productRequest_default)
-    } else {
-      console.log('error')
+      setErrorText('');
+      setProductRequest(productRequest_default)
+    } else{
+      const data = await result.json()
+      setErrorText(data.text);
     }
   }
 
@@ -84,8 +89,14 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
       body: JSON.stringify(product)
     })
 
-    if (result.status === 200)
+    if (result.status === 200){
+      setErrorText('');
       setProduct(await result.json())
+    }
+    else{
+      const data = await result.json()
+      setErrorText(data.text);
+    }
   }
 
   // TA BORT PRODUKT
@@ -99,12 +110,17 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
       } 
     })
 
-    if (result.status === 204)
+    if (result.status === 200){
+      setErrorText('');
       setProduct(product_default)
+    } else {
+      const data = await result.json()
+      setErrorText(data.text);
+    }
   }
 
   return (
-    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, remove }}>
+    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, remove, errorText, setErrorText }}>
       {children}
     </ProductAPIContext.Provider>
   )

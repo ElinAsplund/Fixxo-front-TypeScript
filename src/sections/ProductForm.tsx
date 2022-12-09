@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 
 const ProductForm: React.FC = () => {
-  const { productRequest, setProductRequest, create } = React.useContext(ProductAPIContext) as IProductAPIContext
+  const { productRequest, setProductRequest, create, errorText, setErrorText } = React.useContext(ProductAPIContext) as IProductAPIContext
   const [errorName, setErrorName] = useState<{name?: string}>({})
   const [errorTag, setErrorTag] = useState<{tag?: string}>({})
   const [errorCategory, setErrorCategory] = useState<{category?: string}>({})
   const [errorPrice, setErrorPrice] = useState<{price?: string}>({})
   const [errorImageName, setErrorImageName] = useState<{imageName?: string}>({})
   const [errorSubmit, setErrorSubmit] = useState<{submit?: string}>({})
+
+  useEffect(() => {
+    setErrorText('')
+  }, [])
 
   // ------------------------------------------------------------------------------
   // VALIDATE NAME and SETTING OF PRODUCTREQUEST
@@ -220,8 +224,9 @@ const ProductForm: React.FC = () => {
           <input value={productRequest.imageName || ''} onChange={validateImageName} type='text' className='form-control my-3' placeholder='Enter product image link...' />
           <div className="error-text">{errorImageName.imageName}</div>
           <div className='d-flex justify-content-center flex-column'>
-            <button type='submit' className='btn-bg-theme'>ENTER NEW PRODUCT</button>
-            <div className="error-text text-center mb-5">{errorSubmit.submit}</div>
+            <button type='submit' className='btn-bg-theme mb-3'>ENTER NEW PRODUCT</button>
+            <div className="error-text text-center mt-0 mb-3">{errorSubmit.submit}</div>
+            <div className="error-text text-center mt-0 mb-4">{errorText}</div>
           </div>
         </form>
       </div>

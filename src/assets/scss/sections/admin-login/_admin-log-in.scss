@@ -1,0 +1,34 @@
+.admin-log-in{
+    padding-top: 60px;
+
+    .form-holder{
+        margin: 3rem 0;
+        background-color: $color-grey-20;
+        background-color: #ffe8e8;
+        display: flex;
+        justify-content: center;
+        border-radius: 3px;
+        transition: 0.4s ease-in-out;
+
+        // &:hover{
+        //     background-color: $color-grey-40;
+        //     background-color: #ffd5d5;
+        // }
+
+        form{
+            width: 80%;
+
+            .error-text{
+                margin: 0 0 1.5rem 0;
+            }
+
+            div{
+                button{
+                    &:hover{
+                        background-color: $color-dark;
+                    }
+                }
+            }
+        }
+    }
+}
