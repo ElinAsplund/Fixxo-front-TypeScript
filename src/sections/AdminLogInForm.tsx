@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const AdminLogInForm: React.FC = () => {
+    const [errorSubmit, setErrorSubmit] = useState<string>('')
+    const navigate = useNavigate()
 
     const handleLogIn = async (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
         e.preventDefault()
@@ -20,9 +23,17 @@ const AdminLogInForm: React.FC = () => {
             body: JSON.stringify(user)
         })
 
+        
         const data = await result.json()
-        console.log(data);
+        console.log('data: ', await data);
         localStorage.setItem('accessToken', data.accessToken)
+                
+        if(data.text){
+            setErrorSubmit(data.text.charAt(0).toUpperCase() + data.text.slice(1))
+        } else {
+            setErrorSubmit('')
+            navigate("/manage_products")
+        }
     }
 
 
@@ -37,6 +48,7 @@ const AdminLogInForm: React.FC = () => {
                 <div className='btn-no-corners d-flex justify-content-center'>
                     <button type='submit' className='btn-bg-theme-dark my-3'>LOGIN</button>
                 </div>
+                <div className='error-text text-center'>{errorSubmit}</div>
             </form>
         </div>
     </section>

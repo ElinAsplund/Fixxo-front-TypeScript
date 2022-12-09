@@ -31,25 +31,9 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
   const [products, setProducts] = useState<ProductAPI[]>([])
 
-  // SKAPA NY PRODUKT
-  const create = async (e: React.FormEvent) => {
-    e.preventDefault()
 
-    const result = await fetch(`${baseUrl}`, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(productRequest)
-    })
-
-    if (result.status === 201){
-        setProductRequest(productRequest_default)
-    } else {
-      console.log('error')
-    }
-  }
-
+  // UNSECURED ROUTES
+  // -------------------------------------------------------------------
   // HÄMTA SPECIFIK PRODUKT
   const get = async (id: string) => {
     const result = await fetch(`${baseUrl}/details/${id}`)
@@ -64,6 +48,29 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
       setProducts(await result.json())
   }
 
+
+  // SECURED ROUTES
+  // -------------------------------------------------------------------
+  // SKAPA NY PRODUKT
+  const create = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const result = await fetch(`${baseUrl}`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      },
+      body: JSON.stringify(productRequest)
+    })
+
+    if (result.status === 201){
+        setProductRequest(productRequest_default)
+    } else {
+      console.log('error')
+    }
+  }
+
   // UPPDATERA BEFINTLIG PRODUKT
   const update = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -71,7 +78,8 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     const result = await fetch(`${baseUrl}/details/${product.id}`, {
       method: 'put',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
       },
       body: JSON.stringify(product)
     })
@@ -84,7 +92,11 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const remove = async (id: string) => {
     
     const result = await fetch(`${baseUrl}/details/${id}`, { 
-      method: 'delete' 
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      } 
     })
 
     if (result.status === 204)
