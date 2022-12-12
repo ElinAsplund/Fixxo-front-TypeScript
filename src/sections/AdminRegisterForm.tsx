@@ -14,7 +14,7 @@ const AdminRegisterForm: React.FC = () => {
             password: (e.target[3] as HTMLInputElement).value
         }
 
-        console.log(JSON.stringify(user));
+        // console.log(JSON.stringify(user));
 
         const result = await fetch('http://localhost:5000/api/authentication/register', {
             method: 'post',
@@ -25,7 +25,7 @@ const AdminRegisterForm: React.FC = () => {
         })
 
         const data = await result.json()
-        console.log('data: ', await data);
+        // console.log('data: ', await data);
 
         setErrorSubmit(data.text.charAt(0).toUpperCase() + data.text.slice(1))
     }

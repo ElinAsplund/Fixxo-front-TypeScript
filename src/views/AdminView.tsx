@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import AdminLogInForm from '../sections/AdminLogInForm'
 import AdminRegisterForm from '../sections/AdminRegisterForm'
 
 const AdminView: React.FC = () => {
-  return (
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken')
+    if (token) {
+      setIsAuthenticated(true)
+    } else {
+      setIsAuthenticated(false)
+    }
+  }, [])
+
+  return isAuthenticated ? (
     <>
-        <AdminLogInForm />
-        <AdminRegisterForm />
+      <Navigate to="/manage_products" replace />
+    </>
+  )
+  : (
+    <>
+      <AdminLogInForm />
+      <AdminRegisterForm />
     </>
   )
 }
