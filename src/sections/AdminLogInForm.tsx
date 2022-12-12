@@ -48,7 +48,7 @@ const AdminLogInForm: React.FC = () => {
                     <label className='mb-1'>User password:</label>
                     <input type='password' className='form-control mb-3' placeholder='User Password'/>
                     <div className='btn-no-corners d-flex justify-content-center'>
-                        <button type='submit' className='btn-bg-theme-dark my-3'>LOGIN</button>
+                        <button type='submit' className='btn-bg-theme my-3'>LOGIN</button>
                     </div>
                     <div className='error-text text-center'>{errorSubmit}</div>
                 </form>
