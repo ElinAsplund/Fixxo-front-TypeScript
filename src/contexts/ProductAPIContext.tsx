@@ -14,6 +14,8 @@ export interface IProductAPIContext{
   remove: (id: string) => void
   errorText: string
   setErrorText: React.Dispatch<React.SetStateAction<string>>
+  toggleBtnClicked: () => void
+  isClicked: boolean
 }
 
 export interface ProductAPIProviderProps{
@@ -33,7 +35,8 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
   const [products, setProducts] = useState<ProductAPI[]>([])
   const [errorText, setErrorText] = useState<string>('')
-
+  
+  const [isClicked, setIsClicked] = useState<boolean>(false)
 
   // UNSECURED ROUTES
   // -------------------------------------------------------------------
@@ -119,8 +122,13 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     }
   }
 
+  // IS BUTTON CLICKED?
+  const toggleBtnClicked = () => {
+    setTimeout(() =>{ setIsClicked(!isClicked) }, 50)
+  }
+
   return (
-    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, remove, errorText, setErrorText }}>
+    <ProductAPIContext.Provider value={{ product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, remove, errorText, setErrorText, toggleBtnClicked, isClicked }}>
       {children}
     </ProductAPIContext.Provider>
   )

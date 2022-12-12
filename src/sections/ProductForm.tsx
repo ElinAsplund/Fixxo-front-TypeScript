@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 
 const ProductForm: React.FC = () => {
-  const { productRequest, setProductRequest, create, errorText, setErrorText } = React.useContext(ProductAPIContext) as IProductAPIContext
+  const { productRequest, setProductRequest, create, errorText, setErrorText, toggleBtnClicked, isClicked } = React.useContext(ProductAPIContext) as IProductAPIContext
   const [errorName, setErrorName] = useState<{name?: string}>({})
   const [errorTag, setErrorTag] = useState<{tag?: string}>({})
   const [errorCategory, setErrorCategory] = useState<{category?: string}>({})
@@ -208,7 +208,6 @@ const ProductForm: React.FC = () => {
               <option value="Sweaters">Sweaters</option>
               <option value="T-Shirts">T-Shirts</option>
               <option value="Tops">Tops</option>
-              <option value="Watches">Watches</option>
           </select>
           <div className="error-text">{errorCategory.category}</div>
           <input value={productRequest.price || ''} onChange={validatePrice} type='number' min={0} step="any" className='form-control my-3' placeholder='Enter product price...' />
@@ -224,7 +223,7 @@ const ProductForm: React.FC = () => {
           <input value={productRequest.imageName || ''} onChange={validateImageName} type='text' className='form-control my-3' placeholder='Enter product image link...' />
           <div className="error-text">{errorImageName.imageName}</div>
           <div className='d-flex justify-content-center flex-column'>
-            <button type='submit' className='btn-bg-theme mb-3'>ENTER NEW PRODUCT</button>
+            <button type='submit' className='btn-bg-theme mb-3' onClick={toggleBtnClicked} >ENTER NEW PRODUCT</button>
             <div className="error-text text-center mt-0 mb-3">{errorSubmit.submit}</div>
             <div className="error-text text-center mt-0 mb-4">{errorText}</div>
           </div>

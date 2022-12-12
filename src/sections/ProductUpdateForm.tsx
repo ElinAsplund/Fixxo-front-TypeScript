@@ -212,7 +212,6 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
                     <option value="Sweaters">Sweaters</option>
                     <option value="T-Shirts">T-Shirts</option>
                     <option value="Tops">Tops</option>
-                    <option value="Watches">Watches</option>
                 </select>
                 <div className="error-text">{errorCategory.category}</div>
                 <input value={product.price} onChange={validatePrice} type='number'step="any" min={0} className='form-control my-3' placeholder='Enter product price...' />

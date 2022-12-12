@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Navigate } from 'react-router-dom'
-// import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 import ProductForm from '../sections/ProductForm'
 import ProductList from '../sections/ProductList'
 
 const ManageProductsView: React.FC = () => {
-  // const { pathname } = useLocation()
-  const { products, getAll } = React.useContext(ProductAPIContext) as IProductAPIContext
+  const { pathname } = useLocation()
+  const { products, getAll, isClicked } = React.useContext(ProductAPIContext) as IProductAPIContext
   const [isAuthenticated, setIsAuthenticated] = useState(true)
 
   // useEffect(() => {
@@ -16,7 +15,7 @@ const ManageProductsView: React.FC = () => {
 
   useEffect(() => {
     getAll()
-  }, [])
+  }, [isClicked])
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken')
@@ -26,6 +25,7 @@ const ManageProductsView: React.FC = () => {
       setIsAuthenticated(false)
     }
   }, [])
+
 
   document.title = 'Manage Products | Fixxo.'
 

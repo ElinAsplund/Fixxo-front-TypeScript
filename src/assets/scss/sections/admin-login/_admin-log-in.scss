@@ -2,14 +2,15 @@
     padding-top: 60px;
 
     .form-holder{
-        margin: 3rem 0;
+        margin: 3rem auto;
         background-color: $color-grey-20;
         background-color: #ffe8e8;
         display: flex;
         justify-content: center;
         border-radius: 3px;
+        max-width: 600px;
         transition: 0.4s ease-in-out;
-
+        
         // &:hover{
         //     background-color: $color-grey-40;
         //     background-color: #ffd5d5;

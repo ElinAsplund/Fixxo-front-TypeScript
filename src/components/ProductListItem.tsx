@@ -6,30 +6,32 @@ import { currencyFormatter } from '../utilities/currencyFormatter'
 
 const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
 
-    const { remove } = React.useContext(ProductAPIContext) as IProductAPIContext
+    const { remove, toggleBtnClicked } = React.useContext(ProductAPIContext) as IProductAPIContext
  
+    const handleClick = () => {
+        remove(item.id)
+        toggleBtnClicked()
+    }
+
+
     return (
         <div className="product-list-item btn-no-corners">
             <div className='left-side'>
-                {/* <p>id: {item.id}</p> */}
                 <div className="placeholder-area">
                     <img src={item.imageName} />
                 </div>
-                {/* <h2>{item.item.category}</h2> */}
                 <div>
                     <p className="product-name">{item.name}</p>
                     <p className="product-category">{item.category}</p>
                 </div>
-                {/* <p><span id="before-discount-price">{item.item.initialPrice}</span> {currencyFormatter(item.item.price)}</p> */}
             </div>
+            <p className="product-tag d-flex align-items-center mb-0">{item.tag}</p>
             <p className="product-price">Price: {currencyFormatter(item.price)}</p>
             <div className='right-side'>
                 <NavLink to={`/update_product/${item.id}`} end>
                     <button className='btn-product edit-btn'><i className="fa-solid fa-pen"></i></button>
                 </NavLink>
-                <button className='btn-product remove-btn' onClick={() => remove(item.id)} ><i className='fa-solid fa-trash'></i></button>
-                {/* <button className='btn-product remove-btn' onClick={() => item.id !== undefined ? remove(item.id): 0} ><i className='fa-solid fa-trash'></i></button> */}
-                {/* <button className='btn-product remove-btn' onClick={() => (item.id) ? remove(item.id) : "" } ><i className='fa-solid fa-trash'></i></button> */}
+                <button className='btn-product remove-btn' onClick={handleClick}><i className='fa-solid fa-trash'></i></button>
             </div>
         </div>
     )

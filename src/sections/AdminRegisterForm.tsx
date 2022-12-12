@@ -50,7 +50,7 @@ const AdminRegisterForm: React.FC = () => {
                     <div className='error-text text-center'>{errorSubmit}</div>
                 </form>
             </div>
-            <NavLink to="/manage_products" style={{ color : "white" }} end>Manage Products</NavLink>
+            {/* <NavLink to="/manage_products" style={{ color : "white" }} end>Manage Products</NavLink> */}
         </div>
     </section>
   )
