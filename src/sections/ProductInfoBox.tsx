@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { IProductInfoBox } from '../models/sectionsModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const ProductInfoBox: React.FC <IProductInfoBox> = ( {product, products} ) => {
+const ProductInfoBox: React.FC <IProductInfoBox> = ( { products } ) => {
 
     const id = useParams().id
     const parseId = id !== undefined ? id : "";
@@ -67,6 +67,7 @@ const ProductInfoBox: React.FC <IProductInfoBox> = ( {product, products} ) => {
                     </div>
                 </div>
             </div>
+            {/* <div>{product.tag}</div> */}
         </section>
     )
 }

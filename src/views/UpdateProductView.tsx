@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useParams, Navigate } from 'react-router-dom'
 import { ProductAPIContext, IProductAPIContext } from '../contexts/ProductAPIContext'
 import ProductInfoBox from '../sections/ProductInfoBox'
@@ -9,7 +9,8 @@ const UpdateProductView: React.FC = () => {
   const { getAll, get, products, product } = React.useContext(ProductAPIContext) as IProductAPIContext
   const { id } = useParams()
   const [isAuthenticated, setIsAuthenticated] = useState(true)
-
+  // const [isClicked, setIsClicked] = useState(false)
+  
   const parseId = id !== undefined ? id : "";
 
   useEffect(() => {
@@ -18,7 +19,12 @@ const UpdateProductView: React.FC = () => {
 
   useEffect(() => {
     getAll()
-  }, [])
+  }, [product])
+
+  // const toggleIsClicked = () => {
+  //   setIsClicked(!isClicked)
+  //   console.log('isClicked: ', isClicked);
+  // }
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken')
@@ -38,6 +44,8 @@ const UpdateProductView: React.FC = () => {
   return isAuthenticated ? (
     <>
       <ProductInfoBox products={products} product={product} />
+      {/* <button onClick={toggleIsClicked} className="btn-bg-theme">TEST</button>
+      <div>Test: {JSON.stringify(isClicked)}</div> */}
       <ProductUpdateForm product={product} />
     </>
   )

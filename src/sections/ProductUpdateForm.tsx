@@ -3,15 +3,16 @@ import { NavLink } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 import { IProductUpdateForm } from '../models/sectionsModels'
 
+
 const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
-    const { update, setProduct, errorText, setErrorText } = React.useContext(ProductAPIContext) as IProductAPIContext
+    const { update, setProduct, errorText, setErrorText, getAll } = React.useContext(ProductAPIContext) as IProductAPIContext
     const [errorName, setErrorName] = useState<{name: string}>({name: ''})
     const [errorTag, setErrorTag] = useState<{tag: string}>({tag: ''})
     const [errorCategory, setErrorCategory] = useState<{category: string}>({category: ''})
     const [errorPrice, setErrorPrice] = useState<{price: string}>({price: ''})
     const [errorImageName, setErrorImageName] = useState<{imageName: string}>({imageName: ''})
     const [errorSubmit, setErrorSubmit] = useState<{submit: string}>({submit: ''})
-
+    
     useEffect(() => {
         setErrorText('')
       }, [])
@@ -128,7 +129,6 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
         else if(!regex_link.test(target.value))
         error.imageName = "Error: You must enter a valid link, starting with https:// or http://"
 
-
         setErrorImageName(error)
         
         return error.imageName === "" ? true : false;
@@ -136,10 +136,16 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
 
     // ------------------------------------------------------------------------------
     // VALIDATE SUBMIT and SETTING OF PRODUCTREQUEST
-    const validateSubmit = (e:  React.FormEvent<Element>) => {
+    const validateSubmit = (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
+    // const validateSubmit = (e:  React.FormEvent<Element>) => {
         console.log("---CLICK---")
         e.preventDefault()
-    
+
+        // // Setting the price for productRequest
+        // setProduct({...product, name: (e.target[1] as HTMLInputElement).value })
+        // console.log('target1: ', (e.target[1] as HTMLInputElement).value);
+        // console.log('target0: ', (e.target[0] as HTMLInputElement).value);
+
         let nameOK = errorName.name
         let tagOK = errorTag.tag
         let categoryOK = errorCategory.category
@@ -156,22 +162,20 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
         console.log("allOK: " + allOK)
     
         if (allOK === true) {
-          setErrorName({name: ''})
-          setErrorTag({tag: ''})
-          setErrorCategory({category: ''})
-          setErrorPrice({price: ''})
-          setErrorImageName({imageName: ''})
-          setErrorSubmit({submit: ''})
-    
-          update(e)
-    
-          console.log("validateSubmit: true")
-        
+            setErrorName({name: ''})
+            setErrorTag({tag: ''})
+            setErrorCategory({category: ''})
+            setErrorPrice({price: ''})
+            setErrorImageName({imageName: ''})
+            setErrorSubmit({submit: ''})
 
+            update(e)
+
+            console.log("validateSubmit: true")
         } else {
-          setErrorSubmit({submit: 'Please fill in the required information!'})
-          console.log("validateSubmit: false")
-          return false
+            setErrorSubmit({submit: 'Please fill in the required information!'})
+            console.log("validateSubmit: false")
+            return false
         }
     }    
     // ------------------------------------------------------------------------------
