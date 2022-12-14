@@ -11,7 +11,7 @@ const ShowcaseBottom: React.FC = () => {
                 <div className="text-holder">
                     <h1>Winter Clearance<br/>Up to 70% Off!</h1>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem apriam eaque ipsa quae ab illo inventore.</p>
-                    <button className="btn-bg-dark">SHOP NOW</button>
+                    <button className="btn-bg-dark" data-testid="test-shop-now">SHOP NOW</button>
                 </div>
             </div>
             <div className="img-holder bg-grey">

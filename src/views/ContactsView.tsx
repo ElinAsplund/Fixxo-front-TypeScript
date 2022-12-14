@@ -11,7 +11,7 @@ const ContactsView: React.FC = () => {
     window.scrollTo(0, 0)
   }, [pathname])
   
-    document.title='Contacts | Fixxo.'
+  document.title='Contacts | Fixxo.'
 
   return (
     <>
