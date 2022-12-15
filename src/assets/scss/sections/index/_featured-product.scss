@@ -14,7 +14,7 @@
             display: grid;
             gap: 1.5rem;
             grid-template-columns: 80vw;
-            grid-auto-rows: 320px;
+            grid-auto-rows: 420px;
             
             @media (min-width: 520px){
                 width: 100%;
@@ -38,7 +38,6 @@
             }
 
             .small-card{
-                
                 &:nth-child(5),
                 &:nth-child(6),
                 &:nth-child(7),

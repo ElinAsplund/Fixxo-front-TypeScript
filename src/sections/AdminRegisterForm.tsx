@@ -72,7 +72,7 @@ const AdminRegisterForm: React.FC = () => {
         if (!target.value)
             error = "You must enter a password"
         else if (target.value.length < 6)
-            error = "Your password must contain at least six letters"
+            error = "Your password must contain at least 6 characters"
         
         setErrorPassword(error)
         
