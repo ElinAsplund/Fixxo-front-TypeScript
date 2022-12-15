@@ -64,5 +64,4 @@ describe( 'Button Tests' , () => {
         expect(classNameL).toEqual('size-button me-2 ')
         expect(classNameXL).toEqual('size-button ')
     })
-    
 })
