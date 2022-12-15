@@ -31,9 +31,9 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
         }
         
         if (!target.value)
-        error.name = "Error: You must enter a product name"     
+        error.name = "You must enter a product name"     
         else if (target.value.length < 2)
-        error.name = "Error: Your product name must contain at least two letters"
+        error.name = "Your product name must contain at least two letters"
         
         setErrorName(error)
         
@@ -54,7 +54,7 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
         }
 
         if (target.value === "Enter product tag...")
-            error.tag = "Error: You must enter a product tag"     
+            error.tag = "You must enter a product tag"     
 
         setErrorTag(error)
 
@@ -76,7 +76,7 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
         }
 
         if (target.value === "Enter product category...")
-        error.category = "Error: You must enter a product category"     
+        error.category = "You must enter a product category"     
         
         setErrorCategory(error)
         
@@ -98,9 +98,9 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
         }
 
         if (Number(target.value) === 0 )
-        error.price = "Error: You must enter a product price"
+        error.price = "You must enter a product price"
         else if(Number(target.value) <= 0 )
-        error.price = "Error: A product price can't be a negative number"
+        error.price = "A product price can't be a negative number"
         
         setErrorPrice(error)
         
@@ -125,9 +125,9 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
         }
 
         if (target.value === "" )
-        error.imageName = "Error: You must enter a product image link"
+        error.imageName = "You must enter a product image link"
         else if(!regex_link.test(target.value))
-        error.imageName = "Error: You must enter a valid link, starting with https:// or http://"
+        error.imageName = "You must enter a valid link, starting with https:// or http://"
 
         setErrorImageName(error)
         
@@ -137,14 +137,8 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
     // ------------------------------------------------------------------------------
     // VALIDATE SUBMIT and SETTING OF PRODUCTREQUEST
     const validateSubmit = (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
-    // const validateSubmit = (e:  React.FormEvent<Element>) => {
         console.log("---CLICK---")
         e.preventDefault()
-
-        // // Setting the price for productRequest
-        // setProduct({...product, name: (e.target[1] as HTMLInputElement).value })
-        // console.log('target1: ', (e.target[1] as HTMLInputElement).value);
-        // console.log('target0: ', (e.target[0] as HTMLInputElement).value);
 
         let nameOK = errorName.name
         let tagOK = errorTag.tag

@@ -6,10 +6,9 @@ import ProductUpdateForm from '../sections/ProductUpdateForm'
 
 const UpdateProductView: React.FC = () => {
   const { pathname } = useLocation()
-  const { getAll, get, products, product } = React.useContext(ProductAPIContext) as IProductAPIContext
+  const { getAll, get, products, product } = useContext(ProductAPIContext) as IProductAPIContext
   const { id } = useParams()
   const [isAuthenticated, setIsAuthenticated] = useState(true)
-  // const [isClicked, setIsClicked] = useState(false)
   
   const parseId = id !== undefined ? id : "";
 
@@ -20,11 +19,6 @@ const UpdateProductView: React.FC = () => {
   useEffect(() => {
     getAll()
   }, [product])
-
-  // const toggleIsClicked = () => {
-  //   setIsClicked(!isClicked)
-  //   console.log('isClicked: ', isClicked);
-  // }
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken')
@@ -44,8 +38,6 @@ const UpdateProductView: React.FC = () => {
   return isAuthenticated ? (
     <>
       <ProductInfoBox products={products} product={product} />
-      {/* <button onClick={toggleIsClicked} className="btn-bg-theme">TEST</button>
-      <div>Test: {JSON.stringify(isClicked)}</div> */}
       <ProductUpdateForm product={product} />
     </>
   )
