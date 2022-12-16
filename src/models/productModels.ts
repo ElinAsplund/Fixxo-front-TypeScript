@@ -2,18 +2,19 @@ import { CartItem } from './cartModels'
 
 // when you are creating a new product
 export interface ProductRequest {
-  articleNumber: string,
+  articleNumber?: string,
   name: string,
   tag?: string,
   description?: string,
   category: string,
   price: number,
-  rating: number,
+  rating?: number,
   imageName: string
 }
 
 // everything else using product
 export interface ProductAPI {
+  _id?: string,
   id: string,
   articleNumber?: string,
   tag: string,

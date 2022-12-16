@@ -13,6 +13,7 @@ import UpdateProductView from './views/UpdateProductView';
 import MainMenu from './sections/MainMenu';
 import Footer from './sections/Footer';
 import AdminView from './views/AdminView';
+import ProductGraphQLProvider from './contexts/ProductGraphQLContext';
 
 const App: React.FC = () => {
 
@@ -21,20 +22,22 @@ const App: React.FC = () => {
       <ProductProvider>
         <ShoppingCartProvider>
           <ProductAPIProvider>
-            <MainMenu className="gradient-grey" />
-            <div className="whole-view">
-              <Routes>
-                <Route path="/" element={<HomeView />} />
-                <Route path="/contacts" element={<ContactsView />} />
-                <Route path="/products/" element={<ProductsView />} />
-                <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
-                <Route path="/admin" element={<AdminView />} />
-                <Route path="/manage_products" element={<ManageProductsView />} />
-                <Route path="/update_product/:id" element={<UpdateProductView />} />
-                <Route path="*" element={<NotFoundView />} />
-              </Routes>
-            </div>
-            <Footer />
+            <ProductGraphQLProvider>
+              <MainMenu className="gradient-grey" />
+              <div className="whole-view">
+                <Routes>
+                  <Route path="/" element={<HomeView />} />
+                  <Route path="/contacts" element={<ContactsView />} />
+                  <Route path="/products/" element={<ProductsView />} />
+                  <Route path="/products/:articleNumber" element={<ProductDetailsView />} />
+                  <Route path="/admin" element={<AdminView />} />
+                  <Route path="/manage_products" element={<ManageProductsView />} />
+                  <Route path="/update_product/:id" element={<UpdateProductView />} />
+                  <Route path="*" element={<NotFoundView />} />
+                </Routes>
+              </div>
+              <Footer />
+            </ProductGraphQLProvider>
           </ProductAPIProvider>
         </ShoppingCartProvider>
       </ProductProvider>
