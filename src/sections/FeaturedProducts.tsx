@@ -4,7 +4,7 @@ import { CartItem } from '../models/cartModels'
 import { IFeaturedProducts } from '../models/sectionsModels'
 
 
-const FeaturedProducts: React.FC<IFeaturedProducts> = ({ className, title, items }) => {
+const FeaturedProducts: React.FC<IFeaturedProducts> = ( { className, title, items } ) => {
   return (
     <section className={className}>
       <div className="container">

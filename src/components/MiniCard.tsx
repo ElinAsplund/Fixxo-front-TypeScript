@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 import { IMiniCard } from '../models/sectionsModels'
 
-const MiniCard: React.FC<IMiniCard> = ({ item }) => {
+const MiniCard: React.FC<IMiniCard> = ( { item } ) => {
   return (
     <div className="mini-card">
       <NavLink className="placeholder-area" to={`/products/${item.item.id}`} end><img src={item.item.imageName} alt={item.item.imageName} /></NavLink>

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import BreadcrumbLink from '../components/BreadcrumbLink'
 import { IBreadcrumb } from '../models/sectionsModels'
 
-const Breadcrumb: React.FC<IBreadcrumb> = ({ className, hideOrShowProducts, currentPage }) => {
+const Breadcrumb: React.FC<IBreadcrumb> = ( { className, hideOrShowProducts, currentPage } ) => {
   return (
     <section className={className}>
       <div className="container">

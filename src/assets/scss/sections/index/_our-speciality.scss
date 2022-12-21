@@ -18,9 +18,11 @@
         @include sm{
             width: 95vw;
         }
+
         @include md{
             padding: 3rem;
         }
+
         @include xl{
             width: 95vw;
         }
@@ -43,11 +45,13 @@
                 grid-template-rows: repeat(3, 200px);
                 width: max-content;
             }
+
             @include xl{
                 width: 100%;
                 grid-template-columns: repeat(3, 1fr);
                 grid-template-rows: 200px;
             }
+
             @include xxl{
                 grid-template-rows: 250px;
             }
@@ -69,12 +73,15 @@
                         width: 50%;
                         text-align: left;
                     }
+
                     @include md{
                         width: 40%;
                     }
+
                     @include xl{
                         width: 50%;
                     }
+
                     @include xxl{
                         padding: 2rem;
                     }
@@ -110,9 +117,11 @@
                         display: block;
                         width: 50%;
                     }
+
                     @include md{
                         width: 60%;
                     }
+                    
                     @include xl{
                         width: 50%;
                     }

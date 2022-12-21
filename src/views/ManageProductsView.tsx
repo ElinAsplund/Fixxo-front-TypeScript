@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPIContext'
 import ProductForm from '../sections/ProductForm'
 import ProductList from '../sections/ProductList'
 
 const ManageProductsView: React.FC = () => {
-  const { pathname } = useLocation()
   const { products, getAll, isClicked } = React.useContext(ProductAPIContext) as IProductAPIContext
   const [isAuthenticated, setIsAuthenticated] = useState(true)
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [pathname])
 
   useEffect(() => {
     getAll()
@@ -26,7 +21,6 @@ const ManageProductsView: React.FC = () => {
     }
   }, [])
 
-
   document.title = 'Manage Products | Fixxo.'
 
   return isAuthenticated? (
@@ -34,8 +28,8 @@ const ManageProductsView: React.FC = () => {
       <ProductForm />
       <ProductList products={products} />
     </>
-  )
-  : <Navigate to="/admin" replace />
+  ) : 
+    <Navigate to="/admin" replace />
 }
 
 export default ManageProductsView

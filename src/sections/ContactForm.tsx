@@ -6,15 +6,15 @@ const ContactForm: React.FC = () => {
     // SETTING OF "GLOBAL VALUES":
     const [canSubmit, setCanSubmit] = useState<boolean>(false)
     const [failedSubmit, setFailedSubmit] = useState<boolean>(false)
-    const [contactForm, setContactForm] = useState<{name?: string; email?: string; comments?: string}>({})
-    const [errorName, setErrorName] = useState<{name?: string}>({})
-    const [errorEmail, setErrorEmail] = useState<{email?: string}>({})
-    const [errorComments, setErrorComments] = useState<{comments?: string}>({})
+    const [contactForm, setContactForm] = useState< {name?: string; email?: string; comments?: string} >({})
+    const [errorName, setErrorName] = useState< {name?: string} >({})
+    const [errorEmail, setErrorEmail] = useState< {email?: string} >({})
+    const [errorComments, setErrorComments] = useState< {comments?: string} >({})
     const [submitMessage, setSubmitMessage] = useState<string>('')
 
     // ------------------------------------------------------------------------------
     // HANDLE CHANGE:
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleChange = ( e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> ) => {
         const { id, value } = e.target
         setContactForm({ ...contactForm, [id]: value })
     }
@@ -22,21 +22,15 @@ const ContactForm: React.FC = () => {
     // ------------------------------------------------------------------------------
     // VALIDATE ON SUBMIT:
     const validateSubmit = async () => {
-        console.log("---CLICK---")
-
         let nameOK = validateName()
         let emailOK = validateEmail()
         let commentsOK = validateComments()
         let allOK = false
 
-        console.log("nameOK: " + nameOK + " emailOK: " + emailOK + " commentsOK: " + commentsOK);
-
         if (nameOK === true && emailOK === true && commentsOK === true)
             allOK = true
         else
             allOK = false
-
-        console.log("allOK: " + allOK)
 
         if (allOK === true) {
             let json = JSON.stringify(contactForm)
@@ -48,7 +42,6 @@ const ContactForm: React.FC = () => {
             setSubmitMessage('')
 
             let result = await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json,)
-            console.log("await result: " + result);
 
             if (await result) {
                 setCanSubmit(true)
@@ -57,17 +50,15 @@ const ContactForm: React.FC = () => {
                 setCanSubmit(false)
                 setFailedSubmit(true)
             }
-            console.log("validateSubmit: true")
         } else {
             setSubmitMessage('Please fill in the required information!')
-            console.log("validateSubmit: false")
             return false
         }
     }
 
     // ------------------------------------------------------------------------------
     // HANDLE SUBMIT:
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async ( e: React.FormEvent ) => {
         e.preventDefault()
         await validateSubmit()
     }

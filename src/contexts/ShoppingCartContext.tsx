@@ -8,7 +8,7 @@ export const useShoppingCart = () => {
     return useContext(ShoppingCartContext)
 }
 
-export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => {
+export const ShoppingCartProvider = ( { children }: ShoppingCartProviderProp ) => {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
 
     const cartQuantity = cartItems.reduce(
@@ -19,11 +19,11 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         (total, item) => total + (item.quantity * item.item.price), 0
     )
 
-    const getItemQuantity = (id: string) => {
+    const getItemQuantity = ( id: string ) => {
         return cartItems.find(item => item.item.id === id)?.quantity || 0
     }
 
-    const getItemPrice = (id: string) => {
+    const getItemPrice = ( id: string ) => {
         let quantity = cartItems.find(item => item.item.id === id)?.quantity || 0
         let price = cartItems.find(item => item.item.id === id)?.item.price || 0
 
@@ -32,7 +32,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         return itemTotal
     }
 
-    const incrementQuantity = (cartItem: CartItem) => {
+    const incrementQuantity = ( cartItem: CartItem ) => {
 
         setCartItems(items => {
             if (items.find(item => item.item.id === cartItem.item.id) == null) {
@@ -49,7 +49,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         })
     }
 
-    const decrementQuantity = (cartItem: CartItem) => {
+    const decrementQuantity = ( cartItem: CartItem ) => {
 
         setCartItems(items => {
             if (items.find(item => item.item.id === cartItem.item.id)?.quantity === 1) {
@@ -66,7 +66,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProp) => 
         })
     }
 
-    const removeItem = (id: string) => {
+    const removeItem = ( id: string ) => {
         setCartItems(items => {
             return items.filter(item => item.item.id !== id)
         })

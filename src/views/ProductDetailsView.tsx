@@ -30,7 +30,6 @@ const ProductDetailsView: React.FC = () => {
 
   document.title = productInfo.name + ' | Fixxo.'
 
-
   return (
     <>
       <Breadcrumb className="breadcrumb" hideOrShowProducts="d-block" currentPage={productInfo.name} />

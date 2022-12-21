@@ -10,7 +10,7 @@ const AdminRegisterForm: React.FC = () => {
 
     // ------------------------------------------------------------------------------
     // VALIDATE FIRST NAME
-    const validateFirstName = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    const validateFirstName = ( e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement } ) => {
         const { target } = e
         let error = ''
         const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
@@ -25,11 +25,11 @@ const AdminRegisterForm: React.FC = () => {
         setErrorFirstName(error)
         
         return error === "" ? true : false;
-
     }
+
     // ------------------------------------------------------------------------------
     // VALIDATE LAST NAME
-    const validateLastName = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    const validateLastName = ( e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement } ) => {
         const { target } = e
         let error = ''
         const regex_name = /^[a-zA-Z\u0080-\uFFFF]*$/;
@@ -48,7 +48,7 @@ const AdminRegisterForm: React.FC = () => {
 
     // ------------------------------------------------------------------------------
     // VALIDATE EMAIL
-    const validateEmail = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    const validateEmail = ( e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement } ) => {
         const { target } = e        
         let error = ''
         const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -65,7 +65,7 @@ const AdminRegisterForm: React.FC = () => {
 
     // ------------------------------------------------------------------------------
     // VALIDATE PASSWORD
-    const validatePassword = (e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement }) => {
+    const validatePassword = ( e: React.ChangeEvent<HTMLInputElement> & { target: HTMLInputElement } ) => {
         const { target } = e
         let error = ''
         
@@ -81,7 +81,7 @@ const AdminRegisterForm: React.FC = () => {
 
     // ------------------------------------------------------------------------------
     // HANDLE REGISTRATION AND VALIDATION
-    const handleRegistration = async (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
+    const handleRegistration = async ( e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement } ) => {
         e.preventDefault()
 
         let firstNameOK = errorFirstName
@@ -130,34 +130,34 @@ const AdminRegisterForm: React.FC = () => {
 
     // ------------------------------------------------------------------------------
 
-  return (
-    <section className='admin-register'>
-        <div className='container'>
-            <div className='form-holder'>
-                <form onSubmit={handleRegistration} className='pink-focus' noValidate>
-                    <h3 className='mt-5 mb-3 small-h3'>Register a User - admin</h3>
-                    <label className='mb-1'>First name:</label>
-                    <input type='text' className='form-control mb-3' placeholder='Your first name...' onChange={validateFirstName} />
-                    <div className="error-text">{errorFirstName}</div>
-                    <label className='mb-1'>Last name:</label>
-                    <input type='text' className='form-control mb-3' placeholder='Your last name...' onChange={validateLastName} />
-                    <div className="error-text">{errorLastName}</div>
-                    <label className='mb-1'>Your email:</label>
-                    <input type='text' className='form-control mb-3' placeholder='Your email...' onChange={validateEmail} />
-                    <div className="error-text">{errorEmail}</div>
-                    <label className='mb-1'>Password:</label>
-                    <input type='password' className='form-control mb-3' placeholder='Password...' onChange={validatePassword}/>
-                    <div className="error-text">{errorPassword}</div>
-                    <div className='btn-no-corners d-flex justify-content-center'>
-                        <button type='submit' className='btn-bg-theme-dark my-3'>REGISTER</button>
-                    </div>
-                    <div className='error-text text-center'>{errorSubmit}</div>
-                    <div className='error-text-db text-center mt-0'>{errorDB}</div>
-                </form>
+    return (
+        <section className='admin-register'>
+            <div className='container'>
+                <div className='form-holder'>
+                    <form onSubmit={handleRegistration} className='pink-focus' noValidate>
+                        <h3 className='mt-5 mb-3 small-h3'>Register a User - admin</h3>
+                        <label className='mb-1'>First name:</label>
+                        <input type='text' className='form-control mb-3' placeholder='Your first name...' onChange={validateFirstName} />
+                        <div className="error-text">{errorFirstName}</div>
+                        <label className='mb-1'>Last name:</label>
+                        <input type='text' className='form-control mb-3' placeholder='Your last name...' onChange={validateLastName} />
+                        <div className="error-text">{errorLastName}</div>
+                        <label className='mb-1'>Your email:</label>
+                        <input type='text' className='form-control mb-3' placeholder='Your email...' onChange={validateEmail} />
+                        <div className="error-text">{errorEmail}</div>
+                        <label className='mb-1'>Password:</label>
+                        <input type='password' className='form-control mb-3' placeholder='Password...' onChange={validatePassword}/>
+                        <div className="error-text">{errorPassword}</div>
+                        <div className='btn-no-corners d-flex justify-content-center'>
+                            <button type='submit' className='btn-bg-theme-dark my-3'>REGISTER</button>
+                        </div>
+                        <div className='error-text text-center'>{errorSubmit}</div>
+                        <div className='error-text-db text-center mt-0'>{errorDB}</div>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
-  )
+        </section>
+    )
 }
 
 export default AdminRegisterForm

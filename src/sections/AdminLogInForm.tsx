@@ -7,14 +7,13 @@ const AdminLogInForm: React.FC = () => {
 
     const handleLogIn = async (e: React.FormEvent<HTMLFormElement> & { target: HTMLFormElement }) => {
         e.preventDefault()
+
         try{
             const user = {
                 email: (e.target[0] as HTMLInputElement).value,
                 password: (e.target[1] as HTMLInputElement).value
             }
-    
-            // console.log(JSON.stringify(user));
-    
+        
             const result = await fetch('http://localhost:5000/api/authentication/login', {
                 method: 'post',
                 headers: {
@@ -22,16 +21,14 @@ const AdminLogInForm: React.FC = () => {
                 },
                 body: JSON.stringify(user)
             })
-            // console.log(result);
 
             const data = await result.json()
 
-            if(result.status !== 200){
+            if( result.status !== 200 ){
                 setErrorSubmit(data.text.charAt(0).toUpperCase() + data.text.slice(1))
                 throw new Error(result.statusText)
             }
             
-            // console.log('data: ', await data);
             localStorage.setItem('accessToken', data.accessToken)
             setErrorSubmit('')
             navigate("/manage_products")

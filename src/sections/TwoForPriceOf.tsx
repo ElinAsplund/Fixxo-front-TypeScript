@@ -4,7 +4,7 @@ import LgCard from '../components/LgCard'
 import { CartItem } from '../models/cartModels'
 import { ITwoForPriceOf } from '../models/sectionsModels'
 
-const TwoForPriceOf: React.FC <ITwoForPriceOf> = ({ special, specialTwo }) => {
+const TwoForPriceOf: React.FC <ITwoForPriceOf> = ( { special, specialTwo } ) => {
 
     return (
         <section className="two-for-price-of ">

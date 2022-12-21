@@ -1,7 +1,7 @@
 import React from 'react'
 import { ILgCard } from '../models/sectionsModels'
 
-const LgCard: React.FC<ILgCard> = ({ id, heading }) => {
+const LgCard: React.FC<ILgCard> = ( { id, heading } ) => {
   return (
     <div className="two-for-holder" id={id}>
       <h2>{heading}</h2>

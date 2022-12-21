@@ -10,11 +10,6 @@
         border-radius: 3px;
         max-width: 600px;
         transition: 0.4s ease-in-out;
-        
-        // &:hover{
-        //     background-color: $color-grey-40;
-        //     background-color: #ffd5d5;
-        // }
 
         form{
             width: 80%;
@@ -22,14 +17,6 @@
             .error-text{
                 margin: 0 0 1.5rem 0;
             }
-
-            // div{
-            //     button{
-            //         &:hover{
-            //             background-color: $color-dark;
-            //         }
-            //     }
-            // }
         }
     }
 }

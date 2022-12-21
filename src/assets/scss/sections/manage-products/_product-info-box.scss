@@ -33,7 +33,6 @@
                 border-radius: 3px;
                 border: #ffe8e8 solid 20px;
                 transition: 0.2s ease-in-out;
-                // width: 600px;
                 
                 &:hover{
                     background-color: #ffd5d5;
@@ -60,7 +59,6 @@
                         position: absolute;
                         font-weight: $font-weight-semibold;
                         font-size: $font-size-18;
-                        // color: $color-theme;
                         background-color: $color-white;
                         padding: 4px 15px 3px 15px;
                         border-radius: 0 10px 0 0;

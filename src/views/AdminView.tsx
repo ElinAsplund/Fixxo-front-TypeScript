@@ -6,7 +6,7 @@ import AdminRegisterForm from '../sections/AdminRegisterForm'
 const AdminView: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   
-  document.title='LogIn Admin | Fixxo.'
+  document.title='Log In - admin | Fixxo.'
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken')

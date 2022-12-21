@@ -3,7 +3,7 @@ import { useShoppingCart } from '../contexts/ShoppingCartContext'
 import { ShoppingCartProp } from '../models/sectionsModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const ShoppingCartItem: React.FC<ShoppingCartProp> = ({ item }) => {
+const ShoppingCartItem: React.FC<ShoppingCartProp> = ( { item } ) => {
     const incrementQuantity = useShoppingCart()?.incrementQuantity
     const decrementQuantity = useShoppingCart()?.decrementQuantity
     const removeItem = useShoppingCart()?.removeItem
@@ -26,7 +26,6 @@ const ShoppingCartItem: React.FC<ShoppingCartProp> = ({ item }) => {
             </div>
             <div className='item-price btn-no-corners'>
                 <div className='price-tag'>{currencyFormatter(getItemPrice !== undefined ? getItemPrice(item.item.id) : 0)}</div>
-                {/* <div className='price-tag'>{currencyFormatter(item.item.price * item.quantity)}</div> */}
                 <button className='btn-canvas remove-btn' onClick={() => removeItem !== undefined ? removeItem(item.item.id) : {}}><i className='fa-solid fa-trash'></i></button>            
             </div>
         </div>

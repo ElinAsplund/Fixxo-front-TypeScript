@@ -6,7 +6,6 @@
     font-size: 1rem;
     font-weight: $font-weight-regular;
     color: $color-dark;
-    // background-color: aqua;
 }
 
 // tricking the footer to stay at the bottom, with help of Joakim 
@@ -20,7 +19,7 @@
     flex: 1;
 }
 
-// groups for styling
+// styling-classes
 .small-h3{
     font-size: $font-size-20;
     font-weight: $font-weight-bold;

@@ -25,6 +25,7 @@
             @include md{
                 height: 500px;
             }
+
             @include lg{
                 height: 550px;
             }
@@ -61,12 +62,15 @@
             @include sm{
                 display: block;
             }
+
             @include md{
                 height: 200px;
             }
+
             @include lg{
                 height: 220px;
             }
+            
             @include xl{
                 height: 160px;
             }

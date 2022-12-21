@@ -14,11 +14,13 @@
         @include md{
             grid-template-rows: 320px 320px;
         }
+
         @include lg{
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr; 
             margin: 4rem auto;
         }
+
         @include xl{
             height: min-content;
         }
@@ -75,6 +77,7 @@
                 right: 20px;
                 bottom: 20px;
             }
+
             @include xxl{
                 bottom: 30%;
                 right: 10%;
@@ -96,6 +99,7 @@
                 left: 20px;
                 bottom: 20px;
             }
+            
             @include xxl{
                 left: 10%;
                 bottom: 30%;

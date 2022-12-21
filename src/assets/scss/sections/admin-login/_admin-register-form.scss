@@ -3,7 +3,6 @@
     .form-holder{
         margin: 3rem 0;
         background-color: $color-grey-20;
-        // background-color: #ffe8e8;
         display: flex;
         justify-content: center;
         border-radius: 3px;
@@ -17,20 +16,11 @@
 
             .error-text{
                 margin: 0 0 1.5rem 0;
-                // color: $color-dark;
             }
             .error-text-db{
                 margin: 0 0 1.5rem 0;
                 color: $color-dark;
             }
-
-            // div{
-            //     button{
-            //         &:hover{
-            //             background-color: $color-dark;
-            //         }
-            //     }
-            // }
         }
     }
 }

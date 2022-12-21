@@ -5,7 +5,6 @@ import ShowcaseBottom from '../sections/ShowcaseBottom'
 describe( 'Button Tests' , () => {
  
 // ----Testing a button at ShowcaseBottom-component:----
-    
     it('tests if button contains the correct text', () => {
         const { getByTestId } = render(<ShowcaseBottom />)
         
@@ -15,7 +14,7 @@ describe( 'Button Tests' , () => {
     })
 
 // ----Testing buttons at ProductOverview-component:----
-    // In order to make the tests run, a "fakeProduct" needed to be added as a prop of the ProductOverview-component:
+    // In order to make the tests run, I needed to make a "fakeProduct" to be added as a prop of the ProductOverview-component:
     const fakeProduct ={
         id: "",
         tag: "",

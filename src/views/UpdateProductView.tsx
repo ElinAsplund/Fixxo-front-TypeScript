@@ -40,8 +40,8 @@ const UpdateProductView: React.FC = () => {
       <ProductInfoBox products={products} product={product} />
       <ProductUpdateForm product={product} />
     </>
-  )
-    : <Navigate to="/admin" replace />
+  ) : 
+    <Navigate to="/admin" replace />
 }
 
 export default UpdateProductView

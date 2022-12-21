@@ -19,14 +19,14 @@ export interface IProductAPIContext{
 }
 
 export interface ProductAPIProviderProps{
-    children: any
+  children: any
 }
 
 
 export const ProductAPIContext = createContext< IProductAPIContext | null >(null)
-export const useProductAPIContext = () => {return useContext(ProductAPIContext)}
+export const useProductAPIContext = () => { return useContext(ProductAPIContext) }
 
-const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
+const ProductAPIProvider = ( {children} : ProductAPIProviderProps ) => {
   const baseUrl = 'http://localhost:5000/api/products'
   const product_default: ProductAPI = { id: '', articleNumber: '', tag: '', name: '', description: '', category: '', price: 0, rating: 0, imageName: '' }
   const productRequest_default: ProductRequest = { articleNumber: '', name: '', description: '',category: '', price: 0, rating: 0, imageName: '' }
@@ -35,13 +35,12 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
   const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
   const [products, setProducts] = useState<ProductAPI[]>([])
   const [errorText, setErrorText] = useState<string>('')
-  
   const [isClicked, setIsClicked] = useState<boolean>(false)
 
   // UNSECURED ROUTES
   // -------------------------------------------------------------------
   // HÄMTA SPECIFIK PRODUKT
-  const get = async (id: string) => {
+  const get = async ( id: string ) => {
     const result = await fetch(`${baseUrl}/details/${id}`)
     if( result.status === 200 )
       setProduct(await result.json())
@@ -54,11 +53,10 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
       setProducts(await result.json())
   }
 
-
   // SECURED ROUTES
   // -------------------------------------------------------------------
   // SKAPA NY PRODUKT
-  const create = async (e: React.FormEvent) => {
+  const create = async ( e: React.FormEvent ) => {
     e.preventDefault()
 
     const result = await fetch(`${baseUrl}`, {
@@ -70,17 +68,17 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
       body: JSON.stringify(productRequest)
     })
 
-    if (result.status === 201){
+    if ( result.status === 201 ){
       setErrorText('');
       setProductRequest(productRequest_default)
-    } else{
+    } else {
       const data = await result.json()
       setErrorText(data.text);
     }
   }
 
   // UPPDATERA BEFINTLIG PRODUKT
-  const update = async (e: React.FormEvent) => {
+  const update = async ( e: React.FormEvent ) => {
     e.preventDefault()
 
     const result = await fetch(`${baseUrl}/details/${product.id}`, {
@@ -95,16 +93,14 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     if (result.status === 200){
       setErrorText('');
       setProduct(await result.json())
-    }
-    else{
+    } else {
       const data = await result.json()
       setErrorText(data.text);
     }
   }
 
   // TA BORT PRODUKT
-  const remove = async (id: string) => {
-    
+  const remove = async ( id: string ) => {
     const result = await fetch(`${baseUrl}/details/${id}`, { 
       method: 'delete',
       headers: {
@@ -122,7 +118,7 @@ const ProductAPIProvider = ({children} : ProductAPIProviderProps) => {
     }
   }
 
-  // IS BUTTON CLICKED?
+  // IS THE BUTTON CLICKED?
   const toggleBtnClicked = () => {
     setTimeout(() =>{ setIsClicked(!isClicked) }, 50)
   }

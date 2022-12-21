@@ -29,7 +29,6 @@ const HomeView: React.FC = () => {
     getTheRemains(9)
   }, [])
 
-
   return (
     <>
       <ShowcaseTop />

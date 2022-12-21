@@ -4,7 +4,7 @@ import { IProductAPIContext, ProductAPIContext } from '../contexts/ProductAPICon
 import { ProductAPI } from '../models/productModels'
 import { currencyFormatter } from '../utilities/currencyFormatter'
 
-const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
+const ProductListItem: React.FC <{ item: ProductAPI }> = ( { item } ) => {
 
     const { remove, toggleBtnClicked } = React.useContext(ProductAPIContext) as IProductAPIContext
  
@@ -12,7 +12,6 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ({ item }) => {
         remove(item.id)
         toggleBtnClicked()
     }
-
 
     return (
         <div className="product-list-item btn-no-corners">

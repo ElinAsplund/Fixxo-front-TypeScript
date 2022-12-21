@@ -4,7 +4,7 @@ import MenuIcon from '../components/MenuIcon'
 import { IMainMenu } from '../models/sectionsModels'
 import { useShoppingCart } from '../contexts/ShoppingCartContext'
 
-const MainMenu: React.FC<IMainMenu> = ({ className, quantity }) => {
+const MainMenu: React.FC<IMainMenu> = ( { className, quantity } ) => {
   const [showMenu, setShowMenu] = useState(false)
   const cart = useShoppingCart()
 
@@ -21,7 +21,7 @@ const MainMenu: React.FC<IMainMenu> = ({ className, quantity }) => {
           <NavLink to="/categories" className="nav-link" end>Categories</NavLink>
           <NavLink to="/products" className="nav-link">Products</NavLink>
           <NavLink to="/contacts" className="nav-link" end>Contacts</NavLink>
-          <NavLink to="/admin" className="nav-link" end>Log In - Admin</NavLink>
+          <NavLink to="/admin" className="nav-link" end>Log In - admin</NavLink>
         </div>
         <div className="nav-icons btn-no-corners">
           <MenuIcon icon="fa-regular fa-magnifying-glass" quantity={quantity} />

@@ -3,21 +3,20 @@ import { IProductContext, IProductProviderProps, ProductAPI } from "../models/pr
 import { CartItem } from '../models/cartModels'
 
 // Solved this part with help from Sara Lindström and Joakim:
-
 const ProductContext = React.createContext<IProductContext | null>(null)
 
 export const useProductContext = () => {
-  return React.useContext(ProductContext) as IProductContext
+  return React.useContext( ProductContext ) as IProductContext
 }
 
-export const ProductProvider = ({ children }: IProductProviderProps) => {
+export const ProductProvider = ( { children }: IProductProviderProps ) => {
   const [all, setAll] = useState<CartItem[]>([])
-  const [featured, setFeatured] = useState<CartItem[]>([])
   const [special, setSpecial] = useState<CartItem[]>([])
+  const [featured, setFeatured] = useState<CartItem[]>([])
   const [specialTwo, setSpecialTwo] = useState<CartItem[]>([])
   const [theRemains, setTheRemains] = useState<CartItem[]>([])
 
-  const getAll =async () => {
+  const getAll = async () => {
     let url = 'http://localhost:5000/api/products/'
 
     const result = await fetch(url)
@@ -32,7 +31,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     setAll(cartItems)
   }
 
-  const getFeatured =async (amount: number = 0) => {
+  const getFeatured = async ( amount: number = 0 ) => {
     let url = 'http://localhost:5000/api/products/featured'
 
     if (amount !== 0)
@@ -50,7 +49,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     setFeatured(cartItems)
   }
 
-  const getSpecial =async (amount: number = 0) => {
+  const getSpecial = async ( amount: number = 0 ) => {
     let url = 'http://localhost:5000/api/products/special'
 
     if (amount !== 0)
@@ -58,7 +57,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
   
     const result = await fetch(url)
     const products: ProductAPI[] = await result.json()
-    const cartItems: CartItem[] = products.map((product: ProductAPI) => {
+    const cartItems: CartItem[] = products.map(( product: ProductAPI ) => {
       return {
         item: product,
         quantity: 0
@@ -68,7 +67,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     setSpecial(cartItems)
   }
 
-  const getSpecialTwo =async (amount: number = 0) => {
+  const getSpecialTwo = async ( amount: number = 0 ) => {
     let url = 'http://localhost:5000/api/products/special-two'
 
     if (amount !== 0)
@@ -76,7 +75,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
   
     const result = await fetch(url)
     const products: ProductAPI[] = await result.json()
-    const cartItems: CartItem[] = products.map((product: ProductAPI) => {
+    const cartItems: CartItem[] = products.map(( product: ProductAPI ) => {
       return {
         item: product,
         quantity: 0
@@ -86,7 +85,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     setSpecialTwo(cartItems)
   }
 
-  const getTheRemains =async (amount: number = 0) => {
+  const getTheRemains = async ( amount: number = 0 ) => {
     let url = 'http://localhost:5000/api/products/the-remains'
 
     if (amount !== 0)
@@ -104,7 +103,7 @@ export const ProductProvider = ({ children }: IProductProviderProps) => {
     setTheRemains(cartItems)
   }
 
-  return <ProductContext.Provider value={{ all, getAll, special, getSpecial, specialTwo, getSpecialTwo, featured, getFeatured, theRemains, getTheRemains }}>
+  return <ProductContext.Provider value={ { all, getAll, special, getSpecial, specialTwo, getSpecialTwo, featured, getFeatured, theRemains, getTheRemains } }>
     {children}
   </ProductContext.Provider>
 }
