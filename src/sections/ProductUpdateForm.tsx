@@ -5,7 +5,7 @@ import { IProductUpdateForm } from '../models/sectionsModels'
 
 
 const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
-    const { update, setProduct, errorText, setErrorText, getAll } = React.useContext(ProductAPIContext) as IProductAPIContext
+    const { update, setProduct, errorText, setErrorText } = React.useContext(ProductAPIContext) as IProductAPIContext
     const [errorName, setErrorName] = useState<{name: string}>({name: ''})
     const [errorTag, setErrorTag] = useState<{tag: string}>({tag: ''})
     const [errorCategory, setErrorCategory] = useState<{category: string}>({category: ''})
@@ -15,7 +15,7 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
     
     useEffect(() => {
         setErrorText('')
-      }, [])
+    }, [])
 
     // ------------------------------------------------------------------------------
     // VALIDATE NAME and SETTING OF PRODUCT

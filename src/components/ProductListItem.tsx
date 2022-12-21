@@ -17,7 +17,7 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ( { item } ) => {
         <div className="product-list-item btn-no-corners">
             <div className='left-side'>
                 <div className="placeholder-area">
-                    <img src={item.imageName} />
+                    <img src={item.imageName} alt={item.name} />
                 </div>
                 <div>
                     <p className="product-name">{item.name}</p>

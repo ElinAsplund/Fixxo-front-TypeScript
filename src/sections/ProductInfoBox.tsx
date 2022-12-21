@@ -29,7 +29,7 @@ const ProductInfoBox: React.FC <IProductInfoBox> = ( { products } ) => {
                                 {
                                     products.filter(product => product.id === parseId).map(filteredProduct => 
                                         (
-                                            <img key={filteredProduct.id} src={filteredProduct.imageName} />
+                                            <img key={filteredProduct.id} src={filteredProduct.imageName} alt={filteredProduct.name} />
                                         )
                                     )
                                 }

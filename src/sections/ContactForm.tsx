@@ -91,7 +91,7 @@ const ContactForm: React.FC = () => {
             email: ""
         }
 
-        const regex_email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const regex_email = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (!contactForm.email)
             error.email = "You must enter an email"
@@ -129,7 +129,7 @@ const ContactForm: React.FC = () => {
                 (   
                     <> 
                         <div className='success-holder'>
-                            <div><img src="https://img.freepik.com/free-vector/powerful-concept-illustration_114360-1212.jpg?w=826&t=st=1666815867~exp=1666816467~hmac=d05f01168c248329458f706ee0c5e1011c72af10847ec4bc34e7f5ecd98576e9"/></div>
+                            <div><img src="https://img.freepik.com/free-vector/powerful-concept-illustration_114360-1212.jpg?w=826&t=st=1666815867~exp=1666816467~hmac=d05f01168c248329458f706ee0c5e1011c72af10847ec4bc34e7f5ecd98576e9" alt="a formally dressed female superhero" /></div>
                             <div className='alert alert-success mt-3' role="alert">
                                 <h1 className='alert pb-0 pt-0'>Thank you!</h1>
                                 <p className='alert pb-0 mb-0 pt-1'>Your comment has been successfully sent!</p>
