@@ -133,7 +133,7 @@ const AdminRegisterForm: React.FC = () => {
     return (
         <section className='admin-register'>
             <div className='form-holder'>
-                <form onSubmit={handleRegistration} className='pink-focus' noValidate>
+                <form onSubmit={handleRegistration} className='grey-focus' noValidate>
                     <h3 className='mt-5 mb-3 small-h3'>Register a User - admin</h3>
                     <label className='mb-1'>First name:</label>
                     <input type='text' className='form-control mb-3' placeholder='Your first name...' onChange={validateFirstName} />

@@ -1,7 +1,7 @@
 .admin-register {
     width: 100%;
     
-    @include md {
+    @include lg {
         padding-top: 60px;
         flex: 5;
     }
@@ -14,9 +14,10 @@
         justify-content: center;
         align-items: center;
         border-radius: 3px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
         transition: 0.4s ease-in-out;
 
-        @include md {
+        @include lg {
             margin: 3rem 0;
             margin-left: 3rem;
         }
@@ -40,7 +41,7 @@
 .small-views{
     flex-direction: column;
 
-    @include md{
+    @include lg{
         flex-direction: row;
     }
 }

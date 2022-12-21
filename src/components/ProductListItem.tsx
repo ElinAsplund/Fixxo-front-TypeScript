@@ -25,7 +25,7 @@ const ProductListItem: React.FC <{ item: ProductAPI }> = ( { item } ) => {
                 </div>
             </div>
             <p className="product-tag d-flex align-items-center mb-0">{item.tag}</p>
-            <p className="product-price">Price: {currencyFormatter(item.price)}</p>
+            <p className="product-price">{currencyFormatter(item.price)}</p>
             <div className='right-side'>
                 <NavLink to={`/update_product/${item.id}`} end>
                     <button className='btn-product edit-btn'><i className="fa-solid fa-pen"></i></button>

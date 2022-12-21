@@ -56,7 +56,6 @@ const AdminLogInForm: React.FC = () => {
                     </div>
                     <div className='error-text text-center'>{errorSubmit}</div>
                 </div>
-                <div className='img-holder bottom'><img src={divider} alt="decorative divider"/></div>
             </form>
         </div>
     </section>

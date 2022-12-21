@@ -1,6 +1,6 @@
 import React from 'react'
-import femaleCasual from '../assets/images/female-causal.svg'
-import maleWearingJacket from '../assets/images/male-wearing-jacket.svg'
+import femaleCasual from '../assets/images/female-causal.png'
+import maleWearingJacket from '../assets/images/male-wearing-jacket.png'
 
 const ShowcaseBottom: React.FC = () => {
   return (
