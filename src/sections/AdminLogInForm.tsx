@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import divider from '../assets/images/divider.png'
 
 const AdminLogInForm: React.FC = () => {
     const [errorSubmit, setErrorSubmit] = useState<string>('')
@@ -41,20 +42,22 @@ const AdminLogInForm: React.FC = () => {
 
   return (
     <section className='admin-log-in'>
-        <div className='container'>
-            <div className='form-holder'>
-                <form onSubmit={handleLogIn} className='pink-focus' noValidate>
-                    <h3 className='mt-5 mb-3 small-h3'>Log In - admin</h3>
+        <div className='form-holder'>
+            <form onSubmit={handleLogIn} className='pink-focus' noValidate>
+                <div className='img-holder'><img src={divider} alt="decorative divider"/></div>
+                <div className='content-holder'>
+                    <h3 className='mb-3 small-h3'>Log In - admin</h3>
                     <label className='mb-1'>User email:</label>
-                    <input type='text' className='form-control mb-3' placeholder='User Email'/>
+                    <input type='text' className='form-control mb-3' placeholder='User Email...'/>
                     <label className='mb-1'>User password:</label>
-                    <input type='password' className='form-control mb-3' placeholder='User Password'/>
+                    <input type='password' className='form-control mb-3' placeholder='User Password...'/>
                     <div className='btn-no-corners d-flex justify-content-center'>
                         <button type='submit' className='btn-bg-theme my-3'>LOGIN</button>
                     </div>
                     <div className='error-text text-center'>{errorSubmit}</div>
-                </form>
-            </div>
+                </div>
+                <div className='img-holder bottom'><img src={divider} alt="decorative divider"/></div>
+            </form>
         </div>
     </section>
   )

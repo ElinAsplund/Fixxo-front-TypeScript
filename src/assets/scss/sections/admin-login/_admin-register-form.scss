@@ -1,26 +1,46 @@
-.admin-register{
-
-    .form-holder{
-        margin: 3rem 0;
+.admin-register {
+    width: 100%;
+    
+    @include md {
+        padding-top: 60px;
+        flex: 5;
+    }
+    
+    .form-holder {
+        margin-bottom: 3rem;
+        min-height: 560px;
         background-color: $color-grey-20;
         display: flex;
         justify-content: center;
+        align-items: center;
         border-radius: 3px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
         transition: 0.4s ease-in-out;
 
-        form{
+        @include md {
+            margin: 3rem 0;
+            margin-left: 3rem;
+        }
+
+        form {
             width: 80%;
 
+
             .error-text{
-                margin: 0 0 1.5rem 0;
+                margin-top: 0;
             }
-            .error-text-db{
+
+            .error-text-db {
                 margin: 0 0 1.5rem 0;
                 color: $color-dark;
             }
         }
+    }
+}
+
+.small-views{
+    flex-direction: column;
+
+    @include md{
+        flex-direction: row;
     }
 }

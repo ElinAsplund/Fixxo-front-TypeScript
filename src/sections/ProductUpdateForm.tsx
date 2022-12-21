@@ -172,7 +172,7 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
                         <option value="the-remains">The Remains</option>
                     </select>
                     <div className="error-text">{errorTag.tag}</div>
-                    <select value={product.category || ''} onChange={validateCategory} className="form-select">
+                    <select value={product.category || ''} onChange={validateCategory} className="form-select mb-3">
                         <option defaultValue="">Enter product category...</option>
                         <option value="Accessories">Accessories</option>
                         <option value="Bags">Bags</option>
@@ -193,12 +193,12 @@ const ProductUpdateForm: React.FC <IProductUpdateForm> = ( {product} ) => {
                     <div className="error-text">{errorCategory.category}</div>
                     <input value={product.price} onChange={validatePrice} type='number'step="any" min={0} className='form-control my-3' placeholder='Enter product price...' />
                     <div className="error-text">{errorPrice.price}</div>
-                    <input value={product.imageName || ''} onChange={validateImageName} type='text'className='form-control my-4' placeholder='Enter product image link...' />
+                    <input value={product.imageName || ''} onChange={validateImageName} type='text'className='form-control my-3' placeholder='Enter product image link...' />
                     <div className="error-text">{errorImageName.imageName}</div>
                     <div className='d-grid justify-content-center'>
                         <button type='submit' className='btn-bg-theme mb-3'>UPDATE PRODUCT</button>
-                        <div className="error-text text-center mt-0 mb-3">{errorSubmit.submit}</div>
-                        <div className="error-text text-center mt-0 mb-4">{errorText}</div>
+                        <div className="error-text text-center mt-0 mb-1">{errorSubmit.submit}</div>
+                        <div className="error-text text-center mt-0 mb-2">{errorText}</div>
                         <NavLink to={`/manage_products`} className="d-flex justify-content-center btn-no-corners" end>
                             <button className='btn-bg-theme-dark mb-5'>GO BACK</button>
                         </NavLink>

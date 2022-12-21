@@ -132,29 +132,27 @@ const AdminRegisterForm: React.FC = () => {
 
     return (
         <section className='admin-register'>
-            <div className='container'>
-                <div className='form-holder'>
-                    <form onSubmit={handleRegistration} className='pink-focus' noValidate>
-                        <h3 className='mt-5 mb-3 small-h3'>Register a User - admin</h3>
-                        <label className='mb-1'>First name:</label>
-                        <input type='text' className='form-control mb-3' placeholder='Your first name...' onChange={validateFirstName} />
-                        <div className="error-text">{errorFirstName}</div>
-                        <label className='mb-1'>Last name:</label>
-                        <input type='text' className='form-control mb-3' placeholder='Your last name...' onChange={validateLastName} />
-                        <div className="error-text">{errorLastName}</div>
-                        <label className='mb-1'>Your email:</label>
-                        <input type='text' className='form-control mb-3' placeholder='Your email...' onChange={validateEmail} />
-                        <div className="error-text">{errorEmail}</div>
-                        <label className='mb-1'>Password:</label>
-                        <input type='password' className='form-control mb-3' placeholder='Password...' onChange={validatePassword}/>
-                        <div className="error-text">{errorPassword}</div>
-                        <div className='btn-no-corners d-flex justify-content-center'>
-                            <button type='submit' className='btn-bg-theme-dark my-3'>REGISTER</button>
-                        </div>
-                        <div className='error-text text-center'>{errorSubmit}</div>
-                        <div className='error-text-db text-center mt-0'>{errorDB}</div>
-                    </form>
-                </div>
+            <div className='form-holder'>
+                <form onSubmit={handleRegistration} className='pink-focus' noValidate>
+                    <h3 className='mt-5 mb-3 small-h3'>Register a User - admin</h3>
+                    <label className='mb-1'>First name:</label>
+                    <input type='text' className='form-control mb-3' placeholder='Your first name...' onChange={validateFirstName} />
+                    <div className="error-text">{errorFirstName}</div>
+                    <label className='mb-1'>Last name:</label>
+                    <input type='text' className='form-control mb-3' placeholder='Your last name...' onChange={validateLastName} />
+                    <div className="error-text">{errorLastName}</div>
+                    <label className='mb-1'>Your email:</label>
+                    <input type='text' className='form-control mb-3' placeholder='Your email...' onChange={validateEmail} />
+                    <div className="error-text">{errorEmail}</div>
+                    <label className='mb-1'>Password:</label>
+                    <input type='password' className='form-control mb-3' placeholder='Password...' onChange={validatePassword}/>
+                    <div className="error-text">{errorPassword}</div>
+                    <div className='btn-no-corners d-flex justify-content-center'>
+                        <button type='submit' className='btn-bg-theme-dark my-3'>REGISTER</button>
+                    </div>
+                    <div className='error-text text-center'>{errorSubmit}</div>
+                    <div className='error-text-db text-center mt-0'>{errorDB}</div>
+                </form>
             </div>
         </section>
     )

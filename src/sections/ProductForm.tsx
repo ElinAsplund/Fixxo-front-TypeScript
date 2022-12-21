@@ -162,7 +162,8 @@ const ProductForm: React.FC = () => {
   return (
     <section className='product-form'>
       <div className="container">
-        <h3 style={{ marginTop: "100px" }}>Manage Products</h3>
+        <h3 style={{ marginTop: "100px"}} className="text-center"><span style={{ color: "#FF7373" }}>Welcome! </span><br/>Here you can manage the products.</h3>
+        {/* <h3 className=''>Manage Products</h3> */}
         <form onSubmit={validateSubmit} noValidate>
           <input value={productRequest.articleNumber} onChange={(e) => setProductRequest({ ...productRequest, articleNumber: e.target.value })} type='hidden' className='form-control my-3' placeholder="Enter product's article number..." />
           <input value={productRequest.name || ''} onChange={validateName} type='text' className='form-control my-3' placeholder='Enter product name...' />
@@ -199,7 +200,7 @@ const ProductForm: React.FC = () => {
           <input value={productRequest.imageName || ''} onChange={validateImageName} type='text' className='form-control my-3' placeholder='Enter product image link...' />
           <div className="error-text">{errorImageName.imageName}</div>
           <div className='d-flex justify-content-center flex-column'>
-            <button type='submit' className='btn-bg-theme mb-3' onClick={toggleBtnClicked} >ENTER NEW PRODUCT</button>
+            <button type='submit' className='btn-bg-theme mt-2 mb-3' onClick={toggleBtnClicked} >ENTER NEW PRODUCT</button>
             <div className="error-text text-center mt-0 mb-3">{errorSubmit.submit}</div>
             <div className="error-text text-center mt-0 mb-4">{errorText}</div>
           </div>
